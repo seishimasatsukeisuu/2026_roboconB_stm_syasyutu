@@ -1,0 +1,4173 @@
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/main.c"
+  20              		.section	.text.MX_GPIO_Init,"ax",%progbits
+  21              		.align	1
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	MX_GPIO_Init:
+  27              	.LFB141:
+   1:Core/Src/main.c **** /* USER CODE BEGIN Header */
+   2:Core/Src/main.c **** /**
+   3:Core/Src/main.c ****  ******************************************************************************
+   4:Core/Src/main.c ****  * @file           : main.c
+   5:Core/Src/main.c ****  * @brief          : Main program body
+   6:Core/Src/main.c ****  ******************************************************************************
+   7:Core/Src/main.c ****  * @attention
+   8:Core/Src/main.c ****  *
+   9:Core/Src/main.c ****  * Copyright (c) 2026 STMicroelectronics.
+  10:Core/Src/main.c ****  * All rights reserved.
+  11:Core/Src/main.c ****  *
+  12:Core/Src/main.c ****  * This software is licensed under terms that can be found in the LICENSE file
+  13:Core/Src/main.c ****  * in the root directory of this software component.
+  14:Core/Src/main.c ****  * If no LICENSE file comes with this software, it is provided AS-IS.
+  15:Core/Src/main.c ****  *
+  16:Core/Src/main.c ****  ******************************************************************************
+  17:Core/Src/main.c ****  */
+  18:Core/Src/main.c **** /* USER CODE END Header */
+  19:Core/Src/main.c **** /* Includes ------------------------------------------------------------------*/
+  20:Core/Src/main.c **** #include "main.h"
+  21:Core/Src/main.c **** 
+  22:Core/Src/main.c **** /* Private includes ----------------------------------------------------------*/
+  23:Core/Src/main.c **** /* USER CODE BEGIN Includes */
+  24:Core/Src/main.c **** #include <stdio.h>
+  25:Core/Src/main.c **** #include <stdlib.h>
+  26:Core/Src/main.c **** #include <math.h>
+  27:Core/Src/main.c **** #include <string.h>
+  28:Core/Src/main.c **** /* USER CODE END Includes */
+  29:Core/Src/main.c **** 
+  30:Core/Src/main.c **** /* Private typedef -----------------------------------------------------------*/
+  31:Core/Src/main.c **** /* USER CODE BEGIN PTD */
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 2
+
+
+  32:Core/Src/main.c **** 
+  33:Core/Src/main.c **** /* USER CODE END PTD */
+  34:Core/Src/main.c **** 
+  35:Core/Src/main.c **** /* Private define ------------------------------------------------------------*/
+  36:Core/Src/main.c **** /* USER CODE BEGIN PD */
+  37:Core/Src/main.c **** 
+  38:Core/Src/main.c **** /* USER CODE END PD */
+  39:Core/Src/main.c **** 
+  40:Core/Src/main.c **** /* Private macro -------------------------------------------------------------*/
+  41:Core/Src/main.c **** /* USER CODE BEGIN PM */
+  42:Core/Src/main.c **** 
+  43:Core/Src/main.c **** /* USER CODE END PM */
+  44:Core/Src/main.c **** 
+  45:Core/Src/main.c **** /* Private variables ---------------------------------------------------------*/
+  46:Core/Src/main.c **** CAN_HandleTypeDef hcan;
+  47:Core/Src/main.c **** 
+  48:Core/Src/main.c **** COMP_HandleTypeDef hcomp4;
+  49:Core/Src/main.c **** 
+  50:Core/Src/main.c **** DAC_HandleTypeDef hdac1;
+  51:Core/Src/main.c **** 
+  52:Core/Src/main.c **** TIM_HandleTypeDef htim1;
+  53:Core/Src/main.c **** TIM_HandleTypeDef htim2;
+  54:Core/Src/main.c **** TIM_HandleTypeDef htim3;
+  55:Core/Src/main.c **** TIM_HandleTypeDef htim17;
+  56:Core/Src/main.c **** 
+  57:Core/Src/main.c **** UART_HandleTypeDef huart2;
+  58:Core/Src/main.c **** 
+  59:Core/Src/main.c **** /* USER CODE BEGIN PV */
+  60:Core/Src/main.c **** 
+  61:Core/Src/main.c **** /* USER CODE END PV */
+  62:Core/Src/main.c **** 
+  63:Core/Src/main.c **** /* Private function prototypes -----------------------------------------------*/
+  64:Core/Src/main.c **** void SystemClock_Config(void);
+  65:Core/Src/main.c **** static void MX_GPIO_Init(void);
+  66:Core/Src/main.c **** static void MX_USART2_UART_Init(void);
+  67:Core/Src/main.c **** static void MX_CAN_Init(void);
+  68:Core/Src/main.c **** static void MX_COMP4_Init(void);
+  69:Core/Src/main.c **** static void MX_DAC1_Init(void);
+  70:Core/Src/main.c **** static void MX_TIM1_Init(void);
+  71:Core/Src/main.c **** static void MX_TIM2_Init(void);
+  72:Core/Src/main.c **** static void MX_TIM3_Init(void);
+  73:Core/Src/main.c **** static void MX_TIM17_Init(void);
+  74:Core/Src/main.c **** /* USER CODE BEGIN PFP */
+  75:Core/Src/main.c **** 
+  76:Core/Src/main.c **** /* USER CODE END PFP */
+  77:Core/Src/main.c **** 
+  78:Core/Src/main.c **** /* Private user code ---------------------------------------------------------*/
+  79:Core/Src/main.c **** /* USER CODE BEGIN 0 */
+  80:Core/Src/main.c **** volatile int16_t count_1 = 0;
+  81:Core/Src/main.c **** 
+  82:Core/Src/main.c **** volatile uint8_t prev_state_1 = 0;
+  83:Core/Src/main.c **** 
+  84:Core/Src/main.c **** char usr_buf_1[1000];
+  85:Core/Src/main.c **** 
+  86:Core/Src/main.c **** uint8_t TxData[8];
+  87:Core/Src/main.c **** void CAN_TX(uint32_t recipient)
+  88:Core/Src/main.c **** {
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 3
+
+
+  89:Core/Src/main.c ****   // 送信用インスタンス等
+  90:Core/Src/main.c ****   CAN_TxHeaderTypeDef TxHeader;
+  91:Core/Src/main.c ****   uint32_t TxMailbox;
+  92:Core/Src/main.c **** 
+  93:Core/Src/main.c ****   // 送信メールボックスに空きがあったら送信開始
+  94:Core/Src/main.c ****   if (0 < HAL_CAN_GetTxMailboxesFreeLevel(&hcan))
+  95:Core/Src/main.c ****   {
+  96:Core/Src/main.c ****     // 送信用インスタンスの設定
+  97:Core/Src/main.c ****     TxHeader.StdId = recipient; // 受取手のCANのID
+  98:Core/Src/main.c ****     TxHeader.RTR = CAN_RTR_DATA;
+  99:Core/Src/main.c ****     TxHeader.IDE = CAN_ID_STD;
+ 100:Core/Src/main.c ****     TxHeader.DLC = 8; // データ長を8byteに設定
+ 101:Core/Src/main.c ****     TxHeader.TransmitGlobalTime = DISABLE;
+ 102:Core/Src/main.c ****     // 各データ
+ 103:Core/Src/main.c ****     int16_t c1 = (int16_t)count_1;
+ 104:Core/Src/main.c **** 
+ 105:Core/Src/main.c ****     TxData[0] = (c1 >> 8) & 0xFF;
+ 106:Core/Src/main.c ****     TxData[1] = c1 & 0xFF;
+ 107:Core/Src/main.c **** 
+ 108:Core/Src/main.c ****     TxData[2] = 0;
+ 109:Core/Src/main.c ****     TxData[3] = 0;
+ 110:Core/Src/main.c **** 
+ 111:Core/Src/main.c ****     TxData[4] = 0;
+ 112:Core/Src/main.c ****     TxData[5] = 0;
+ 113:Core/Src/main.c **** 
+ 114:Core/Src/main.c ****     TxData[6] = 0;
+ 115:Core/Src/main.c ****     TxData[7] = 0;
+ 116:Core/Src/main.c ****     // CANメッセージを送信
+ 117:Core/Src/main.c ****     if (HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox) != HAL_OK)
+ 118:Core/Src/main.c ****     {
+ 119:Core/Src/main.c ****       Error_Handler();
+ 120:Core/Src/main.c ****     }
+ 121:Core/Src/main.c ****   }
+ 122:Core/Src/main.c **** }
+ 123:Core/Src/main.c **** 
+ 124:Core/Src/main.c **** typedef struct
+ 125:Core/Src/main.c **** {
+ 126:Core/Src/main.c ****   uint8_t data[8];
+ 127:Core/Src/main.c **** } CanFrame;
+ 128:Core/Src/main.c **** 
+ 129:Core/Src/main.c **** volatile CanFrame rx_queue[8];
+ 130:Core/Src/main.c **** volatile uint8_t head;
+ 131:Core/Src/main.c **** volatile uint8_t tail;
+ 132:Core/Src/main.c **** 
+ 133:Core/Src/main.c **** volatile uint32_t id;
+ 134:Core/Src/main.c **** // volatile uint8_t use_data[8];
+ 135:Core/Src/main.c **** volatile uint8_t can_buf[8];
+ 136:Core/Src/main.c **** volatile uint8_t can_updated = 0;
+ 137:Core/Src/main.c **** 
+ 138:Core/Src/main.c **** void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
+ 139:Core/Src/main.c **** {
+ 140:Core/Src/main.c ****   CAN_RxHeaderTypeDef RxHeader; // 受信メッセージの情報が格納されるインスタン�
+ 141:Core/Src/main.c ****   uint8_t RxData[8];            // 受信したデータを一時保存する配列
+ 142:Core/Src/main.c ****   if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
+ 143:Core/Src/main.c ****   {
+ 144:Core/Src/main.c ****     id = RxHeader.StdId; // RxHeaderの中に入っているidを取り出す
+ 145:Core/Src/main.c ****     if (id == 0x102)
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 4
+
+
+ 146:Core/Src/main.c ****     {
+ 147:Core/Src/main.c ****       for (int i = 0; i <= 7; i++)
+ 148:Core/Src/main.c ****       {
+ 149:Core/Src/main.c ****         can_buf[i] = RxData[i];
+ 150:Core/Src/main.c ****       }
+ 151:Core/Src/main.c ****       can_updated = 1;
+ 152:Core/Src/main.c ****     }
+ 153:Core/Src/main.c ****   }
+ 154:Core/Src/main.c **** }
+ 155:Core/Src/main.c **** 
+ 156:Core/Src/main.c **** volatile uint8_t control_flag = 0;
+ 157:Core/Src/main.c **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+ 158:Core/Src/main.c **** {
+ 159:Core/Src/main.c ****   if (htim->Instance == TIM17)
+ 160:Core/Src/main.c ****   {
+ 161:Core/Src/main.c ****     control_flag = 1;
+ 162:Core/Src/main.c ****   }
+ 163:Core/Src/main.c **** }
+ 164:Core/Src/main.c **** 
+ 165:Core/Src/main.c **** int16_t read_encoder_value_1(void)
+ 166:Core/Src/main.c **** {
+ 167:Core/Src/main.c ****   int16_t val = (int16_t)TIM1->CNT;
+ 168:Core/Src/main.c ****   TIM1->CNT = 0;
+ 169:Core/Src/main.c ****   return val;
+ 170:Core/Src/main.c **** }
+ 171:Core/Src/main.c **** 
+ 172:Core/Src/main.c **** int _write(int file, char *ptr, int len)
+ 173:Core/Src/main.c **** {
+ 174:Core/Src/main.c ****   HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, 10);
+ 175:Core/Src/main.c ****   return len;
+ 176:Core/Src/main.c **** }
+ 177:Core/Src/main.c **** 
+ 178:Core/Src/main.c **** /* USER CODE END 0 */
+ 179:Core/Src/main.c **** 
+ 180:Core/Src/main.c **** /**
+ 181:Core/Src/main.c ****  * @brief  The application entry point.
+ 182:Core/Src/main.c ****  * @retval int
+ 183:Core/Src/main.c ****  */
+ 184:Core/Src/main.c **** int main(void)
+ 185:Core/Src/main.c **** {
+ 186:Core/Src/main.c **** 
+ 187:Core/Src/main.c ****   /* USER CODE BEGIN 1 */
+ 188:Core/Src/main.c ****   setbuf(stdout, NULL);
+ 189:Core/Src/main.c ****   /* USER CODE END 1 */
+ 190:Core/Src/main.c **** 
+ 191:Core/Src/main.c ****   /* MCU Configuration--------------------------------------------------------*/
+ 192:Core/Src/main.c **** 
+ 193:Core/Src/main.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+ 194:Core/Src/main.c ****   HAL_Init();
+ 195:Core/Src/main.c **** 
+ 196:Core/Src/main.c ****   /* USER CODE BEGIN Init */
+ 197:Core/Src/main.c **** 
+ 198:Core/Src/main.c ****   /* USER CODE END Init */
+ 199:Core/Src/main.c **** 
+ 200:Core/Src/main.c ****   /* Configure the system clock */
+ 201:Core/Src/main.c ****   SystemClock_Config();
+ 202:Core/Src/main.c **** 
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 5
+
+
+ 203:Core/Src/main.c ****   /* USER CODE BEGIN SysInit */
+ 204:Core/Src/main.c **** 
+ 205:Core/Src/main.c ****   /* USER CODE END SysInit */
+ 206:Core/Src/main.c **** 
+ 207:Core/Src/main.c ****   /* Initialize all configured peripherals */
+ 208:Core/Src/main.c ****   MX_GPIO_Init();
+ 209:Core/Src/main.c ****   MX_USART2_UART_Init();
+ 210:Core/Src/main.c ****   MX_CAN_Init();
+ 211:Core/Src/main.c ****   MX_COMP4_Init();
+ 212:Core/Src/main.c ****   MX_DAC1_Init();
+ 213:Core/Src/main.c ****   MX_TIM1_Init();
+ 214:Core/Src/main.c ****   MX_TIM2_Init();
+ 215:Core/Src/main.c ****   MX_TIM3_Init();
+ 216:Core/Src/main.c ****   MX_TIM17_Init();
+ 217:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
+ 218:Core/Src/main.c ****   HAL_COMP_Start(&hcomp4); // COMP4を起動
+ 219:Core/Src/main.c ****   HAL_DAC_Start(&hdac1, DAC_CHANNEL_2);
+ 220:Core/Src/main.c ****   HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, 2122); // 1.71v
+ 221:Core/Src/main.c **** 
+ 222:Core/Src/main.c ****   // CANスタート
+ 223:Core/Src/main.c ****   HAL_CAN_Start(&hcan);
+ 224:Core/Src/main.c ****   // 割り込み有効
+ 225:Core/Src/main.c ****   HAL_CAN_ActivateNotification(&hcan, CAN_IT_RX_FIFO0_MSG_PENDING);
+ 226:Core/Src/main.c **** 
+ 227:Core/Src/main.c ****   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2); // モーター
+ 228:Core/Src/main.c ****   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
+ 229:Core/Src/main.c ****   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);       // サーボ
+ 230:Core/Src/main.c ****   HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL); // エンコーダー
+ 231:Core/Src/main.c **** 
+ 232:Core/Src/main.c ****   HAL_TIM_Base_Start_IT(&htim17);
+ 233:Core/Src/main.c **** 
+ 234:Core/Src/main.c ****   uint8_t last_state_1 = GPIO_PIN_RESET;
+ 235:Core/Src/main.c ****   uint8_t last_state_2 = GPIO_PIN_RESET;
+ 236:Core/Src/main.c **** 
+ 237:Core/Src/main.c ****   static GPIO_PinState dir1_before = GPIO_PIN_RESET;
+ 238:Core/Src/main.c ****   static GPIO_PinState dir2_before = GPIO_PIN_RESET;
+ 239:Core/Src/main.c **** 
+ 240:Core/Src/main.c ****   __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
+ 241:Core/Src/main.c ****   __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+ 242:Core/Src/main.c ****   __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
+ 243:Core/Src/main.c **** 
+ 244:Core/Src/main.c ****   uint32_t motor_start_time = 0;
+ 245:Core/Src/main.c ****   uint8_t motor_running = 0;
+ 246:Core/Src/main.c **** 
+ 247:Core/Src/main.c ****   int pwm1 = 2999;
+ 248:Core/Src/main.c ****   int pwm2 = 500;
+ 249:Core/Src/main.c ****   /* USER CODE END 2 */
+ 250:Core/Src/main.c **** 
+ 251:Core/Src/main.c ****   /* Infinite loop */
+ 252:Core/Src/main.c ****   /* USER CODE BEGIN WHILE */
+ 253:Core/Src/main.c ****   while (1)
+ 254:Core/Src/main.c ****   {
+ 255:Core/Src/main.c ****     /* USER CODE END WHILE */
+ 256:Core/Src/main.c **** 
+ 257:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
+ 258:Core/Src/main.c ****     uint8_t local_buf[8];
+ 259:Core/Src/main.c ****     static uint32_t last_can = 0;
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 6
+
+
+ 260:Core/Src/main.c ****     static int32_t pwm = 0;
+ 261:Core/Src/main.c ****     static float time = 0.0f;
+ 262:Core/Src/main.c **** 
+ 263:Core/Src/main.c ****     if (can_updated)
+ 264:Core/Src/main.c ****     {
+ 265:Core/Src/main.c ****       __disable_irq();
+ 266:Core/Src/main.c ****       memcpy(local_buf, can_buf, 8);
+ 267:Core/Src/main.c ****       can_updated = 0;
+ 268:Core/Src/main.c ****       __enable_irq();
+ 269:Core/Src/main.c **** 
+ 270:Core/Src/main.c ****       // canデータ復元
+ 271:Core/Src/main.c ****       memcpy(&pwm, &local_buf[0], sizeof(int32_t));
+ 272:Core/Src/main.c ****       memcpy(&time, &local_buf[4], sizeof(float));
+ 273:Core/Src/main.c **** 
+ 274:Core/Src/main.c ****       // モーター開始
+ 275:Core/Src/main.c ****       __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm);
+ 276:Core/Src/main.c ****       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+ 277:Core/Src/main.c ****       __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pwm);
+ 278:Core/Src/main.c ****       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+ 279:Core/Src/main.c **** 
+ 280:Core/Src/main.c ****       motor_start_time = HAL_GetTick();
+ 281:Core/Src/main.c ****       motor_running = 1;
+ 282:Core/Src/main.c ****     }
+ 283:Core/Src/main.c **** 
+ 284:Core/Src/main.c ****     if (motor_running)
+ 285:Core/Src/main.c ****     {
+ 286:Core/Src/main.c ****       if ((HAL_GetTick() - motor_start_time) >= time * 1000)
+ 287:Core/Src/main.c ****       {
+ 288:Core/Src/main.c ****         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
+ 289:Core/Src/main.c ****         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+ 290:Core/Src/main.c ****         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+ 291:Core/Src/main.c ****         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+ 292:Core/Src/main.c **** 
+ 293:Core/Src/main.c ****         motor_running = 0;
+ 294:Core/Src/main.c ****         printf("tomarimasu");
+ 295:Core/Src/main.c ****       }
+ 296:Core/Src/main.c ****     }
+ 297:Core/Src/main.c **** 
+ 298:Core/Src/main.c ****     if (control_flag)
+ 299:Core/Src/main.c ****     {
+ 300:Core/Src/main.c ****       control_flag = 0;
+ 301:Core/Src/main.c **** 
+ 302:Core/Src/main.c ****       count_1 += read_encoder_value_1();
+ 303:Core/Src/main.c **** 
+ 304:Core/Src/main.c ****       CAN_TX(0x104);
+ 305:Core/Src/main.c ****     }
+ 306:Core/Src/main.c ****     if (local_buf[0] == 1)
+ 307:Core/Src/main.c ****     {
+ 308:Core/Src/main.c ****       // モーター開始
+ 309:Core/Src/main.c ****       __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm1);
+ 310:Core/Src/main.c ****       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+ 311:Core/Src/main.c **** 
+ 312:Core/Src/main.c ****       motor_start_time = HAL_GetTick();
+ 313:Core/Src/main.c ****       motor_running = 1;
+ 314:Core/Src/main.c **** 
+ 315:Core/Src/main.c ****       printf("pwm1");
+ 316:Core/Src/main.c ****     }
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 7
+
+
+ 317:Core/Src/main.c **** 
+ 318:Core/Src/main.c ****     if (local_buf[0] == 2)
+ 319:Core/Src/main.c ****     {
+ 320:Core/Src/main.c ****       // モーター開始
+ 321:Core/Src/main.c ****       __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm2);
+ 322:Core/Src/main.c ****       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+ 323:Core/Src/main.c **** 
+ 324:Core/Src/main.c ****       motor_start_time = HAL_GetTick();
+ 325:Core/Src/main.c ****       motor_running = 1;
+ 326:Core/Src/main.c **** 
+ 327:Core/Src/main.c ****       printf("pwm2");
+ 328:Core/Src/main.c ****     }
+ 329:Core/Src/main.c **** 
+ 330:Core/Src/main.c ****     printf("tobimasu");
+ 331:Core/Src/main.c **** 
+ 332:Core/Src/main.c ****     // 200ms経過したら停止
+ 333:Core/Src/main.c ****     if (motor_running)
+ 334:Core/Src/main.c ****     {
+ 335:Core/Src/main.c ****       if ((HAL_GetTick() - motor_start_time) >= 200)
+ 336:Core/Src/main.c ****       {
+ 337:Core/Src/main.c ****         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
+ 338:Core/Src/main.c ****         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+ 339:Core/Src/main.c **** 
+ 340:Core/Src/main.c ****         motor_running = 0;
+ 341:Core/Src/main.c ****         printf("tomarimasu");
+ 342:Core/Src/main.c ****       }
+ 343:Core/Src/main.c ****     }
+ 344:Core/Src/main.c **** 
+ 345:Core/Src/main.c ****     // HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 1;         // リミットスイッチ
+ 346:Core/Src/main.c ****     // __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 25); // サーボ
+ 347:Core/Src/main.c ****   }
+ 348:Core/Src/main.c ****   /* USER CODE END 3 */
+ 349:Core/Src/main.c **** }
+ 350:Core/Src/main.c **** 
+ 351:Core/Src/main.c **** /**
+ 352:Core/Src/main.c ****  * @brief System Clock Configuration
+ 353:Core/Src/main.c ****  * @retval None
+ 354:Core/Src/main.c ****  */
+ 355:Core/Src/main.c **** void SystemClock_Config(void)
+ 356:Core/Src/main.c **** {
+ 357:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 358:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 359:Core/Src/main.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+ 360:Core/Src/main.c **** 
+ 361:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
+ 362:Core/Src/main.c ****    * in the RCC_OscInitTypeDef structure.
+ 363:Core/Src/main.c ****    */
+ 364:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+ 365:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 366:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 367:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 368:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+ 369:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL15;
+ 370:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 371:Core/Src/main.c ****   {
+ 372:Core/Src/main.c ****     Error_Handler();
+ 373:Core/Src/main.c ****   }
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 8
+
+
+ 374:Core/Src/main.c **** 
+ 375:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
+ 376:Core/Src/main.c ****    */
+ 377:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | R
+ 378:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 379:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 380:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 381:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 382:Core/Src/main.c **** 
+ 383:Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+ 384:Core/Src/main.c ****   {
+ 385:Core/Src/main.c ****     Error_Handler();
+ 386:Core/Src/main.c ****   }
+ 387:Core/Src/main.c ****   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_TIM1;
+ 388:Core/Src/main.c ****   PeriphClkInit.Tim1ClockSelection = RCC_TIM1CLK_HCLK;
+ 389:Core/Src/main.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+ 390:Core/Src/main.c ****   {
+ 391:Core/Src/main.c ****     Error_Handler();
+ 392:Core/Src/main.c ****   }
+ 393:Core/Src/main.c **** }
+ 394:Core/Src/main.c **** 
+ 395:Core/Src/main.c **** /**
+ 396:Core/Src/main.c ****  * @brief CAN Initialization Function
+ 397:Core/Src/main.c ****  * @param None
+ 398:Core/Src/main.c ****  * @retval None
+ 399:Core/Src/main.c ****  */
+ 400:Core/Src/main.c **** static void MX_CAN_Init(void)
+ 401:Core/Src/main.c **** {
+ 402:Core/Src/main.c **** 
+ 403:Core/Src/main.c ****   /* USER CODE BEGIN CAN_Init 0 */
+ 404:Core/Src/main.c **** 
+ 405:Core/Src/main.c ****   /* USER CODE END CAN_Init 0 */
+ 406:Core/Src/main.c **** 
+ 407:Core/Src/main.c ****   /* USER CODE BEGIN CAN_Init 1 */
+ 408:Core/Src/main.c **** 
+ 409:Core/Src/main.c ****   /* USER CODE END CAN_Init 1 */
+ 410:Core/Src/main.c ****   hcan.Instance = CAN;
+ 411:Core/Src/main.c ****   hcan.Init.Prescaler = 3;
+ 412:Core/Src/main.c ****   hcan.Init.Mode = CAN_MODE_NORMAL;
+ 413:Core/Src/main.c ****   hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
+ 414:Core/Src/main.c ****   hcan.Init.TimeSeg1 = CAN_BS1_7TQ;
+ 415:Core/Src/main.c ****   hcan.Init.TimeSeg2 = CAN_BS2_2TQ;
+ 416:Core/Src/main.c ****   hcan.Init.TimeTriggeredMode = DISABLE;
+ 417:Core/Src/main.c ****   hcan.Init.AutoBusOff = DISABLE;
+ 418:Core/Src/main.c ****   hcan.Init.AutoWakeUp = DISABLE;
+ 419:Core/Src/main.c ****   hcan.Init.AutoRetransmission = DISABLE;
+ 420:Core/Src/main.c ****   hcan.Init.ReceiveFifoLocked = DISABLE;
+ 421:Core/Src/main.c ****   hcan.Init.TransmitFifoPriority = DISABLE;
+ 422:Core/Src/main.c ****   if (HAL_CAN_Init(&hcan) != HAL_OK)
+ 423:Core/Src/main.c ****   {
+ 424:Core/Src/main.c ****     Error_Handler();
+ 425:Core/Src/main.c ****   }
+ 426:Core/Src/main.c ****   /* USER CODE BEGIN CAN_Init 2 */
+ 427:Core/Src/main.c ****   CAN_FilterTypeDef filter = {0};
+ 428:Core/Src/main.c **** 
+ 429:Core/Src/main.c ****   filter.FilterBank = 0;
+ 430:Core/Src/main.c ****   filter.FilterMode = CAN_FILTERMODE_IDMASK;
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 9
+
+
+ 431:Core/Src/main.c ****   filter.FilterScale = CAN_FILTERSCALE_16BIT;
+ 432:Core/Src/main.c **** 
+ 433:Core/Src/main.c ****   filter.FilterIdHigh = 0x0000;
+ 434:Core/Src/main.c ****   filter.FilterIdLow = 0x0000;
+ 435:Core/Src/main.c **** 
+ 436:Core/Src/main.c ****   filter.FilterMaskIdHigh = 0x0000;
+ 437:Core/Src/main.c ****   filter.FilterMaskIdLow = 0x0000;
+ 438:Core/Src/main.c **** 
+ 439:Core/Src/main.c ****   filter.FilterFIFOAssignment = CAN_FILTER_FIFO0;
+ 440:Core/Src/main.c ****   filter.FilterActivation = ENABLE;
+ 441:Core/Src/main.c ****   filter.SlaveStartFilterBank = 14;
+ 442:Core/Src/main.c **** 
+ 443:Core/Src/main.c ****   if (HAL_CAN_ConfigFilter(&hcan, &filter) != HAL_OK)
+ 444:Core/Src/main.c ****   {
+ 445:Core/Src/main.c ****     Error_Handler();
+ 446:Core/Src/main.c ****   }
+ 447:Core/Src/main.c ****   /* USER CODE END CAN_Init 2 */
+ 448:Core/Src/main.c **** }
+ 449:Core/Src/main.c **** 
+ 450:Core/Src/main.c **** /**
+ 451:Core/Src/main.c ****  * @brief COMP4 Initialization Function
+ 452:Core/Src/main.c ****  * @param None
+ 453:Core/Src/main.c ****  * @retval None
+ 454:Core/Src/main.c ****  */
+ 455:Core/Src/main.c **** static void MX_COMP4_Init(void)
+ 456:Core/Src/main.c **** {
+ 457:Core/Src/main.c **** 
+ 458:Core/Src/main.c ****   /* USER CODE BEGIN COMP4_Init 0 */
+ 459:Core/Src/main.c **** 
+ 460:Core/Src/main.c ****   /* USER CODE END COMP4_Init 0 */
+ 461:Core/Src/main.c **** 
+ 462:Core/Src/main.c ****   /* USER CODE BEGIN COMP4_Init 1 */
+ 463:Core/Src/main.c **** 
+ 464:Core/Src/main.c ****   /* USER CODE END COMP4_Init 1 */
+ 465:Core/Src/main.c ****   hcomp4.Instance = COMP4;
+ 466:Core/Src/main.c ****   hcomp4.Init.InvertingInput = COMP_INVERTINGINPUT_DAC1_CH2;
+ 467:Core/Src/main.c ****   hcomp4.Init.NonInvertingInput = COMP_NONINVERTINGINPUT_IO1;
+ 468:Core/Src/main.c ****   hcomp4.Init.Output = COMP_OUTPUT_NONE;
+ 469:Core/Src/main.c ****   hcomp4.Init.OutputPol = COMP_OUTPUTPOL_NONINVERTED;
+ 470:Core/Src/main.c ****   hcomp4.Init.BlankingSrce = COMP_BLANKINGSRCE_NONE;
+ 471:Core/Src/main.c ****   hcomp4.Init.TriggerMode = COMP_TRIGGERMODE_NONE;
+ 472:Core/Src/main.c ****   if (HAL_COMP_Init(&hcomp4) != HAL_OK)
+ 473:Core/Src/main.c ****   {
+ 474:Core/Src/main.c ****     Error_Handler();
+ 475:Core/Src/main.c ****   }
+ 476:Core/Src/main.c ****   /* USER CODE BEGIN COMP4_Init 2 */
+ 477:Core/Src/main.c **** 
+ 478:Core/Src/main.c ****   /* USER CODE END COMP4_Init 2 */
+ 479:Core/Src/main.c **** }
+ 480:Core/Src/main.c **** 
+ 481:Core/Src/main.c **** /**
+ 482:Core/Src/main.c ****  * @brief DAC1 Initialization Function
+ 483:Core/Src/main.c ****  * @param None
+ 484:Core/Src/main.c ****  * @retval None
+ 485:Core/Src/main.c ****  */
+ 486:Core/Src/main.c **** static void MX_DAC1_Init(void)
+ 487:Core/Src/main.c **** {
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 10
+
+
+ 488:Core/Src/main.c **** 
+ 489:Core/Src/main.c ****   /* USER CODE BEGIN DAC1_Init 0 */
+ 490:Core/Src/main.c **** 
+ 491:Core/Src/main.c ****   /* USER CODE END DAC1_Init 0 */
+ 492:Core/Src/main.c **** 
+ 493:Core/Src/main.c ****   DAC_ChannelConfTypeDef sConfig = {0};
+ 494:Core/Src/main.c **** 
+ 495:Core/Src/main.c ****   /* USER CODE BEGIN DAC1_Init 1 */
+ 496:Core/Src/main.c **** 
+ 497:Core/Src/main.c ****   /* USER CODE END DAC1_Init 1 */
+ 498:Core/Src/main.c **** 
+ 499:Core/Src/main.c ****   /** DAC Initialization
+ 500:Core/Src/main.c ****    */
+ 501:Core/Src/main.c ****   hdac1.Instance = DAC1;
+ 502:Core/Src/main.c ****   if (HAL_DAC_Init(&hdac1) != HAL_OK)
+ 503:Core/Src/main.c ****   {
+ 504:Core/Src/main.c ****     Error_Handler();
+ 505:Core/Src/main.c ****   }
+ 506:Core/Src/main.c **** 
+ 507:Core/Src/main.c ****   /** DAC channel OUT2 config
+ 508:Core/Src/main.c ****    */
+ 509:Core/Src/main.c ****   sConfig.DAC_Trigger = DAC_TRIGGER_NONE;
+ 510:Core/Src/main.c ****   // sConfig.DAC_OutputSwitch = DAC_OUTPUTSWITCH_ENABLE;
+ 511:Core/Src/main.c ****   if (HAL_DAC_ConfigChannel(&hdac1, &sConfig, DAC_CHANNEL_2) != HAL_OK)
+ 512:Core/Src/main.c ****   {
+ 513:Core/Src/main.c ****     Error_Handler();
+ 514:Core/Src/main.c ****   }
+ 515:Core/Src/main.c ****   /* USER CODE BEGIN DAC1_Init 2 */
+ 516:Core/Src/main.c **** 
+ 517:Core/Src/main.c ****   /* USER CODE END DAC1_Init 2 */
+ 518:Core/Src/main.c **** }
+ 519:Core/Src/main.c **** 
+ 520:Core/Src/main.c **** /**
+ 521:Core/Src/main.c ****  * @brief TIM1 Initialization Function
+ 522:Core/Src/main.c ****  * @param None
+ 523:Core/Src/main.c ****  * @retval None
+ 524:Core/Src/main.c ****  */
+ 525:Core/Src/main.c **** static void MX_TIM1_Init(void)
+ 526:Core/Src/main.c **** {
+ 527:Core/Src/main.c **** 
+ 528:Core/Src/main.c ****   /* USER CODE BEGIN TIM1_Init 0 */
+ 529:Core/Src/main.c **** 
+ 530:Core/Src/main.c ****   /* USER CODE END TIM1_Init 0 */
+ 531:Core/Src/main.c **** 
+ 532:Core/Src/main.c ****   TIM_Encoder_InitTypeDef sConfig = {0};
+ 533:Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 534:Core/Src/main.c **** 
+ 535:Core/Src/main.c ****   /* USER CODE BEGIN TIM1_Init 1 */
+ 536:Core/Src/main.c **** 
+ 537:Core/Src/main.c ****   /* USER CODE END TIM1_Init 1 */
+ 538:Core/Src/main.c ****   htim1.Instance = TIM1;
+ 539:Core/Src/main.c ****   htim1.Init.Prescaler = 0;
+ 540:Core/Src/main.c ****   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 541:Core/Src/main.c ****   htim1.Init.Period = 65535;
+ 542:Core/Src/main.c ****   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 543:Core/Src/main.c ****   htim1.Init.RepetitionCounter = 0;
+ 544:Core/Src/main.c ****   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 11
+
+
+ 545:Core/Src/main.c ****   sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+ 546:Core/Src/main.c ****   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+ 547:Core/Src/main.c ****   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+ 548:Core/Src/main.c ****   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+ 549:Core/Src/main.c ****   sConfig.IC1Filter = 0;
+ 550:Core/Src/main.c ****   sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+ 551:Core/Src/main.c ****   sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+ 552:Core/Src/main.c ****   sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+ 553:Core/Src/main.c ****   sConfig.IC2Filter = 0;
+ 554:Core/Src/main.c ****   if (HAL_TIM_Encoder_Init(&htim1, &sConfig) != HAL_OK)
+ 555:Core/Src/main.c ****   {
+ 556:Core/Src/main.c ****     Error_Handler();
+ 557:Core/Src/main.c ****   }
+ 558:Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 559:Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
+ 560:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 561:Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+ 562:Core/Src/main.c ****   {
+ 563:Core/Src/main.c ****     Error_Handler();
+ 564:Core/Src/main.c ****   }
+ 565:Core/Src/main.c ****   /* USER CODE BEGIN TIM1_Init 2 */
+ 566:Core/Src/main.c **** 
+ 567:Core/Src/main.c ****   /* USER CODE END TIM1_Init 2 */
+ 568:Core/Src/main.c **** }
+ 569:Core/Src/main.c **** 
+ 570:Core/Src/main.c **** /**
+ 571:Core/Src/main.c ****  * @brief TIM2 Initialization Function
+ 572:Core/Src/main.c ****  * @param None
+ 573:Core/Src/main.c ****  * @retval None
+ 574:Core/Src/main.c ****  */
+ 575:Core/Src/main.c **** static void MX_TIM2_Init(void)
+ 576:Core/Src/main.c **** {
+ 577:Core/Src/main.c **** 
+ 578:Core/Src/main.c ****   /* USER CODE BEGIN TIM2_Init 0 */
+ 579:Core/Src/main.c **** 
+ 580:Core/Src/main.c ****   /* USER CODE END TIM2_Init 0 */
+ 581:Core/Src/main.c **** 
+ 582:Core/Src/main.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+ 583:Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 584:Core/Src/main.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 585:Core/Src/main.c **** 
+ 586:Core/Src/main.c ****   /* USER CODE BEGIN TIM2_Init 1 */
+ 587:Core/Src/main.c **** 
+ 588:Core/Src/main.c ****   /* USER CODE END TIM2_Init 1 */
+ 589:Core/Src/main.c ****   htim2.Instance = TIM2;
+ 590:Core/Src/main.c ****   htim2.Init.Prescaler = 3;
+ 591:Core/Src/main.c ****   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 592:Core/Src/main.c ****   htim2.Init.Period = 2999;
+ 593:Core/Src/main.c ****   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 594:Core/Src/main.c ****   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+ 595:Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+ 596:Core/Src/main.c ****   {
+ 597:Core/Src/main.c ****     Error_Handler();
+ 598:Core/Src/main.c ****   }
+ 599:Core/Src/main.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 600:Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+ 601:Core/Src/main.c ****   {
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 12
+
+
+ 602:Core/Src/main.c ****     Error_Handler();
+ 603:Core/Src/main.c ****   }
+ 604:Core/Src/main.c ****   if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+ 605:Core/Src/main.c ****   {
+ 606:Core/Src/main.c ****     Error_Handler();
+ 607:Core/Src/main.c ****   }
+ 608:Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 609:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 610:Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+ 611:Core/Src/main.c ****   {
+ 612:Core/Src/main.c ****     Error_Handler();
+ 613:Core/Src/main.c ****   }
+ 614:Core/Src/main.c ****   sConfigOC.OCMode = TIM_OCMODE_PWM1;
+ 615:Core/Src/main.c ****   sConfigOC.Pulse = 0;
+ 616:Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 617:Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 618:Core/Src/main.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+ 619:Core/Src/main.c ****   {
+ 620:Core/Src/main.c ****     Error_Handler();
+ 621:Core/Src/main.c ****   }
+ 622:Core/Src/main.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
+ 623:Core/Src/main.c ****   {
+ 624:Core/Src/main.c ****     Error_Handler();
+ 625:Core/Src/main.c ****   }
+ 626:Core/Src/main.c ****   /* USER CODE BEGIN TIM2_Init 2 */
+ 627:Core/Src/main.c **** 
+ 628:Core/Src/main.c ****   /* USER CODE END TIM2_Init 2 */
+ 629:Core/Src/main.c ****   HAL_TIM_MspPostInit(&htim2);
+ 630:Core/Src/main.c **** }
+ 631:Core/Src/main.c **** 
+ 632:Core/Src/main.c **** /**
+ 633:Core/Src/main.c ****  * @brief TIM3 Initialization Function
+ 634:Core/Src/main.c ****  * @param None
+ 635:Core/Src/main.c ****  * @retval None
+ 636:Core/Src/main.c ****  */
+ 637:Core/Src/main.c **** static void MX_TIM3_Init(void)
+ 638:Core/Src/main.c **** {
+ 639:Core/Src/main.c **** 
+ 640:Core/Src/main.c ****   /* USER CODE BEGIN TIM3_Init 0 */
+ 641:Core/Src/main.c **** 
+ 642:Core/Src/main.c ****   /* USER CODE END TIM3_Init 0 */
+ 643:Core/Src/main.c **** 
+ 644:Core/Src/main.c ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+ 645:Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 646:Core/Src/main.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 647:Core/Src/main.c **** 
+ 648:Core/Src/main.c ****   /* USER CODE BEGIN TIM3_Init 1 */
+ 649:Core/Src/main.c **** 
+ 650:Core/Src/main.c ****   /* USER CODE END TIM3_Init 1 */
+ 651:Core/Src/main.c ****   htim3.Instance = TIM3;
+ 652:Core/Src/main.c ****   htim3.Init.Prescaler = 59;
+ 653:Core/Src/main.c ****   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 654:Core/Src/main.c ****   htim3.Init.Period = 19999;
+ 655:Core/Src/main.c ****   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 656:Core/Src/main.c ****   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 657:Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+ 658:Core/Src/main.c ****   {
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 13
+
+
+ 659:Core/Src/main.c ****     Error_Handler();
+ 660:Core/Src/main.c ****   }
+ 661:Core/Src/main.c ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 662:Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+ 663:Core/Src/main.c ****   {
+ 664:Core/Src/main.c ****     Error_Handler();
+ 665:Core/Src/main.c ****   }
+ 666:Core/Src/main.c ****   if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
+ 667:Core/Src/main.c ****   {
+ 668:Core/Src/main.c ****     Error_Handler();
+ 669:Core/Src/main.c ****   }
+ 670:Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 671:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 672:Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+ 673:Core/Src/main.c ****   {
+ 674:Core/Src/main.c ****     Error_Handler();
+ 675:Core/Src/main.c ****   }
+ 676:Core/Src/main.c ****   sConfigOC.OCMode = TIM_OCMODE_PWM1;
+ 677:Core/Src/main.c ****   sConfigOC.Pulse = 0;
+ 678:Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 679:Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 680:Core/Src/main.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 681:Core/Src/main.c ****   {
+ 682:Core/Src/main.c ****     Error_Handler();
+ 683:Core/Src/main.c ****   }
+ 684:Core/Src/main.c ****   /* USER CODE BEGIN TIM3_Init 2 */
+ 685:Core/Src/main.c **** 
+ 686:Core/Src/main.c ****   /* USER CODE END TIM3_Init 2 */
+ 687:Core/Src/main.c ****   HAL_TIM_MspPostInit(&htim3);
+ 688:Core/Src/main.c **** }
+ 689:Core/Src/main.c **** 
+ 690:Core/Src/main.c **** /**
+ 691:Core/Src/main.c ****  * @brief TIM17 Initialization Function
+ 692:Core/Src/main.c ****  * @param None
+ 693:Core/Src/main.c ****  * @retval None
+ 694:Core/Src/main.c ****  */
+ 695:Core/Src/main.c **** static void MX_TIM17_Init(void)
+ 696:Core/Src/main.c **** {
+ 697:Core/Src/main.c **** 
+ 698:Core/Src/main.c ****   /* USER CODE BEGIN TIM17_Init 0 */
+ 699:Core/Src/main.c **** 
+ 700:Core/Src/main.c ****   /* USER CODE END TIM17_Init 0 */
+ 701:Core/Src/main.c **** 
+ 702:Core/Src/main.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 703:Core/Src/main.c ****   TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig = {0};
+ 704:Core/Src/main.c **** 
+ 705:Core/Src/main.c ****   /* USER CODE BEGIN TIM17_Init 1 */
+ 706:Core/Src/main.c **** 
+ 707:Core/Src/main.c ****   /* USER CODE END TIM17_Init 1 */
+ 708:Core/Src/main.c ****   htim17.Instance = TIM17;
+ 709:Core/Src/main.c ****   htim17.Init.Prescaler = 59999;
+ 710:Core/Src/main.c ****   htim17.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 711:Core/Src/main.c ****   htim17.Init.Period = 39;
+ 712:Core/Src/main.c ****   htim17.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 713:Core/Src/main.c ****   htim17.Init.RepetitionCounter = 0;
+ 714:Core/Src/main.c ****   htim17.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 715:Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim17) != HAL_OK)
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 14
+
+
+ 716:Core/Src/main.c ****   {
+ 717:Core/Src/main.c ****     Error_Handler();
+ 718:Core/Src/main.c ****   }
+ 719:Core/Src/main.c ****   if (HAL_TIM_OC_Init(&htim17) != HAL_OK)
+ 720:Core/Src/main.c ****   {
+ 721:Core/Src/main.c ****     Error_Handler();
+ 722:Core/Src/main.c ****   }
+ 723:Core/Src/main.c ****   sConfigOC.OCMode = TIM_OCMODE_TOGGLE;
+ 724:Core/Src/main.c ****   sConfigOC.Pulse = 0;
+ 725:Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 726:Core/Src/main.c ****   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
+ 727:Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 728:Core/Src/main.c ****   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
+ 729:Core/Src/main.c ****   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+ 730:Core/Src/main.c ****   if (HAL_TIM_OC_ConfigChannel(&htim17, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 731:Core/Src/main.c ****   {
+ 732:Core/Src/main.c ****     Error_Handler();
+ 733:Core/Src/main.c ****   }
+ 734:Core/Src/main.c ****   sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_DISABLE;
+ 735:Core/Src/main.c ****   sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
+ 736:Core/Src/main.c ****   sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
+ 737:Core/Src/main.c ****   sBreakDeadTimeConfig.DeadTime = 0;
+ 738:Core/Src/main.c ****   sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
+ 739:Core/Src/main.c ****   sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
+ 740:Core/Src/main.c ****   sBreakDeadTimeConfig.BreakFilter = 0;
+ 741:Core/Src/main.c ****   sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
+ 742:Core/Src/main.c ****   if (HAL_TIMEx_ConfigBreakDeadTime(&htim17, &sBreakDeadTimeConfig) != HAL_OK)
+ 743:Core/Src/main.c ****   {
+ 744:Core/Src/main.c ****     Error_Handler();
+ 745:Core/Src/main.c ****   }
+ 746:Core/Src/main.c ****   /* USER CODE BEGIN TIM17_Init 2 */
+ 747:Core/Src/main.c **** 
+ 748:Core/Src/main.c ****   /* USER CODE END TIM17_Init 2 */
+ 749:Core/Src/main.c ****   HAL_TIM_MspPostInit(&htim17);
+ 750:Core/Src/main.c **** }
+ 751:Core/Src/main.c **** 
+ 752:Core/Src/main.c **** /**
+ 753:Core/Src/main.c ****  * @brief USART2 Initialization Function
+ 754:Core/Src/main.c ****  * @param None
+ 755:Core/Src/main.c ****  * @retval None
+ 756:Core/Src/main.c ****  */
+ 757:Core/Src/main.c **** static void MX_USART2_UART_Init(void)
+ 758:Core/Src/main.c **** {
+ 759:Core/Src/main.c **** 
+ 760:Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 0 */
+ 761:Core/Src/main.c **** 
+ 762:Core/Src/main.c ****   /* USER CODE END USART2_Init 0 */
+ 763:Core/Src/main.c **** 
+ 764:Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 1 */
+ 765:Core/Src/main.c **** 
+ 766:Core/Src/main.c ****   /* USER CODE END USART2_Init 1 */
+ 767:Core/Src/main.c ****   huart2.Instance = USART2;
+ 768:Core/Src/main.c ****   huart2.Init.BaudRate = 115200;
+ 769:Core/Src/main.c ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
+ 770:Core/Src/main.c ****   huart2.Init.StopBits = UART_STOPBITS_1;
+ 771:Core/Src/main.c ****   huart2.Init.Parity = UART_PARITY_NONE;
+ 772:Core/Src/main.c ****   huart2.Init.Mode = UART_MODE_TX_RX;
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 15
+
+
+ 773:Core/Src/main.c ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 774:Core/Src/main.c ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+ 775:Core/Src/main.c ****   huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+ 776:Core/Src/main.c ****   huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+ 777:Core/Src/main.c ****   if (HAL_UART_Init(&huart2) != HAL_OK)
+ 778:Core/Src/main.c ****   {
+ 779:Core/Src/main.c ****     Error_Handler();
+ 780:Core/Src/main.c ****   }
+ 781:Core/Src/main.c ****   /* USER CODE BEGIN USART2_Init 2 */
+ 782:Core/Src/main.c **** 
+ 783:Core/Src/main.c ****   /* USER CODE END USART2_Init 2 */
+ 784:Core/Src/main.c **** }
+ 785:Core/Src/main.c **** 
+ 786:Core/Src/main.c **** /**
+ 787:Core/Src/main.c ****  * @brief GPIO Initialization Function
+ 788:Core/Src/main.c ****  * @param None
+ 789:Core/Src/main.c ****  * @retval None
+ 790:Core/Src/main.c ****  */
+ 791:Core/Src/main.c **** static void MX_GPIO_Init(void)
+ 792:Core/Src/main.c **** {
+  28              		.loc 1 792 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 32
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 14, -4
+  39 0002 88B0     		sub	sp, sp, #32
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_offset 48
+ 793:Core/Src/main.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+  42              		.loc 1 793 3 view .LVU1
+  43              		.loc 1 793 20 is_stmt 0 view .LVU2
+  44 0004 03AD     		add	r5, sp, #12
+  45 0006 0024     		movs	r4, #0
+  46 0008 0394     		str	r4, [sp, #12]
+  47 000a 0494     		str	r4, [sp, #16]
+  48 000c 0594     		str	r4, [sp, #20]
+  49 000e 0694     		str	r4, [sp, #24]
+  50 0010 0794     		str	r4, [sp, #28]
+ 794:Core/Src/main.c ****   /* USER CODE BEGIN MX_GPIO_Init_1 */
+ 795:Core/Src/main.c **** 
+ 796:Core/Src/main.c ****   /* USER CODE END MX_GPIO_Init_1 */
+ 797:Core/Src/main.c **** 
+ 798:Core/Src/main.c ****   /* GPIO Ports Clock Enable */
+ 799:Core/Src/main.c ****   __HAL_RCC_GPIOF_CLK_ENABLE();
+  51              		.loc 1 799 3 is_stmt 1 view .LVU3
+  52              	.LBB9:
+  53              		.loc 1 799 3 view .LVU4
+  54              		.loc 1 799 3 view .LVU5
+  55 0012 1C4B     		ldr	r3, .L3
+  56 0014 5A69     		ldr	r2, [r3, #20]
+  57 0016 42F48002 		orr	r2, r2, #4194304
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 16
+
+
+  58 001a 5A61     		str	r2, [r3, #20]
+  59              		.loc 1 799 3 view .LVU6
+  60 001c 5A69     		ldr	r2, [r3, #20]
+  61 001e 02F48002 		and	r2, r2, #4194304
+  62 0022 0092     		str	r2, [sp]
+  63              		.loc 1 799 3 view .LVU7
+  64 0024 009A     		ldr	r2, [sp]
+  65              	.LBE9:
+  66              		.loc 1 799 3 view .LVU8
+ 800:Core/Src/main.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+  67              		.loc 1 800 3 view .LVU9
+  68              	.LBB10:
+  69              		.loc 1 800 3 view .LVU10
+  70              		.loc 1 800 3 view .LVU11
+  71 0026 5A69     		ldr	r2, [r3, #20]
+  72 0028 42F40032 		orr	r2, r2, #131072
+  73 002c 5A61     		str	r2, [r3, #20]
+  74              		.loc 1 800 3 view .LVU12
+  75 002e 5A69     		ldr	r2, [r3, #20]
+  76 0030 02F40032 		and	r2, r2, #131072
+  77 0034 0192     		str	r2, [sp, #4]
+  78              		.loc 1 800 3 view .LVU13
+  79 0036 019A     		ldr	r2, [sp, #4]
+  80              	.LBE10:
+  81              		.loc 1 800 3 view .LVU14
+ 801:Core/Src/main.c ****   __HAL_RCC_GPIOB_CLK_ENABLE();
+  82              		.loc 1 801 3 view .LVU15
+  83              	.LBB11:
+  84              		.loc 1 801 3 view .LVU16
+  85              		.loc 1 801 3 view .LVU17
+  86 0038 5A69     		ldr	r2, [r3, #20]
+  87 003a 42F48022 		orr	r2, r2, #262144
+  88 003e 5A61     		str	r2, [r3, #20]
+  89              		.loc 1 801 3 view .LVU18
+  90 0040 5B69     		ldr	r3, [r3, #20]
+  91 0042 03F48023 		and	r3, r3, #262144
+  92 0046 0293     		str	r3, [sp, #8]
+  93              		.loc 1 801 3 view .LVU19
+  94 0048 029B     		ldr	r3, [sp, #8]
+  95              	.LBE11:
+  96              		.loc 1 801 3 view .LVU20
+ 802:Core/Src/main.c **** 
+ 803:Core/Src/main.c ****   /*Configure GPIO pin Output Level */
+ 804:Core/Src/main.c ****   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0 | GPIO_PIN_4, GPIO_PIN_RESET);
+  97              		.loc 1 804 3 view .LVU21
+  98 004a 2246     		mov	r2, r4
+  99 004c 1121     		movs	r1, #17
+ 100 004e 4FF09040 		mov	r0, #1207959552
+ 101 0052 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 102              	.LVL0:
+ 805:Core/Src/main.c **** 
+ 806:Core/Src/main.c ****   /*Configure GPIO pins : PA0 PA4 */
+ 807:Core/Src/main.c ****   GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_4;
+ 103              		.loc 1 807 3 view .LVU22
+ 104              		.loc 1 807 23 is_stmt 0 view .LVU23
+ 105 0056 1123     		movs	r3, #17
+ 106 0058 0393     		str	r3, [sp, #12]
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 17
+
+
+ 808:Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 107              		.loc 1 808 3 is_stmt 1 view .LVU24
+ 108              		.loc 1 808 24 is_stmt 0 view .LVU25
+ 109 005a 0126     		movs	r6, #1
+ 110 005c 0496     		str	r6, [sp, #16]
+ 809:Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 111              		.loc 1 809 3 is_stmt 1 view .LVU26
+ 112              		.loc 1 809 24 is_stmt 0 view .LVU27
+ 113 005e 0594     		str	r4, [sp, #20]
+ 810:Core/Src/main.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 114              		.loc 1 810 3 is_stmt 1 view .LVU28
+ 115              		.loc 1 810 25 is_stmt 0 view .LVU29
+ 116 0060 0694     		str	r4, [sp, #24]
+ 811:Core/Src/main.c ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 117              		.loc 1 811 3 is_stmt 1 view .LVU30
+ 118 0062 2946     		mov	r1, r5
+ 119 0064 4FF09040 		mov	r0, #1207959552
+ 120 0068 FFF7FEFF 		bl	HAL_GPIO_Init
+ 121              	.LVL1:
+ 812:Core/Src/main.c **** 
+ 813:Core/Src/main.c ****   /*Configure GPIO pin : PA7 */
+ 814:Core/Src/main.c ****   GPIO_InitStruct.Pin = GPIO_PIN_7;
+ 122              		.loc 1 814 3 view .LVU31
+ 123              		.loc 1 814 23 is_stmt 0 view .LVU32
+ 124 006c 8023     		movs	r3, #128
+ 125 006e 0393     		str	r3, [sp, #12]
+ 815:Core/Src/main.c ****   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 126              		.loc 1 815 3 is_stmt 1 view .LVU33
+ 127              		.loc 1 815 24 is_stmt 0 view .LVU34
+ 128 0070 0494     		str	r4, [sp, #16]
+ 816:Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_PULLUP;
+ 129              		.loc 1 816 3 is_stmt 1 view .LVU35
+ 130              		.loc 1 816 24 is_stmt 0 view .LVU36
+ 131 0072 0596     		str	r6, [sp, #20]
+ 817:Core/Src/main.c ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+ 132              		.loc 1 817 3 is_stmt 1 view .LVU37
+ 133 0074 2946     		mov	r1, r5
+ 134 0076 4FF09040 		mov	r0, #1207959552
+ 135 007a FFF7FEFF 		bl	HAL_GPIO_Init
+ 136              	.LVL2:
+ 818:Core/Src/main.c **** 
+ 819:Core/Src/main.c ****   /* USER CODE BEGIN MX_GPIO_Init_2 */
+ 820:Core/Src/main.c **** 
+ 821:Core/Src/main.c ****   /* USER CODE END MX_GPIO_Init_2 */
+ 822:Core/Src/main.c **** }
+ 137              		.loc 1 822 1 is_stmt 0 view .LVU38
+ 138 007e 08B0     		add	sp, sp, #32
+ 139              	.LCFI2:
+ 140              		.cfi_def_cfa_offset 16
+ 141              		@ sp needed
+ 142 0080 70BD     		pop	{r4, r5, r6, pc}
+ 143              	.L4:
+ 144 0082 00BF     		.align	2
+ 145              	.L3:
+ 146 0084 00100240 		.word	1073876992
+ 147              		.cfi_endproc
+ 148              	.LFE141:
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 18
+
+
+ 150              		.section	.text.HAL_CAN_RxFifo0MsgPendingCallback,"ax",%progbits
+ 151              		.align	1
+ 152              		.global	HAL_CAN_RxFifo0MsgPendingCallback
+ 153              		.syntax unified
+ 154              		.thumb
+ 155              		.thumb_func
+ 157              	HAL_CAN_RxFifo0MsgPendingCallback:
+ 158              	.LVL3:
+ 159              	.LFB127:
+ 139:Core/Src/main.c ****   CAN_RxHeaderTypeDef RxHeader; // 受信メッセージの情報が格納されるインスタン�
+ 160              		.loc 1 139 1 is_stmt 1 view -0
+ 161              		.cfi_startproc
+ 162              		@ args = 0, pretend = 0, frame = 40
+ 163              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139:Core/Src/main.c ****   CAN_RxHeaderTypeDef RxHeader; // 受信メッセージの情報が格納されるインスタン�
+ 164              		.loc 1 139 1 is_stmt 0 view .LVU40
+ 165 0000 00B5     		push	{lr}
+ 166              	.LCFI3:
+ 167              		.cfi_def_cfa_offset 4
+ 168              		.cfi_offset 14, -4
+ 169 0002 8BB0     		sub	sp, sp, #44
+ 170              	.LCFI4:
+ 171              		.cfi_def_cfa_offset 48
+ 140:Core/Src/main.c ****   uint8_t RxData[8];            // 受信したデータを一時保存する配列
+ 172              		.loc 1 140 3 is_stmt 1 view .LVU41
+ 141:Core/Src/main.c ****   if (HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK)
+ 173              		.loc 1 141 3 view .LVU42
+ 142:Core/Src/main.c ****   {
+ 174              		.loc 1 142 3 view .LVU43
+ 142:Core/Src/main.c ****   {
+ 175              		.loc 1 142 7 is_stmt 0 view .LVU44
+ 176 0004 01AB     		add	r3, sp, #4
+ 177 0006 03AA     		add	r2, sp, #12
+ 178 0008 0021     		movs	r1, #0
+ 179 000a FFF7FEFF 		bl	HAL_CAN_GetRxMessage
+ 180              	.LVL4:
+ 142:Core/Src/main.c ****   {
+ 181              		.loc 1 142 6 discriminator 1 view .LVU45
+ 182 000e 30B9     		cbnz	r0, .L5
+ 144:Core/Src/main.c ****     if (id == 0x102)
+ 183              		.loc 1 144 5 is_stmt 1 view .LVU46
+ 144:Core/Src/main.c ****     if (id == 0x102)
+ 184              		.loc 1 144 8 is_stmt 0 view .LVU47
+ 185 0010 0C4B     		ldr	r3, .L12
+ 186 0012 039A     		ldr	r2, [sp, #12]
+ 187 0014 1A60     		str	r2, [r3]
+ 145:Core/Src/main.c ****     {
+ 188              		.loc 1 145 5 is_stmt 1 view .LVU48
+ 145:Core/Src/main.c ****     {
+ 189              		.loc 1 145 12 is_stmt 0 view .LVU49
+ 190 0016 1B68     		ldr	r3, [r3]
+ 145:Core/Src/main.c ****     {
+ 191              		.loc 1 145 8 view .LVU50
+ 192 0018 B3F5817F 		cmp	r3, #258
+ 193 001c 0FD0     		beq	.L11
+ 194              	.L5:
+ 154:Core/Src/main.c **** 
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 19
+
+
+ 195              		.loc 1 154 1 view .LVU51
+ 196 001e 0BB0     		add	sp, sp, #44
+ 197              	.LCFI5:
+ 198              		.cfi_remember_state
+ 199              		.cfi_def_cfa_offset 4
+ 200              		@ sp needed
+ 201 0020 00BD     		pop	{pc}
+ 202              	.LVL5:
+ 203              	.L8:
+ 204              	.LCFI6:
+ 205              		.cfi_restore_state
+ 206              	.LBB12:
+ 149:Core/Src/main.c ****       }
+ 207              		.loc 1 149 9 is_stmt 1 view .LVU52
+ 149:Core/Src/main.c ****       }
+ 208              		.loc 1 149 28 is_stmt 0 view .LVU53
+ 209 0022 03F12802 		add	r2, r3, #40
+ 210 0026 6A44     		add	r2, sp, r2
+ 211 0028 12F8241C 		ldrb	r1, [r2, #-36]	@ zero_extendqisi2
+ 149:Core/Src/main.c ****       }
+ 212              		.loc 1 149 20 view .LVU54
+ 213 002c 064A     		ldr	r2, .L12+4
+ 214 002e D154     		strb	r1, [r2, r3]
+ 147:Core/Src/main.c ****       {
+ 215              		.loc 1 147 32 is_stmt 1 discriminator 3 view .LVU55
+ 216 0030 0133     		adds	r3, r3, #1
+ 217              	.LVL6:
+ 218              	.L7:
+ 147:Core/Src/main.c ****       {
+ 219              		.loc 1 147 25 discriminator 1 view .LVU56
+ 220 0032 072B     		cmp	r3, #7
+ 221 0034 F5DD     		ble	.L8
+ 222              	.LBE12:
+ 151:Core/Src/main.c ****     }
+ 223              		.loc 1 151 7 view .LVU57
+ 151:Core/Src/main.c ****     }
+ 224              		.loc 1 151 19 is_stmt 0 view .LVU58
+ 225 0036 054B     		ldr	r3, .L12+8
+ 226              	.LVL7:
+ 151:Core/Src/main.c ****     }
+ 227              		.loc 1 151 19 view .LVU59
+ 228 0038 0122     		movs	r2, #1
+ 229 003a 1A70     		strb	r2, [r3]
+ 154:Core/Src/main.c **** 
+ 230              		.loc 1 154 1 view .LVU60
+ 231 003c EFE7     		b	.L5
+ 232              	.LVL8:
+ 233              	.L11:
+ 234              	.LBB13:
+ 147:Core/Src/main.c ****       {
+ 235              		.loc 1 147 16 view .LVU61
+ 236 003e 0023     		movs	r3, #0
+ 237 0040 F7E7     		b	.L7
+ 238              	.L13:
+ 239 0042 00BF     		.align	2
+ 240              	.L12:
+ 241 0044 00000000 		.word	id
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 20
+
+
+ 242 0048 00000000 		.word	can_buf
+ 243 004c 00000000 		.word	can_updated
+ 244              	.LBE13:
+ 245              		.cfi_endproc
+ 246              	.LFE127:
+ 248              		.section	.text.HAL_TIM_PeriodElapsedCallback,"ax",%progbits
+ 249              		.align	1
+ 250              		.global	HAL_TIM_PeriodElapsedCallback
+ 251              		.syntax unified
+ 252              		.thumb
+ 253              		.thumb_func
+ 255              	HAL_TIM_PeriodElapsedCallback:
+ 256              	.LVL9:
+ 257              	.LFB128:
+ 158:Core/Src/main.c ****   if (htim->Instance == TIM17)
+ 258              		.loc 1 158 1 is_stmt 1 view -0
+ 259              		.cfi_startproc
+ 260              		@ args = 0, pretend = 0, frame = 0
+ 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 262              		@ link register save eliminated.
+ 159:Core/Src/main.c ****   {
+ 263              		.loc 1 159 3 view .LVU63
+ 159:Core/Src/main.c ****   {
+ 264              		.loc 1 159 11 is_stmt 0 view .LVU64
+ 265 0000 0268     		ldr	r2, [r0]
+ 159:Core/Src/main.c ****   {
+ 266              		.loc 1 159 6 view .LVU65
+ 267 0002 044B     		ldr	r3, .L17
+ 268 0004 9A42     		cmp	r2, r3
+ 269 0006 00D0     		beq	.L16
+ 270              	.L14:
+ 163:Core/Src/main.c **** 
+ 271              		.loc 1 163 1 view .LVU66
+ 272 0008 7047     		bx	lr
+ 273              	.L16:
+ 161:Core/Src/main.c ****   }
+ 274              		.loc 1 161 5 is_stmt 1 view .LVU67
+ 161:Core/Src/main.c ****   }
+ 275              		.loc 1 161 18 is_stmt 0 view .LVU68
+ 276 000a 034B     		ldr	r3, .L17+4
+ 277 000c 0122     		movs	r2, #1
+ 278 000e 1A70     		strb	r2, [r3]
+ 163:Core/Src/main.c **** 
+ 279              		.loc 1 163 1 view .LVU69
+ 280 0010 FAE7     		b	.L14
+ 281              	.L18:
+ 282 0012 00BF     		.align	2
+ 283              	.L17:
+ 284 0014 00480140 		.word	1073825792
+ 285 0018 00000000 		.word	control_flag
+ 286              		.cfi_endproc
+ 287              	.LFE128:
+ 289              		.section	.text.read_encoder_value_1,"ax",%progbits
+ 290              		.align	1
+ 291              		.global	read_encoder_value_1
+ 292              		.syntax unified
+ 293              		.thumb
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 21
+
+
+ 294              		.thumb_func
+ 296              	read_encoder_value_1:
+ 297              	.LFB129:
+ 166:Core/Src/main.c ****   int16_t val = (int16_t)TIM1->CNT;
+ 298              		.loc 1 166 1 is_stmt 1 view -0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302              		@ link register save eliminated.
+ 167:Core/Src/main.c ****   TIM1->CNT = 0;
+ 303              		.loc 1 167 3 view .LVU71
+ 167:Core/Src/main.c ****   TIM1->CNT = 0;
+ 304              		.loc 1 167 30 is_stmt 0 view .LVU72
+ 305 0000 024B     		ldr	r3, .L20
+ 306 0002 586A     		ldr	r0, [r3, #36]
+ 307              	.LVL10:
+ 168:Core/Src/main.c ****   return val;
+ 308              		.loc 1 168 3 is_stmt 1 view .LVU73
+ 168:Core/Src/main.c ****   return val;
+ 309              		.loc 1 168 13 is_stmt 0 view .LVU74
+ 310 0004 0022     		movs	r2, #0
+ 311 0006 5A62     		str	r2, [r3, #36]
+ 169:Core/Src/main.c **** }
+ 312              		.loc 1 169 3 is_stmt 1 view .LVU75
+ 170:Core/Src/main.c **** 
+ 313              		.loc 1 170 1 is_stmt 0 view .LVU76
+ 314 0008 00B2     		sxth	r0, r0
+ 170:Core/Src/main.c **** 
+ 315              		.loc 1 170 1 view .LVU77
+ 316 000a 7047     		bx	lr
+ 317              	.L21:
+ 318              		.align	2
+ 319              	.L20:
+ 320 000c 002C0140 		.word	1073818624
+ 321              		.cfi_endproc
+ 322              	.LFE129:
+ 324              		.section	.text._write,"ax",%progbits
+ 325              		.align	1
+ 326              		.global	_write
+ 327              		.syntax unified
+ 328              		.thumb
+ 329              		.thumb_func
+ 331              	_write:
+ 332              	.LVL11:
+ 333              	.LFB130:
+ 173:Core/Src/main.c ****   HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, 10);
+ 334              		.loc 1 173 1 is_stmt 1 view -0
+ 335              		.cfi_startproc
+ 336              		@ args = 0, pretend = 0, frame = 0
+ 337              		@ frame_needed = 0, uses_anonymous_args = 0
+ 173:Core/Src/main.c ****   HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, 10);
+ 338              		.loc 1 173 1 is_stmt 0 view .LVU79
+ 339 0000 10B5     		push	{r4, lr}
+ 340              	.LCFI7:
+ 341              		.cfi_def_cfa_offset 8
+ 342              		.cfi_offset 4, -8
+ 343              		.cfi_offset 14, -4
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 22
+
+
+ 344 0002 1446     		mov	r4, r2
+ 174:Core/Src/main.c ****   return len;
+ 345              		.loc 1 174 3 is_stmt 1 view .LVU80
+ 346 0004 0A23     		movs	r3, #10
+ 347 0006 92B2     		uxth	r2, r2
+ 348              	.LVL12:
+ 174:Core/Src/main.c ****   return len;
+ 349              		.loc 1 174 3 is_stmt 0 view .LVU81
+ 350 0008 0248     		ldr	r0, .L24
+ 351              	.LVL13:
+ 174:Core/Src/main.c ****   return len;
+ 352              		.loc 1 174 3 view .LVU82
+ 353 000a FFF7FEFF 		bl	HAL_UART_Transmit
+ 354              	.LVL14:
+ 175:Core/Src/main.c **** }
+ 355              		.loc 1 175 3 is_stmt 1 view .LVU83
+ 176:Core/Src/main.c **** 
+ 356              		.loc 1 176 1 is_stmt 0 view .LVU84
+ 357 000e 2046     		mov	r0, r4
+ 358 0010 10BD     		pop	{r4, pc}
+ 359              	.LVL15:
+ 360              	.L25:
+ 176:Core/Src/main.c **** 
+ 361              		.loc 1 176 1 view .LVU85
+ 362 0012 00BF     		.align	2
+ 363              	.L24:
+ 364 0014 00000000 		.word	huart2
+ 365              		.cfi_endproc
+ 366              	.LFE130:
+ 368              		.section	.text.Error_Handler,"ax",%progbits
+ 369              		.align	1
+ 370              		.global	Error_Handler
+ 371              		.syntax unified
+ 372              		.thumb
+ 373              		.thumb_func
+ 375              	Error_Handler:
+ 376              	.LFB142:
+ 823:Core/Src/main.c **** 
+ 824:Core/Src/main.c **** /* USER CODE BEGIN 4 */
+ 825:Core/Src/main.c **** 
+ 826:Core/Src/main.c **** /* USER CODE END 4 */
+ 827:Core/Src/main.c **** 
+ 828:Core/Src/main.c **** /**
+ 829:Core/Src/main.c ****  * @brief  This function is executed in case of error occurrence.
+ 830:Core/Src/main.c ****  * @retval None
+ 831:Core/Src/main.c ****  */
+ 832:Core/Src/main.c **** void Error_Handler(void)
+ 833:Core/Src/main.c **** {
+ 377              		.loc 1 833 1 is_stmt 1 view -0
+ 378              		.cfi_startproc
+ 379              		@ Volatile: function does not return.
+ 380              		@ args = 0, pretend = 0, frame = 0
+ 381              		@ frame_needed = 0, uses_anonymous_args = 0
+ 382              		@ link register save eliminated.
+ 834:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 835:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
+ 836:Core/Src/main.c ****   __disable_irq();
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 23
+
+
+ 383              		.loc 1 836 3 view .LVU87
+ 384              	.LBB14:
+ 385              	.LBI14:
+ 386              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+   1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
+   2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
+   3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
+   4:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @version  V5.0.4
+   5:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @date     09. April 2018
+   6:Drivers/CMSIS/Include/cmsis_gcc.h ****  ******************************************************************************/
+   7:Drivers/CMSIS/Include/cmsis_gcc.h **** /*
+   8:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
+   9:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  10:Drivers/CMSIS/Include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
+  11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+  13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
+  14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
+  15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  16:Drivers/CMSIS/Include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
+  17:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  18:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
+  19:Drivers/CMSIS/Include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+  20:Drivers/CMSIS/Include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  21:Drivers/CMSIS/Include/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
+  22:Drivers/CMSIS/Include/cmsis_gcc.h ****  * limitations under the License.
+  23:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+  24:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  25:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __CMSIS_GCC_H
+  26:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_H
+  27:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  28:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ignore some GCC warnings */
+  29:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
+  30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
+  31:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
+  32:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
+  33:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  34:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+  35:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
+  36:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
+  37:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  38:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  39:Drivers/CMSIS/Include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
+  40:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ASM
+  41:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ASM                                  __asm
+  42:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  43:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __INLINE
+  44:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __INLINE                               inline
+  45:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  46:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
+  47:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
+  48:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  49:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_FORCEINLINE                 
+  50:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
+  51:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif                                           
+  52:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __NO_RETURN
+  53:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 24
+
+
+  54:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  55:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __USED
+  56:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
+  57:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  58:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __WEAK
+  59:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
+  60:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  61:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED
+  62:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
+  63:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  64:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
+  65:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
+  66:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  67:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
+  68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
+  69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
+  71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  73:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  74:Drivers/CMSIS/Include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+  75:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  76:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+  77:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  78:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
+  79:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  80:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  81:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  82:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+  83:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  84:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
+  85:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  86:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
+  87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  88:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  89:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  90:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+  91:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  92:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
+  93:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  94:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
+  95:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  96:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  97:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  98:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+  99:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 100:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
+ 101:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 102:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
+ 103:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+ 104:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ 105:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+ 106:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+ 107:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 108:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
+ 109:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 110:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ALIGNED
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 25
+
+
+ 111:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
+ 112:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 113:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __RESTRICT
+ 114:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
+ 115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 116:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 118:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+ 119:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+ 120:Drivers/CMSIS/Include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+ 121:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
+ 122:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 123:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 124:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+ 126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+ 127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
+ 130:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 131:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
+ 132:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 133:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 134:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 135:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 136:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
+ 137:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+ 138:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 139:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
+ 387              		.loc 2 140 27 view .LVU88
+ 388              	.LBB15:
+ 141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
+ 389              		.loc 2 142 3 view .LVU89
+ 390              		.syntax unified
+ 391              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 392 0000 72B6     		cpsid i
+ 393              	@ 0 "" 2
+ 394              		.thumb
+ 395              		.syntax unified
+ 396              	.L27:
+ 397              	.LBE15:
+ 398              	.LBE14:
+ 837:Core/Src/main.c ****   while (1)
+ 399              		.loc 1 837 3 view .LVU90
+ 838:Core/Src/main.c ****   {
+ 839:Core/Src/main.c ****   }
+ 400              		.loc 1 839 3 view .LVU91
+ 837:Core/Src/main.c ****   while (1)
+ 401              		.loc 1 837 9 view .LVU92
+ 402 0002 FEE7     		b	.L27
+ 403              		.cfi_endproc
+ 404              	.LFE142:
+ 406              		.section	.text.CAN_TX,"ax",%progbits
+ 407              		.align	1
+ 408              		.global	CAN_TX
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 26
+
+
+ 409              		.syntax unified
+ 410              		.thumb
+ 411              		.thumb_func
+ 413              	CAN_TX:
+ 414              	.LVL16:
+ 415              	.LFB126:
+  88:Core/Src/main.c ****   // 送信用インスタンス等
+ 416              		.loc 1 88 1 view -0
+ 417              		.cfi_startproc
+ 418              		@ args = 0, pretend = 0, frame = 32
+ 419              		@ frame_needed = 0, uses_anonymous_args = 0
+  88:Core/Src/main.c ****   // 送信用インスタンス等
+ 420              		.loc 1 88 1 is_stmt 0 view .LVU94
+ 421 0000 10B5     		push	{r4, lr}
+ 422              	.LCFI8:
+ 423              		.cfi_def_cfa_offset 8
+ 424              		.cfi_offset 4, -8
+ 425              		.cfi_offset 14, -4
+ 426 0002 88B0     		sub	sp, sp, #32
+ 427              	.LCFI9:
+ 428              		.cfi_def_cfa_offset 40
+ 429 0004 0446     		mov	r4, r0
+  90:Core/Src/main.c ****   uint32_t TxMailbox;
+ 430              		.loc 1 90 3 is_stmt 1 view .LVU95
+  91:Core/Src/main.c **** 
+ 431              		.loc 1 91 3 view .LVU96
+  94:Core/Src/main.c ****   {
+ 432              		.loc 1 94 3 view .LVU97
+  94:Core/Src/main.c ****   {
+ 433              		.loc 1 94 11 is_stmt 0 view .LVU98
+ 434 0006 1248     		ldr	r0, .L32
+ 435              	.LVL17:
+  94:Core/Src/main.c ****   {
+ 436              		.loc 1 94 11 view .LVU99
+ 437 0008 FFF7FEFF 		bl	HAL_CAN_GetTxMailboxesFreeLevel
+ 438              	.LVL18:
+  94:Core/Src/main.c ****   {
+ 439              		.loc 1 94 6 discriminator 1 view .LVU100
+ 440 000c 08B9     		cbnz	r0, .L31
+ 441              	.L28:
+ 122:Core/Src/main.c **** 
+ 442              		.loc 1 122 1 view .LVU101
+ 443 000e 08B0     		add	sp, sp, #32
+ 444              	.LCFI10:
+ 445              		.cfi_remember_state
+ 446              		.cfi_def_cfa_offset 8
+ 447              		@ sp needed
+ 448 0010 10BD     		pop	{r4, pc}
+ 449              	.LVL19:
+ 450              	.L31:
+ 451              	.LCFI11:
+ 452              		.cfi_restore_state
+ 453              	.LBB16:
+  97:Core/Src/main.c ****     TxHeader.RTR = CAN_RTR_DATA;
+ 454              		.loc 1 97 5 is_stmt 1 view .LVU102
+  97:Core/Src/main.c ****     TxHeader.RTR = CAN_RTR_DATA;
+ 455              		.loc 1 97 20 is_stmt 0 view .LVU103
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 27
+
+
+ 456 0012 0294     		str	r4, [sp, #8]
+  98:Core/Src/main.c ****     TxHeader.IDE = CAN_ID_STD;
+ 457              		.loc 1 98 5 is_stmt 1 view .LVU104
+  98:Core/Src/main.c ****     TxHeader.IDE = CAN_ID_STD;
+ 458              		.loc 1 98 18 is_stmt 0 view .LVU105
+ 459 0014 0023     		movs	r3, #0
+ 460 0016 0593     		str	r3, [sp, #20]
+  99:Core/Src/main.c ****     TxHeader.DLC = 8; // データ長を8byteに設定
+ 461              		.loc 1 99 5 is_stmt 1 view .LVU106
+  99:Core/Src/main.c ****     TxHeader.DLC = 8; // データ長を8byteに設定
+ 462              		.loc 1 99 18 is_stmt 0 view .LVU107
+ 463 0018 0493     		str	r3, [sp, #16]
+ 100:Core/Src/main.c ****     TxHeader.TransmitGlobalTime = DISABLE;
+ 464              		.loc 1 100 5 is_stmt 1 view .LVU108
+ 100:Core/Src/main.c ****     TxHeader.TransmitGlobalTime = DISABLE;
+ 465              		.loc 1 100 18 is_stmt 0 view .LVU109
+ 466 001a 0822     		movs	r2, #8
+ 467 001c 0692     		str	r2, [sp, #24]
+ 101:Core/Src/main.c ****     // 各データ
+ 468              		.loc 1 101 5 is_stmt 1 view .LVU110
+ 101:Core/Src/main.c ****     // 各データ
+ 469              		.loc 1 101 33 is_stmt 0 view .LVU111
+ 470 001e 8DF81C30 		strb	r3, [sp, #28]
+ 103:Core/Src/main.c **** 
+ 471              		.loc 1 103 5 is_stmt 1 view .LVU112
+ 103:Core/Src/main.c **** 
+ 472              		.loc 1 103 13 is_stmt 0 view .LVU113
+ 473 0022 0C4A     		ldr	r2, .L32+4
+ 474 0024 1188     		ldrh	r1, [r2]
+ 475              	.LVL20:
+ 105:Core/Src/main.c ****     TxData[1] = c1 & 0xFF;
+ 476              		.loc 1 105 5 is_stmt 1 view .LVU114
+ 105:Core/Src/main.c ****     TxData[1] = c1 & 0xFF;
+ 477              		.loc 1 105 15 is_stmt 0 view .LVU115
+ 478 0026 0C4A     		ldr	r2, .L32+8
+ 479 0028 41F30720 		sbfx	r0, r1, #8, #8
+ 480 002c 1070     		strb	r0, [r2]
+ 106:Core/Src/main.c **** 
+ 481              		.loc 1 106 5 is_stmt 1 view .LVU116
+ 106:Core/Src/main.c **** 
+ 482              		.loc 1 106 15 is_stmt 0 view .LVU117
+ 483 002e 5170     		strb	r1, [r2, #1]
+ 108:Core/Src/main.c ****     TxData[3] = 0;
+ 484              		.loc 1 108 5 is_stmt 1 view .LVU118
+ 108:Core/Src/main.c ****     TxData[3] = 0;
+ 485              		.loc 1 108 15 is_stmt 0 view .LVU119
+ 486 0030 9370     		strb	r3, [r2, #2]
+ 109:Core/Src/main.c **** 
+ 487              		.loc 1 109 5 is_stmt 1 view .LVU120
+ 109:Core/Src/main.c **** 
+ 488              		.loc 1 109 15 is_stmt 0 view .LVU121
+ 489 0032 D370     		strb	r3, [r2, #3]
+ 111:Core/Src/main.c ****     TxData[5] = 0;
+ 490              		.loc 1 111 5 is_stmt 1 view .LVU122
+ 111:Core/Src/main.c ****     TxData[5] = 0;
+ 491              		.loc 1 111 15 is_stmt 0 view .LVU123
+ 492 0034 1371     		strb	r3, [r2, #4]
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 28
+
+
+ 112:Core/Src/main.c **** 
+ 493              		.loc 1 112 5 is_stmt 1 view .LVU124
+ 112:Core/Src/main.c **** 
+ 494              		.loc 1 112 15 is_stmt 0 view .LVU125
+ 495 0036 5371     		strb	r3, [r2, #5]
+ 114:Core/Src/main.c ****     TxData[7] = 0;
+ 496              		.loc 1 114 5 is_stmt 1 view .LVU126
+ 114:Core/Src/main.c ****     TxData[7] = 0;
+ 497              		.loc 1 114 15 is_stmt 0 view .LVU127
+ 498 0038 9371     		strb	r3, [r2, #6]
+ 115:Core/Src/main.c ****     // CANメッセージを送信
+ 499              		.loc 1 115 5 is_stmt 1 view .LVU128
+ 115:Core/Src/main.c ****     // CANメッセージを送信
+ 500              		.loc 1 115 15 is_stmt 0 view .LVU129
+ 501 003a D371     		strb	r3, [r2, #7]
+ 117:Core/Src/main.c ****     {
+ 502              		.loc 1 117 5 is_stmt 1 view .LVU130
+ 117:Core/Src/main.c ****     {
+ 503              		.loc 1 117 9 is_stmt 0 view .LVU131
+ 504 003c 01AB     		add	r3, sp, #4
+ 505 003e 02A9     		add	r1, sp, #8
+ 506              	.LVL21:
+ 117:Core/Src/main.c ****     {
+ 507              		.loc 1 117 9 view .LVU132
+ 508 0040 0348     		ldr	r0, .L32
+ 509 0042 FFF7FEFF 		bl	HAL_CAN_AddTxMessage
+ 510              	.LVL22:
+ 117:Core/Src/main.c ****     {
+ 511              		.loc 1 117 8 discriminator 1 view .LVU133
+ 512 0046 0028     		cmp	r0, #0
+ 513 0048 E1D0     		beq	.L28
+ 119:Core/Src/main.c ****     }
+ 514              		.loc 1 119 7 is_stmt 1 view .LVU134
+ 515 004a FFF7FEFF 		bl	Error_Handler
+ 516              	.LVL23:
+ 517              	.L33:
+ 518 004e 00BF     		.align	2
+ 519              	.L32:
+ 520 0050 00000000 		.word	hcan
+ 521 0054 00000000 		.word	count_1
+ 522 0058 00000000 		.word	TxData
+ 523              	.LBE16:
+ 524              		.cfi_endproc
+ 525              	.LFE126:
+ 527              		.section	.text.MX_USART2_UART_Init,"ax",%progbits
+ 528              		.align	1
+ 529              		.syntax unified
+ 530              		.thumb
+ 531              		.thumb_func
+ 533              	MX_USART2_UART_Init:
+ 534              	.LFB140:
+ 758:Core/Src/main.c **** 
+ 535              		.loc 1 758 1 view -0
+ 536              		.cfi_startproc
+ 537              		@ args = 0, pretend = 0, frame = 0
+ 538              		@ frame_needed = 0, uses_anonymous_args = 0
+ 539 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 29
+
+
+ 540              	.LCFI12:
+ 541              		.cfi_def_cfa_offset 8
+ 542              		.cfi_offset 3, -8
+ 543              		.cfi_offset 14, -4
+ 767:Core/Src/main.c ****   huart2.Init.BaudRate = 115200;
+ 544              		.loc 1 767 3 view .LVU136
+ 767:Core/Src/main.c ****   huart2.Init.BaudRate = 115200;
+ 545              		.loc 1 767 19 is_stmt 0 view .LVU137
+ 546 0002 0B48     		ldr	r0, .L38
+ 547 0004 0B4B     		ldr	r3, .L38+4
+ 548 0006 0360     		str	r3, [r0]
+ 768:Core/Src/main.c ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
+ 549              		.loc 1 768 3 is_stmt 1 view .LVU138
+ 768:Core/Src/main.c ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
+ 550              		.loc 1 768 24 is_stmt 0 view .LVU139
+ 551 0008 4FF4E133 		mov	r3, #115200
+ 552 000c 4360     		str	r3, [r0, #4]
+ 769:Core/Src/main.c ****   huart2.Init.StopBits = UART_STOPBITS_1;
+ 553              		.loc 1 769 3 is_stmt 1 view .LVU140
+ 769:Core/Src/main.c ****   huart2.Init.StopBits = UART_STOPBITS_1;
+ 554              		.loc 1 769 26 is_stmt 0 view .LVU141
+ 555 000e 0023     		movs	r3, #0
+ 556 0010 8360     		str	r3, [r0, #8]
+ 770:Core/Src/main.c ****   huart2.Init.Parity = UART_PARITY_NONE;
+ 557              		.loc 1 770 3 is_stmt 1 view .LVU142
+ 770:Core/Src/main.c ****   huart2.Init.Parity = UART_PARITY_NONE;
+ 558              		.loc 1 770 24 is_stmt 0 view .LVU143
+ 559 0012 C360     		str	r3, [r0, #12]
+ 771:Core/Src/main.c ****   huart2.Init.Mode = UART_MODE_TX_RX;
+ 560              		.loc 1 771 3 is_stmt 1 view .LVU144
+ 771:Core/Src/main.c ****   huart2.Init.Mode = UART_MODE_TX_RX;
+ 561              		.loc 1 771 22 is_stmt 0 view .LVU145
+ 562 0014 0361     		str	r3, [r0, #16]
+ 772:Core/Src/main.c ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 563              		.loc 1 772 3 is_stmt 1 view .LVU146
+ 772:Core/Src/main.c ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 564              		.loc 1 772 20 is_stmt 0 view .LVU147
+ 565 0016 0C22     		movs	r2, #12
+ 566 0018 4261     		str	r2, [r0, #20]
+ 773:Core/Src/main.c ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+ 567              		.loc 1 773 3 is_stmt 1 view .LVU148
+ 773:Core/Src/main.c ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+ 568              		.loc 1 773 25 is_stmt 0 view .LVU149
+ 569 001a 8361     		str	r3, [r0, #24]
+ 774:Core/Src/main.c ****   huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+ 570              		.loc 1 774 3 is_stmt 1 view .LVU150
+ 774:Core/Src/main.c ****   huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+ 571              		.loc 1 774 28 is_stmt 0 view .LVU151
+ 572 001c C361     		str	r3, [r0, #28]
+ 775:Core/Src/main.c ****   huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+ 573              		.loc 1 775 3 is_stmt 1 view .LVU152
+ 775:Core/Src/main.c ****   huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+ 574              		.loc 1 775 30 is_stmt 0 view .LVU153
+ 575 001e 0362     		str	r3, [r0, #32]
+ 776:Core/Src/main.c ****   if (HAL_UART_Init(&huart2) != HAL_OK)
+ 576              		.loc 1 776 3 is_stmt 1 view .LVU154
+ 776:Core/Src/main.c ****   if (HAL_UART_Init(&huart2) != HAL_OK)
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 30
+
+
+ 577              		.loc 1 776 38 is_stmt 0 view .LVU155
+ 578 0020 4362     		str	r3, [r0, #36]
+ 777:Core/Src/main.c ****   {
+ 579              		.loc 1 777 3 is_stmt 1 view .LVU156
+ 777:Core/Src/main.c ****   {
+ 580              		.loc 1 777 7 is_stmt 0 view .LVU157
+ 581 0022 FFF7FEFF 		bl	HAL_UART_Init
+ 582              	.LVL24:
+ 777:Core/Src/main.c ****   {
+ 583              		.loc 1 777 6 discriminator 1 view .LVU158
+ 584 0026 00B9     		cbnz	r0, .L37
+ 784:Core/Src/main.c **** 
+ 585              		.loc 1 784 1 view .LVU159
+ 586 0028 08BD     		pop	{r3, pc}
+ 587              	.L37:
+ 779:Core/Src/main.c ****   }
+ 588              		.loc 1 779 5 is_stmt 1 view .LVU160
+ 589 002a FFF7FEFF 		bl	Error_Handler
+ 590              	.LVL25:
+ 591              	.L39:
+ 592 002e 00BF     		.align	2
+ 593              	.L38:
+ 594 0030 00000000 		.word	huart2
+ 595 0034 00440040 		.word	1073759232
+ 596              		.cfi_endproc
+ 597              	.LFE140:
+ 599              		.section	.text.MX_CAN_Init,"ax",%progbits
+ 600              		.align	1
+ 601              		.syntax unified
+ 602              		.thumb
+ 603              		.thumb_func
+ 605              	MX_CAN_Init:
+ 606              	.LFB133:
+ 401:Core/Src/main.c **** 
+ 607              		.loc 1 401 1 view -0
+ 608              		.cfi_startproc
+ 609              		@ args = 0, pretend = 0, frame = 40
+ 610              		@ frame_needed = 0, uses_anonymous_args = 0
+ 611 0000 10B5     		push	{r4, lr}
+ 612              	.LCFI13:
+ 613              		.cfi_def_cfa_offset 8
+ 614              		.cfi_offset 4, -8
+ 615              		.cfi_offset 14, -4
+ 616 0002 8AB0     		sub	sp, sp, #40
+ 617              	.LCFI14:
+ 618              		.cfi_def_cfa_offset 48
+ 410:Core/Src/main.c ****   hcan.Init.Prescaler = 3;
+ 619              		.loc 1 410 3 view .LVU162
+ 410:Core/Src/main.c ****   hcan.Init.Prescaler = 3;
+ 620              		.loc 1 410 17 is_stmt 0 view .LVU163
+ 621 0004 1548     		ldr	r0, .L46
+ 622 0006 164B     		ldr	r3, .L46+4
+ 623 0008 0360     		str	r3, [r0]
+ 411:Core/Src/main.c ****   hcan.Init.Mode = CAN_MODE_NORMAL;
+ 624              		.loc 1 411 3 is_stmt 1 view .LVU164
+ 411:Core/Src/main.c ****   hcan.Init.Mode = CAN_MODE_NORMAL;
+ 625              		.loc 1 411 23 is_stmt 0 view .LVU165
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 31
+
+
+ 626 000a 0323     		movs	r3, #3
+ 627 000c 4360     		str	r3, [r0, #4]
+ 412:Core/Src/main.c ****   hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
+ 628              		.loc 1 412 3 is_stmt 1 view .LVU166
+ 412:Core/Src/main.c ****   hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
+ 629              		.loc 1 412 18 is_stmt 0 view .LVU167
+ 630 000e 0023     		movs	r3, #0
+ 631 0010 8360     		str	r3, [r0, #8]
+ 413:Core/Src/main.c ****   hcan.Init.TimeSeg1 = CAN_BS1_7TQ;
+ 632              		.loc 1 413 3 is_stmt 1 view .LVU168
+ 413:Core/Src/main.c ****   hcan.Init.TimeSeg1 = CAN_BS1_7TQ;
+ 633              		.loc 1 413 27 is_stmt 0 view .LVU169
+ 634 0012 C360     		str	r3, [r0, #12]
+ 414:Core/Src/main.c ****   hcan.Init.TimeSeg2 = CAN_BS2_2TQ;
+ 635              		.loc 1 414 3 is_stmt 1 view .LVU170
+ 414:Core/Src/main.c ****   hcan.Init.TimeSeg2 = CAN_BS2_2TQ;
+ 636              		.loc 1 414 22 is_stmt 0 view .LVU171
+ 637 0014 4FF4C022 		mov	r2, #393216
+ 638 0018 0261     		str	r2, [r0, #16]
+ 415:Core/Src/main.c ****   hcan.Init.TimeTriggeredMode = DISABLE;
+ 639              		.loc 1 415 3 is_stmt 1 view .LVU172
+ 415:Core/Src/main.c ****   hcan.Init.TimeTriggeredMode = DISABLE;
+ 640              		.loc 1 415 22 is_stmt 0 view .LVU173
+ 641 001a 4FF48012 		mov	r2, #1048576
+ 642 001e 4261     		str	r2, [r0, #20]
+ 416:Core/Src/main.c ****   hcan.Init.AutoBusOff = DISABLE;
+ 643              		.loc 1 416 3 is_stmt 1 view .LVU174
+ 416:Core/Src/main.c ****   hcan.Init.AutoBusOff = DISABLE;
+ 644              		.loc 1 416 31 is_stmt 0 view .LVU175
+ 645 0020 0376     		strb	r3, [r0, #24]
+ 417:Core/Src/main.c ****   hcan.Init.AutoWakeUp = DISABLE;
+ 646              		.loc 1 417 3 is_stmt 1 view .LVU176
+ 417:Core/Src/main.c ****   hcan.Init.AutoWakeUp = DISABLE;
+ 647              		.loc 1 417 24 is_stmt 0 view .LVU177
+ 648 0022 4376     		strb	r3, [r0, #25]
+ 418:Core/Src/main.c ****   hcan.Init.AutoRetransmission = DISABLE;
+ 649              		.loc 1 418 3 is_stmt 1 view .LVU178
+ 418:Core/Src/main.c ****   hcan.Init.AutoRetransmission = DISABLE;
+ 650              		.loc 1 418 24 is_stmt 0 view .LVU179
+ 651 0024 8376     		strb	r3, [r0, #26]
+ 419:Core/Src/main.c ****   hcan.Init.ReceiveFifoLocked = DISABLE;
+ 652              		.loc 1 419 3 is_stmt 1 view .LVU180
+ 419:Core/Src/main.c ****   hcan.Init.ReceiveFifoLocked = DISABLE;
+ 653              		.loc 1 419 32 is_stmt 0 view .LVU181
+ 654 0026 C376     		strb	r3, [r0, #27]
+ 420:Core/Src/main.c ****   hcan.Init.TransmitFifoPriority = DISABLE;
+ 655              		.loc 1 420 3 is_stmt 1 view .LVU182
+ 420:Core/Src/main.c ****   hcan.Init.TransmitFifoPriority = DISABLE;
+ 656              		.loc 1 420 31 is_stmt 0 view .LVU183
+ 657 0028 0377     		strb	r3, [r0, #28]
+ 421:Core/Src/main.c ****   if (HAL_CAN_Init(&hcan) != HAL_OK)
+ 658              		.loc 1 421 3 is_stmt 1 view .LVU184
+ 421:Core/Src/main.c ****   if (HAL_CAN_Init(&hcan) != HAL_OK)
+ 659              		.loc 1 421 34 is_stmt 0 view .LVU185
+ 660 002a 4377     		strb	r3, [r0, #29]
+ 422:Core/Src/main.c ****   {
+ 661              		.loc 1 422 3 is_stmt 1 view .LVU186
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 32
+
+
+ 422:Core/Src/main.c ****   {
+ 662              		.loc 1 422 7 is_stmt 0 view .LVU187
+ 663 002c FFF7FEFF 		bl	HAL_CAN_Init
+ 664              	.LVL26:
+ 422:Core/Src/main.c ****   {
+ 665              		.loc 1 422 6 discriminator 1 view .LVU188
+ 666 0030 78B9     		cbnz	r0, .L44
+ 427:Core/Src/main.c **** 
+ 667              		.loc 1 427 3 is_stmt 1 view .LVU189
+ 427:Core/Src/main.c **** 
+ 668              		.loc 1 427 21 is_stmt 0 view .LVU190
+ 669 0032 2822     		movs	r2, #40
+ 670 0034 0021     		movs	r1, #0
+ 671 0036 6846     		mov	r0, sp
+ 672 0038 FFF7FEFF 		bl	memset
+ 673              	.LVL27:
+ 429:Core/Src/main.c ****   filter.FilterMode = CAN_FILTERMODE_IDMASK;
+ 674              		.loc 1 429 3 is_stmt 1 view .LVU191
+ 430:Core/Src/main.c ****   filter.FilterScale = CAN_FILTERSCALE_16BIT;
+ 675              		.loc 1 430 3 view .LVU192
+ 431:Core/Src/main.c **** 
+ 676              		.loc 1 431 3 view .LVU193
+ 433:Core/Src/main.c ****   filter.FilterIdLow = 0x0000;
+ 677              		.loc 1 433 3 view .LVU194
+ 434:Core/Src/main.c **** 
+ 678              		.loc 1 434 3 view .LVU195
+ 436:Core/Src/main.c ****   filter.FilterMaskIdLow = 0x0000;
+ 679              		.loc 1 436 3 view .LVU196
+ 437:Core/Src/main.c **** 
+ 680              		.loc 1 437 3 view .LVU197
+ 439:Core/Src/main.c ****   filter.FilterActivation = ENABLE;
+ 681              		.loc 1 439 3 view .LVU198
+ 440:Core/Src/main.c ****   filter.SlaveStartFilterBank = 14;
+ 682              		.loc 1 440 3 view .LVU199
+ 440:Core/Src/main.c ****   filter.SlaveStartFilterBank = 14;
+ 683              		.loc 1 440 27 is_stmt 0 view .LVU200
+ 684 003c 0123     		movs	r3, #1
+ 685 003e 0893     		str	r3, [sp, #32]
+ 441:Core/Src/main.c **** 
+ 686              		.loc 1 441 3 is_stmt 1 view .LVU201
+ 441:Core/Src/main.c **** 
+ 687              		.loc 1 441 31 is_stmt 0 view .LVU202
+ 688 0040 0E23     		movs	r3, #14
+ 689 0042 0993     		str	r3, [sp, #36]
+ 443:Core/Src/main.c ****   {
+ 690              		.loc 1 443 3 is_stmt 1 view .LVU203
+ 443:Core/Src/main.c ****   {
+ 691              		.loc 1 443 7 is_stmt 0 view .LVU204
+ 692 0044 6946     		mov	r1, sp
+ 693 0046 0548     		ldr	r0, .L46
+ 694 0048 FFF7FEFF 		bl	HAL_CAN_ConfigFilter
+ 695              	.LVL28:
+ 443:Core/Src/main.c ****   {
+ 696              		.loc 1 443 6 discriminator 1 view .LVU205
+ 697 004c 18B9     		cbnz	r0, .L45
+ 448:Core/Src/main.c **** 
+ 698              		.loc 1 448 1 view .LVU206
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 33
+
+
+ 699 004e 0AB0     		add	sp, sp, #40
+ 700              	.LCFI15:
+ 701              		.cfi_remember_state
+ 702              		.cfi_def_cfa_offset 8
+ 703              		@ sp needed
+ 704 0050 10BD     		pop	{r4, pc}
+ 705              	.L44:
+ 706              	.LCFI16:
+ 707              		.cfi_restore_state
+ 424:Core/Src/main.c ****   }
+ 708              		.loc 1 424 5 is_stmt 1 view .LVU207
+ 709 0052 FFF7FEFF 		bl	Error_Handler
+ 710              	.LVL29:
+ 711              	.L45:
+ 445:Core/Src/main.c ****   }
+ 712              		.loc 1 445 5 view .LVU208
+ 713 0056 FFF7FEFF 		bl	Error_Handler
+ 714              	.LVL30:
+ 715              	.L47:
+ 716 005a 00BF     		.align	2
+ 717              	.L46:
+ 718 005c 00000000 		.word	hcan
+ 719 0060 00640040 		.word	1073767424
+ 720              		.cfi_endproc
+ 721              	.LFE133:
+ 723              		.section	.text.MX_COMP4_Init,"ax",%progbits
+ 724              		.align	1
+ 725              		.syntax unified
+ 726              		.thumb
+ 727              		.thumb_func
+ 729              	MX_COMP4_Init:
+ 730              	.LFB134:
+ 456:Core/Src/main.c **** 
+ 731              		.loc 1 456 1 view -0
+ 732              		.cfi_startproc
+ 733              		@ args = 0, pretend = 0, frame = 0
+ 734              		@ frame_needed = 0, uses_anonymous_args = 0
+ 735 0000 08B5     		push	{r3, lr}
+ 736              	.LCFI17:
+ 737              		.cfi_def_cfa_offset 8
+ 738              		.cfi_offset 3, -8
+ 739              		.cfi_offset 14, -4
+ 465:Core/Src/main.c ****   hcomp4.Init.InvertingInput = COMP_INVERTINGINPUT_DAC1_CH2;
+ 740              		.loc 1 465 3 view .LVU210
+ 465:Core/Src/main.c ****   hcomp4.Init.InvertingInput = COMP_INVERTINGINPUT_DAC1_CH2;
+ 741              		.loc 1 465 19 is_stmt 0 view .LVU211
+ 742 0002 0948     		ldr	r0, .L52
+ 743 0004 094B     		ldr	r3, .L52+4
+ 744 0006 0360     		str	r3, [r0]
+ 466:Core/Src/main.c ****   hcomp4.Init.NonInvertingInput = COMP_NONINVERTINGINPUT_IO1;
+ 745              		.loc 1 466 3 is_stmt 1 view .LVU212
+ 466:Core/Src/main.c ****   hcomp4.Init.NonInvertingInput = COMP_NONINVERTINGINPUT_IO1;
+ 746              		.loc 1 466 30 is_stmt 0 view .LVU213
+ 747 0008 5023     		movs	r3, #80
+ 748 000a 4360     		str	r3, [r0, #4]
+ 467:Core/Src/main.c ****   hcomp4.Init.Output = COMP_OUTPUT_NONE;
+ 749              		.loc 1 467 3 is_stmt 1 view .LVU214
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 34
+
+
+ 467:Core/Src/main.c ****   hcomp4.Init.Output = COMP_OUTPUT_NONE;
+ 750              		.loc 1 467 33 is_stmt 0 view .LVU215
+ 751 000c 0023     		movs	r3, #0
+ 752 000e 8360     		str	r3, [r0, #8]
+ 468:Core/Src/main.c ****   hcomp4.Init.OutputPol = COMP_OUTPUTPOL_NONINVERTED;
+ 753              		.loc 1 468 3 is_stmt 1 view .LVU216
+ 468:Core/Src/main.c ****   hcomp4.Init.OutputPol = COMP_OUTPUTPOL_NONINVERTED;
+ 754              		.loc 1 468 22 is_stmt 0 view .LVU217
+ 755 0010 2A22     		movs	r2, #42
+ 756 0012 C260     		str	r2, [r0, #12]
+ 469:Core/Src/main.c ****   hcomp4.Init.BlankingSrce = COMP_BLANKINGSRCE_NONE;
+ 757              		.loc 1 469 3 is_stmt 1 view .LVU218
+ 469:Core/Src/main.c ****   hcomp4.Init.BlankingSrce = COMP_BLANKINGSRCE_NONE;
+ 758              		.loc 1 469 25 is_stmt 0 view .LVU219
+ 759 0014 0361     		str	r3, [r0, #16]
+ 470:Core/Src/main.c ****   hcomp4.Init.TriggerMode = COMP_TRIGGERMODE_NONE;
+ 760              		.loc 1 470 3 is_stmt 1 view .LVU220
+ 470:Core/Src/main.c ****   hcomp4.Init.TriggerMode = COMP_TRIGGERMODE_NONE;
+ 761              		.loc 1 470 28 is_stmt 0 view .LVU221
+ 762 0016 8361     		str	r3, [r0, #24]
+ 471:Core/Src/main.c ****   if (HAL_COMP_Init(&hcomp4) != HAL_OK)
+ 763              		.loc 1 471 3 is_stmt 1 view .LVU222
+ 471:Core/Src/main.c ****   if (HAL_COMP_Init(&hcomp4) != HAL_OK)
+ 764              		.loc 1 471 27 is_stmt 0 view .LVU223
+ 765 0018 4362     		str	r3, [r0, #36]
+ 472:Core/Src/main.c ****   {
+ 766              		.loc 1 472 3 is_stmt 1 view .LVU224
+ 472:Core/Src/main.c ****   {
+ 767              		.loc 1 472 7 is_stmt 0 view .LVU225
+ 768 001a FFF7FEFF 		bl	HAL_COMP_Init
+ 769              	.LVL31:
+ 472:Core/Src/main.c ****   {
+ 770              		.loc 1 472 6 discriminator 1 view .LVU226
+ 771 001e 00B9     		cbnz	r0, .L51
+ 479:Core/Src/main.c **** 
+ 772              		.loc 1 479 1 view .LVU227
+ 773 0020 08BD     		pop	{r3, pc}
+ 774              	.L51:
+ 474:Core/Src/main.c ****   }
+ 775              		.loc 1 474 5 is_stmt 1 view .LVU228
+ 776 0022 FFF7FEFF 		bl	Error_Handler
+ 777              	.LVL32:
+ 778              	.L53:
+ 779 0026 00BF     		.align	2
+ 780              	.L52:
+ 781 0028 00000000 		.word	hcomp4
+ 782 002c 28000140 		.word	1073807400
+ 783              		.cfi_endproc
+ 784              	.LFE134:
+ 786              		.section	.text.MX_DAC1_Init,"ax",%progbits
+ 787              		.align	1
+ 788              		.syntax unified
+ 789              		.thumb
+ 790              		.thumb_func
+ 792              	MX_DAC1_Init:
+ 793              	.LFB135:
+ 487:Core/Src/main.c **** 
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 35
+
+
+ 794              		.loc 1 487 1 view -0
+ 795              		.cfi_startproc
+ 796              		@ args = 0, pretend = 0, frame = 16
+ 797              		@ frame_needed = 0, uses_anonymous_args = 0
+ 798 0000 00B5     		push	{lr}
+ 799              	.LCFI18:
+ 800              		.cfi_def_cfa_offset 4
+ 801              		.cfi_offset 14, -4
+ 802 0002 85B0     		sub	sp, sp, #20
+ 803              	.LCFI19:
+ 804              		.cfi_def_cfa_offset 24
+ 493:Core/Src/main.c **** 
+ 805              		.loc 1 493 3 view .LVU230
+ 493:Core/Src/main.c **** 
+ 806              		.loc 1 493 26 is_stmt 0 view .LVU231
+ 807 0004 0023     		movs	r3, #0
+ 808 0006 0193     		str	r3, [sp, #4]
+ 809 0008 0293     		str	r3, [sp, #8]
+ 810 000a 0393     		str	r3, [sp, #12]
+ 501:Core/Src/main.c ****   if (HAL_DAC_Init(&hdac1) != HAL_OK)
+ 811              		.loc 1 501 3 is_stmt 1 view .LVU232
+ 501:Core/Src/main.c ****   if (HAL_DAC_Init(&hdac1) != HAL_OK)
+ 812              		.loc 1 501 18 is_stmt 0 view .LVU233
+ 813 000c 0948     		ldr	r0, .L60
+ 814 000e 0A4B     		ldr	r3, .L60+4
+ 815 0010 0360     		str	r3, [r0]
+ 502:Core/Src/main.c ****   {
+ 816              		.loc 1 502 3 is_stmt 1 view .LVU234
+ 502:Core/Src/main.c ****   {
+ 817              		.loc 1 502 7 is_stmt 0 view .LVU235
+ 818 0012 FFF7FEFF 		bl	HAL_DAC_Init
+ 819              	.LVL33:
+ 502:Core/Src/main.c ****   {
+ 820              		.loc 1 502 6 discriminator 1 view .LVU236
+ 821 0016 48B9     		cbnz	r0, .L58
+ 509:Core/Src/main.c ****   // sConfig.DAC_OutputSwitch = DAC_OUTPUTSWITCH_ENABLE;
+ 822              		.loc 1 509 3 is_stmt 1 view .LVU237
+ 509:Core/Src/main.c ****   // sConfig.DAC_OutputSwitch = DAC_OUTPUTSWITCH_ENABLE;
+ 823              		.loc 1 509 23 is_stmt 0 view .LVU238
+ 824 0018 0023     		movs	r3, #0
+ 825 001a 0193     		str	r3, [sp, #4]
+ 511:Core/Src/main.c ****   {
+ 826              		.loc 1 511 3 is_stmt 1 view .LVU239
+ 511:Core/Src/main.c ****   {
+ 827              		.loc 1 511 7 is_stmt 0 view .LVU240
+ 828 001c 1022     		movs	r2, #16
+ 829 001e 01A9     		add	r1, sp, #4
+ 830 0020 0448     		ldr	r0, .L60
+ 831 0022 FFF7FEFF 		bl	HAL_DAC_ConfigChannel
+ 832              	.LVL34:
+ 511:Core/Src/main.c ****   {
+ 833              		.loc 1 511 6 discriminator 1 view .LVU241
+ 834 0026 18B9     		cbnz	r0, .L59
+ 518:Core/Src/main.c **** 
+ 835              		.loc 1 518 1 view .LVU242
+ 836 0028 05B0     		add	sp, sp, #20
+ 837              	.LCFI20:
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 36
+
+
+ 838              		.cfi_remember_state
+ 839              		.cfi_def_cfa_offset 4
+ 840              		@ sp needed
+ 841 002a 00BD     		pop	{pc}
+ 842              	.L58:
+ 843              	.LCFI21:
+ 844              		.cfi_restore_state
+ 504:Core/Src/main.c ****   }
+ 845              		.loc 1 504 5 is_stmt 1 view .LVU243
+ 846 002c FFF7FEFF 		bl	Error_Handler
+ 847              	.LVL35:
+ 848              	.L59:
+ 513:Core/Src/main.c ****   }
+ 849              		.loc 1 513 5 view .LVU244
+ 850 0030 FFF7FEFF 		bl	Error_Handler
+ 851              	.LVL36:
+ 852              	.L61:
+ 853              		.align	2
+ 854              	.L60:
+ 855 0034 00000000 		.word	hdac1
+ 856 0038 00740040 		.word	1073771520
+ 857              		.cfi_endproc
+ 858              	.LFE135:
+ 860              		.section	.text.MX_TIM1_Init,"ax",%progbits
+ 861              		.align	1
+ 862              		.syntax unified
+ 863              		.thumb
+ 864              		.thumb_func
+ 866              	MX_TIM1_Init:
+ 867              	.LFB136:
+ 526:Core/Src/main.c **** 
+ 868              		.loc 1 526 1 view -0
+ 869              		.cfi_startproc
+ 870              		@ args = 0, pretend = 0, frame = 48
+ 871              		@ frame_needed = 0, uses_anonymous_args = 0
+ 872 0000 10B5     		push	{r4, lr}
+ 873              	.LCFI22:
+ 874              		.cfi_def_cfa_offset 8
+ 875              		.cfi_offset 4, -8
+ 876              		.cfi_offset 14, -4
+ 877 0002 8CB0     		sub	sp, sp, #48
+ 878              	.LCFI23:
+ 879              		.cfi_def_cfa_offset 56
+ 532:Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 880              		.loc 1 532 3 view .LVU246
+ 532:Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 881              		.loc 1 532 27 is_stmt 0 view .LVU247
+ 882 0004 03AC     		add	r4, sp, #12
+ 883 0006 2422     		movs	r2, #36
+ 884 0008 0021     		movs	r1, #0
+ 885 000a 2046     		mov	r0, r4
+ 886 000c FFF7FEFF 		bl	memset
+ 887              	.LVL37:
+ 533:Core/Src/main.c **** 
+ 888              		.loc 1 533 3 is_stmt 1 view .LVU248
+ 533:Core/Src/main.c **** 
+ 889              		.loc 1 533 27 is_stmt 0 view .LVU249
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 37
+
+
+ 890 0010 0023     		movs	r3, #0
+ 891 0012 0093     		str	r3, [sp]
+ 892 0014 0193     		str	r3, [sp, #4]
+ 893 0016 0293     		str	r3, [sp, #8]
+ 538:Core/Src/main.c ****   htim1.Init.Prescaler = 0;
+ 894              		.loc 1 538 3 is_stmt 1 view .LVU250
+ 538:Core/Src/main.c ****   htim1.Init.Prescaler = 0;
+ 895              		.loc 1 538 18 is_stmt 0 view .LVU251
+ 896 0018 1048     		ldr	r0, .L68
+ 897 001a 114A     		ldr	r2, .L68+4
+ 898 001c 0260     		str	r2, [r0]
+ 539:Core/Src/main.c ****   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 899              		.loc 1 539 3 is_stmt 1 view .LVU252
+ 539:Core/Src/main.c ****   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 900              		.loc 1 539 24 is_stmt 0 view .LVU253
+ 901 001e 4360     		str	r3, [r0, #4]
+ 540:Core/Src/main.c ****   htim1.Init.Period = 65535;
+ 902              		.loc 1 540 3 is_stmt 1 view .LVU254
+ 540:Core/Src/main.c ****   htim1.Init.Period = 65535;
+ 903              		.loc 1 540 26 is_stmt 0 view .LVU255
+ 904 0020 8360     		str	r3, [r0, #8]
+ 541:Core/Src/main.c ****   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 905              		.loc 1 541 3 is_stmt 1 view .LVU256
+ 541:Core/Src/main.c ****   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 906              		.loc 1 541 21 is_stmt 0 view .LVU257
+ 907 0022 4FF6FF72 		movw	r2, #65535
+ 908 0026 C260     		str	r2, [r0, #12]
+ 542:Core/Src/main.c ****   htim1.Init.RepetitionCounter = 0;
+ 909              		.loc 1 542 3 is_stmt 1 view .LVU258
+ 542:Core/Src/main.c ****   htim1.Init.RepetitionCounter = 0;
+ 910              		.loc 1 542 28 is_stmt 0 view .LVU259
+ 911 0028 0361     		str	r3, [r0, #16]
+ 543:Core/Src/main.c ****   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 912              		.loc 1 543 3 is_stmt 1 view .LVU260
+ 543:Core/Src/main.c ****   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 913              		.loc 1 543 32 is_stmt 0 view .LVU261
+ 914 002a 4361     		str	r3, [r0, #20]
+ 544:Core/Src/main.c ****   sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+ 915              		.loc 1 544 3 is_stmt 1 view .LVU262
+ 544:Core/Src/main.c ****   sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+ 916              		.loc 1 544 32 is_stmt 0 view .LVU263
+ 917 002c 8361     		str	r3, [r0, #24]
+ 545:Core/Src/main.c ****   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+ 918              		.loc 1 545 3 is_stmt 1 view .LVU264
+ 545:Core/Src/main.c ****   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+ 919              		.loc 1 545 23 is_stmt 0 view .LVU265
+ 920 002e 0123     		movs	r3, #1
+ 921 0030 0393     		str	r3, [sp, #12]
+ 546:Core/Src/main.c ****   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+ 922              		.loc 1 546 3 is_stmt 1 view .LVU266
+ 547:Core/Src/main.c ****   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+ 923              		.loc 1 547 3 view .LVU267
+ 547:Core/Src/main.c ****   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+ 924              		.loc 1 547 24 is_stmt 0 view .LVU268
+ 925 0032 0593     		str	r3, [sp, #20]
+ 548:Core/Src/main.c ****   sConfig.IC1Filter = 0;
+ 926              		.loc 1 548 3 is_stmt 1 view .LVU269
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 38
+
+
+ 549:Core/Src/main.c ****   sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+ 927              		.loc 1 549 3 view .LVU270
+ 550:Core/Src/main.c ****   sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+ 928              		.loc 1 550 3 view .LVU271
+ 551:Core/Src/main.c ****   sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+ 929              		.loc 1 551 3 view .LVU272
+ 551:Core/Src/main.c ****   sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+ 930              		.loc 1 551 24 is_stmt 0 view .LVU273
+ 931 0034 0993     		str	r3, [sp, #36]
+ 552:Core/Src/main.c ****   sConfig.IC2Filter = 0;
+ 932              		.loc 1 552 3 is_stmt 1 view .LVU274
+ 553:Core/Src/main.c ****   if (HAL_TIM_Encoder_Init(&htim1, &sConfig) != HAL_OK)
+ 933              		.loc 1 553 3 view .LVU275
+ 554:Core/Src/main.c ****   {
+ 934              		.loc 1 554 3 view .LVU276
+ 554:Core/Src/main.c ****   {
+ 935              		.loc 1 554 7 is_stmt 0 view .LVU277
+ 936 0036 2146     		mov	r1, r4
+ 937 0038 FFF7FEFF 		bl	HAL_TIM_Encoder_Init
+ 938              	.LVL38:
+ 554:Core/Src/main.c ****   {
+ 939              		.loc 1 554 6 discriminator 1 view .LVU278
+ 940 003c 50B9     		cbnz	r0, .L66
+ 558:Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
+ 941              		.loc 1 558 3 is_stmt 1 view .LVU279
+ 558:Core/Src/main.c ****   sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
+ 942              		.loc 1 558 37 is_stmt 0 view .LVU280
+ 943 003e 0023     		movs	r3, #0
+ 944 0040 0093     		str	r3, [sp]
+ 559:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 945              		.loc 1 559 3 is_stmt 1 view .LVU281
+ 559:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 946              		.loc 1 559 38 is_stmt 0 view .LVU282
+ 947 0042 0193     		str	r3, [sp, #4]
+ 560:Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+ 948              		.loc 1 560 3 is_stmt 1 view .LVU283
+ 560:Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+ 949              		.loc 1 560 33 is_stmt 0 view .LVU284
+ 950 0044 0293     		str	r3, [sp, #8]
+ 561:Core/Src/main.c ****   {
+ 951              		.loc 1 561 3 is_stmt 1 view .LVU285
+ 561:Core/Src/main.c ****   {
+ 952              		.loc 1 561 7 is_stmt 0 view .LVU286
+ 953 0046 6946     		mov	r1, sp
+ 954 0048 0448     		ldr	r0, .L68
+ 955 004a FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 956              	.LVL39:
+ 561:Core/Src/main.c ****   {
+ 957              		.loc 1 561 6 discriminator 1 view .LVU287
+ 958 004e 18B9     		cbnz	r0, .L67
+ 568:Core/Src/main.c **** 
+ 959              		.loc 1 568 1 view .LVU288
+ 960 0050 0CB0     		add	sp, sp, #48
+ 961              	.LCFI24:
+ 962              		.cfi_remember_state
+ 963              		.cfi_def_cfa_offset 8
+ 964              		@ sp needed
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 39
+
+
+ 965 0052 10BD     		pop	{r4, pc}
+ 966              	.L66:
+ 967              	.LCFI25:
+ 968              		.cfi_restore_state
+ 556:Core/Src/main.c ****   }
+ 969              		.loc 1 556 5 is_stmt 1 view .LVU289
+ 970 0054 FFF7FEFF 		bl	Error_Handler
+ 971              	.LVL40:
+ 972              	.L67:
+ 563:Core/Src/main.c ****   }
+ 973              		.loc 1 563 5 view .LVU290
+ 974 0058 FFF7FEFF 		bl	Error_Handler
+ 975              	.LVL41:
+ 976              	.L69:
+ 977              		.align	2
+ 978              	.L68:
+ 979 005c 00000000 		.word	htim1
+ 980 0060 002C0140 		.word	1073818624
+ 981              		.cfi_endproc
+ 982              	.LFE136:
+ 984              		.section	.text.MX_TIM2_Init,"ax",%progbits
+ 985              		.align	1
+ 986              		.syntax unified
+ 987              		.thumb
+ 988              		.thumb_func
+ 990              	MX_TIM2_Init:
+ 991              	.LFB137:
+ 576:Core/Src/main.c **** 
+ 992              		.loc 1 576 1 view -0
+ 993              		.cfi_startproc
+ 994              		@ args = 0, pretend = 0, frame = 56
+ 995              		@ frame_needed = 0, uses_anonymous_args = 0
+ 996 0000 00B5     		push	{lr}
+ 997              	.LCFI26:
+ 998              		.cfi_def_cfa_offset 4
+ 999              		.cfi_offset 14, -4
+ 1000 0002 8FB0     		sub	sp, sp, #60
+ 1001              	.LCFI27:
+ 1002              		.cfi_def_cfa_offset 64
+ 582:Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 1003              		.loc 1 582 3 view .LVU292
+ 582:Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 1004              		.loc 1 582 26 is_stmt 0 view .LVU293
+ 1005 0004 0023     		movs	r3, #0
+ 1006 0006 0A93     		str	r3, [sp, #40]
+ 1007 0008 0B93     		str	r3, [sp, #44]
+ 1008 000a 0C93     		str	r3, [sp, #48]
+ 1009 000c 0D93     		str	r3, [sp, #52]
+ 583:Core/Src/main.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 1010              		.loc 1 583 3 is_stmt 1 view .LVU294
+ 583:Core/Src/main.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 1011              		.loc 1 583 27 is_stmt 0 view .LVU295
+ 1012 000e 0793     		str	r3, [sp, #28]
+ 1013 0010 0893     		str	r3, [sp, #32]
+ 1014 0012 0993     		str	r3, [sp, #36]
+ 584:Core/Src/main.c **** 
+ 1015              		.loc 1 584 3 is_stmt 1 view .LVU296
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 40
+
+
+ 584:Core/Src/main.c **** 
+ 1016              		.loc 1 584 22 is_stmt 0 view .LVU297
+ 1017 0014 0093     		str	r3, [sp]
+ 1018 0016 0193     		str	r3, [sp, #4]
+ 1019 0018 0293     		str	r3, [sp, #8]
+ 1020 001a 0393     		str	r3, [sp, #12]
+ 1021 001c 0493     		str	r3, [sp, #16]
+ 1022 001e 0593     		str	r3, [sp, #20]
+ 1023 0020 0693     		str	r3, [sp, #24]
+ 589:Core/Src/main.c ****   htim2.Init.Prescaler = 3;
+ 1024              		.loc 1 589 3 is_stmt 1 view .LVU298
+ 589:Core/Src/main.c ****   htim2.Init.Prescaler = 3;
+ 1025              		.loc 1 589 18 is_stmt 0 view .LVU299
+ 1026 0022 2348     		ldr	r0, .L84
+ 1027 0024 4FF08042 		mov	r2, #1073741824
+ 1028 0028 0260     		str	r2, [r0]
+ 590:Core/Src/main.c ****   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1029              		.loc 1 590 3 is_stmt 1 view .LVU300
+ 590:Core/Src/main.c ****   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1030              		.loc 1 590 24 is_stmt 0 view .LVU301
+ 1031 002a 0322     		movs	r2, #3
+ 1032 002c 4260     		str	r2, [r0, #4]
+ 591:Core/Src/main.c ****   htim2.Init.Period = 2999;
+ 1033              		.loc 1 591 3 is_stmt 1 view .LVU302
+ 591:Core/Src/main.c ****   htim2.Init.Period = 2999;
+ 1034              		.loc 1 591 26 is_stmt 0 view .LVU303
+ 1035 002e 8360     		str	r3, [r0, #8]
+ 592:Core/Src/main.c ****   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1036              		.loc 1 592 3 is_stmt 1 view .LVU304
+ 592:Core/Src/main.c ****   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1037              		.loc 1 592 21 is_stmt 0 view .LVU305
+ 1038 0030 40F6B732 		movw	r2, #2999
+ 1039 0034 C260     		str	r2, [r0, #12]
+ 593:Core/Src/main.c ****   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+ 1040              		.loc 1 593 3 is_stmt 1 view .LVU306
+ 593:Core/Src/main.c ****   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+ 1041              		.loc 1 593 28 is_stmt 0 view .LVU307
+ 1042 0036 0361     		str	r3, [r0, #16]
+ 594:Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+ 1043              		.loc 1 594 3 is_stmt 1 view .LVU308
+ 594:Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+ 1044              		.loc 1 594 32 is_stmt 0 view .LVU309
+ 1045 0038 8023     		movs	r3, #128
+ 1046 003a 8361     		str	r3, [r0, #24]
+ 595:Core/Src/main.c ****   {
+ 1047              		.loc 1 595 3 is_stmt 1 view .LVU310
+ 595:Core/Src/main.c ****   {
+ 1048              		.loc 1 595 7 is_stmt 0 view .LVU311
+ 1049 003c FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 1050              	.LVL42:
+ 595:Core/Src/main.c ****   {
+ 1051              		.loc 1 595 6 discriminator 1 view .LVU312
+ 1052 0040 50BB     		cbnz	r0, .L78
+ 599:Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+ 1053              		.loc 1 599 3 is_stmt 1 view .LVU313
+ 599:Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+ 1054              		.loc 1 599 34 is_stmt 0 view .LVU314
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 41
+
+
+ 1055 0042 4FF48053 		mov	r3, #4096
+ 1056 0046 0A93     		str	r3, [sp, #40]
+ 600:Core/Src/main.c ****   {
+ 1057              		.loc 1 600 3 is_stmt 1 view .LVU315
+ 600:Core/Src/main.c ****   {
+ 1058              		.loc 1 600 7 is_stmt 0 view .LVU316
+ 1059 0048 0AA9     		add	r1, sp, #40
+ 1060 004a 1948     		ldr	r0, .L84
+ 1061 004c FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 1062              	.LVL43:
+ 600:Core/Src/main.c ****   {
+ 1063              		.loc 1 600 6 discriminator 1 view .LVU317
+ 1064 0050 20BB     		cbnz	r0, .L79
+ 604:Core/Src/main.c ****   {
+ 1065              		.loc 1 604 3 is_stmt 1 view .LVU318
+ 604:Core/Src/main.c ****   {
+ 1066              		.loc 1 604 7 is_stmt 0 view .LVU319
+ 1067 0052 1748     		ldr	r0, .L84
+ 1068 0054 FFF7FEFF 		bl	HAL_TIM_PWM_Init
+ 1069              	.LVL44:
+ 604:Core/Src/main.c ****   {
+ 1070              		.loc 1 604 6 discriminator 1 view .LVU320
+ 1071 0058 10BB     		cbnz	r0, .L80
+ 608:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 1072              		.loc 1 608 3 is_stmt 1 view .LVU321
+ 608:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 1073              		.loc 1 608 37 is_stmt 0 view .LVU322
+ 1074 005a 0023     		movs	r3, #0
+ 1075 005c 0793     		str	r3, [sp, #28]
+ 609:Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+ 1076              		.loc 1 609 3 is_stmt 1 view .LVU323
+ 609:Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+ 1077              		.loc 1 609 33 is_stmt 0 view .LVU324
+ 1078 005e 0993     		str	r3, [sp, #36]
+ 610:Core/Src/main.c ****   {
+ 1079              		.loc 1 610 3 is_stmt 1 view .LVU325
+ 610:Core/Src/main.c ****   {
+ 1080              		.loc 1 610 7 is_stmt 0 view .LVU326
+ 1081 0060 07A9     		add	r1, sp, #28
+ 1082 0062 1348     		ldr	r0, .L84
+ 1083 0064 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 1084              	.LVL45:
+ 610:Core/Src/main.c ****   {
+ 1085              		.loc 1 610 6 discriminator 1 view .LVU327
+ 1086 0068 E0B9     		cbnz	r0, .L81
+ 614:Core/Src/main.c ****   sConfigOC.Pulse = 0;
+ 1087              		.loc 1 614 3 is_stmt 1 view .LVU328
+ 614:Core/Src/main.c ****   sConfigOC.Pulse = 0;
+ 1088              		.loc 1 614 20 is_stmt 0 view .LVU329
+ 1089 006a 6023     		movs	r3, #96
+ 1090 006c 0093     		str	r3, [sp]
+ 615:Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 1091              		.loc 1 615 3 is_stmt 1 view .LVU330
+ 615:Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 1092              		.loc 1 615 19 is_stmt 0 view .LVU331
+ 1093 006e 0023     		movs	r3, #0
+ 1094 0070 0193     		str	r3, [sp, #4]
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 42
+
+
+ 616:Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 1095              		.loc 1 616 3 is_stmt 1 view .LVU332
+ 616:Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 1096              		.loc 1 616 24 is_stmt 0 view .LVU333
+ 1097 0072 0293     		str	r3, [sp, #8]
+ 617:Core/Src/main.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+ 1098              		.loc 1 617 3 is_stmt 1 view .LVU334
+ 617:Core/Src/main.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+ 1099              		.loc 1 617 24 is_stmt 0 view .LVU335
+ 1100 0074 0493     		str	r3, [sp, #16]
+ 618:Core/Src/main.c ****   {
+ 1101              		.loc 1 618 3 is_stmt 1 view .LVU336
+ 618:Core/Src/main.c ****   {
+ 1102              		.loc 1 618 7 is_stmt 0 view .LVU337
+ 1103 0076 0422     		movs	r2, #4
+ 1104 0078 6946     		mov	r1, sp
+ 1105 007a 0D48     		ldr	r0, .L84
+ 1106 007c FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 1107              	.LVL46:
+ 618:Core/Src/main.c ****   {
+ 1108              		.loc 1 618 6 discriminator 1 view .LVU338
+ 1109 0080 90B9     		cbnz	r0, .L82
+ 622:Core/Src/main.c ****   {
+ 1110              		.loc 1 622 3 is_stmt 1 view .LVU339
+ 622:Core/Src/main.c ****   {
+ 1111              		.loc 1 622 7 is_stmt 0 view .LVU340
+ 1112 0082 0C22     		movs	r2, #12
+ 1113 0084 6946     		mov	r1, sp
+ 1114 0086 0A48     		ldr	r0, .L84
+ 1115 0088 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 1116              	.LVL47:
+ 622:Core/Src/main.c ****   {
+ 1117              		.loc 1 622 6 discriminator 1 view .LVU341
+ 1118 008c 70B9     		cbnz	r0, .L83
+ 629:Core/Src/main.c **** }
+ 1119              		.loc 1 629 3 is_stmt 1 view .LVU342
+ 1120 008e 0848     		ldr	r0, .L84
+ 1121 0090 FFF7FEFF 		bl	HAL_TIM_MspPostInit
+ 1122              	.LVL48:
+ 630:Core/Src/main.c **** 
+ 1123              		.loc 1 630 1 is_stmt 0 view .LVU343
+ 1124 0094 0FB0     		add	sp, sp, #60
+ 1125              	.LCFI28:
+ 1126              		.cfi_remember_state
+ 1127              		.cfi_def_cfa_offset 4
+ 1128              		@ sp needed
+ 1129 0096 00BD     		pop	{pc}
+ 1130              	.L78:
+ 1131              	.LCFI29:
+ 1132              		.cfi_restore_state
+ 597:Core/Src/main.c ****   }
+ 1133              		.loc 1 597 5 is_stmt 1 view .LVU344
+ 1134 0098 FFF7FEFF 		bl	Error_Handler
+ 1135              	.LVL49:
+ 1136              	.L79:
+ 602:Core/Src/main.c ****   }
+ 1137              		.loc 1 602 5 view .LVU345
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 43
+
+
+ 1138 009c FFF7FEFF 		bl	Error_Handler
+ 1139              	.LVL50:
+ 1140              	.L80:
+ 606:Core/Src/main.c ****   }
+ 1141              		.loc 1 606 5 view .LVU346
+ 1142 00a0 FFF7FEFF 		bl	Error_Handler
+ 1143              	.LVL51:
+ 1144              	.L81:
+ 612:Core/Src/main.c ****   }
+ 1145              		.loc 1 612 5 view .LVU347
+ 1146 00a4 FFF7FEFF 		bl	Error_Handler
+ 1147              	.LVL52:
+ 1148              	.L82:
+ 620:Core/Src/main.c ****   }
+ 1149              		.loc 1 620 5 view .LVU348
+ 1150 00a8 FFF7FEFF 		bl	Error_Handler
+ 1151              	.LVL53:
+ 1152              	.L83:
+ 624:Core/Src/main.c ****   }
+ 1153              		.loc 1 624 5 view .LVU349
+ 1154 00ac FFF7FEFF 		bl	Error_Handler
+ 1155              	.LVL54:
+ 1156              	.L85:
+ 1157              		.align	2
+ 1158              	.L84:
+ 1159 00b0 00000000 		.word	htim2
+ 1160              		.cfi_endproc
+ 1161              	.LFE137:
+ 1163              		.section	.text.MX_TIM3_Init,"ax",%progbits
+ 1164              		.align	1
+ 1165              		.syntax unified
+ 1166              		.thumb
+ 1167              		.thumb_func
+ 1169              	MX_TIM3_Init:
+ 1170              	.LFB138:
+ 638:Core/Src/main.c **** 
+ 1171              		.loc 1 638 1 view -0
+ 1172              		.cfi_startproc
+ 1173              		@ args = 0, pretend = 0, frame = 56
+ 1174              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1175 0000 00B5     		push	{lr}
+ 1176              	.LCFI30:
+ 1177              		.cfi_def_cfa_offset 4
+ 1178              		.cfi_offset 14, -4
+ 1179 0002 8FB0     		sub	sp, sp, #60
+ 1180              	.LCFI31:
+ 1181              		.cfi_def_cfa_offset 64
+ 644:Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 1182              		.loc 1 644 3 view .LVU351
+ 644:Core/Src/main.c ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 1183              		.loc 1 644 26 is_stmt 0 view .LVU352
+ 1184 0004 0023     		movs	r3, #0
+ 1185 0006 0A93     		str	r3, [sp, #40]
+ 1186 0008 0B93     		str	r3, [sp, #44]
+ 1187 000a 0C93     		str	r3, [sp, #48]
+ 1188 000c 0D93     		str	r3, [sp, #52]
+ 645:Core/Src/main.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 44
+
+
+ 1189              		.loc 1 645 3 is_stmt 1 view .LVU353
+ 645:Core/Src/main.c ****   TIM_OC_InitTypeDef sConfigOC = {0};
+ 1190              		.loc 1 645 27 is_stmt 0 view .LVU354
+ 1191 000e 0793     		str	r3, [sp, #28]
+ 1192 0010 0893     		str	r3, [sp, #32]
+ 1193 0012 0993     		str	r3, [sp, #36]
+ 646:Core/Src/main.c **** 
+ 1194              		.loc 1 646 3 is_stmt 1 view .LVU355
+ 646:Core/Src/main.c **** 
+ 1195              		.loc 1 646 22 is_stmt 0 view .LVU356
+ 1196 0014 0093     		str	r3, [sp]
+ 1197 0016 0193     		str	r3, [sp, #4]
+ 1198 0018 0293     		str	r3, [sp, #8]
+ 1199 001a 0393     		str	r3, [sp, #12]
+ 1200 001c 0493     		str	r3, [sp, #16]
+ 1201 001e 0593     		str	r3, [sp, #20]
+ 1202 0020 0693     		str	r3, [sp, #24]
+ 651:Core/Src/main.c ****   htim3.Init.Prescaler = 59;
+ 1203              		.loc 1 651 3 is_stmt 1 view .LVU357
+ 651:Core/Src/main.c ****   htim3.Init.Prescaler = 59;
+ 1204              		.loc 1 651 18 is_stmt 0 view .LVU358
+ 1205 0022 1E48     		ldr	r0, .L98
+ 1206 0024 1E4A     		ldr	r2, .L98+4
+ 1207 0026 0260     		str	r2, [r0]
+ 652:Core/Src/main.c ****   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1208              		.loc 1 652 3 is_stmt 1 view .LVU359
+ 652:Core/Src/main.c ****   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1209              		.loc 1 652 24 is_stmt 0 view .LVU360
+ 1210 0028 3B22     		movs	r2, #59
+ 1211 002a 4260     		str	r2, [r0, #4]
+ 653:Core/Src/main.c ****   htim3.Init.Period = 19999;
+ 1212              		.loc 1 653 3 is_stmt 1 view .LVU361
+ 653:Core/Src/main.c ****   htim3.Init.Period = 19999;
+ 1213              		.loc 1 653 26 is_stmt 0 view .LVU362
+ 1214 002c 8360     		str	r3, [r0, #8]
+ 654:Core/Src/main.c ****   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1215              		.loc 1 654 3 is_stmt 1 view .LVU363
+ 654:Core/Src/main.c ****   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1216              		.loc 1 654 21 is_stmt 0 view .LVU364
+ 1217 002e 44F61F62 		movw	r2, #19999
+ 1218 0032 C260     		str	r2, [r0, #12]
+ 655:Core/Src/main.c ****   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 1219              		.loc 1 655 3 is_stmt 1 view .LVU365
+ 655:Core/Src/main.c ****   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 1220              		.loc 1 655 28 is_stmt 0 view .LVU366
+ 1221 0034 0361     		str	r3, [r0, #16]
+ 656:Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+ 1222              		.loc 1 656 3 is_stmt 1 view .LVU367
+ 656:Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+ 1223              		.loc 1 656 32 is_stmt 0 view .LVU368
+ 1224 0036 8361     		str	r3, [r0, #24]
+ 657:Core/Src/main.c ****   {
+ 1225              		.loc 1 657 3 is_stmt 1 view .LVU369
+ 657:Core/Src/main.c ****   {
+ 1226              		.loc 1 657 7 is_stmt 0 view .LVU370
+ 1227 0038 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 1228              	.LVL55:
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 45
+
+
+ 657:Core/Src/main.c ****   {
+ 1229              		.loc 1 657 6 discriminator 1 view .LVU371
+ 1230 003c 18BB     		cbnz	r0, .L93
+ 661:Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+ 1231              		.loc 1 661 3 is_stmt 1 view .LVU372
+ 661:Core/Src/main.c ****   if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+ 1232              		.loc 1 661 34 is_stmt 0 view .LVU373
+ 1233 003e 4FF48053 		mov	r3, #4096
+ 1234 0042 0A93     		str	r3, [sp, #40]
+ 662:Core/Src/main.c ****   {
+ 1235              		.loc 1 662 3 is_stmt 1 view .LVU374
+ 662:Core/Src/main.c ****   {
+ 1236              		.loc 1 662 7 is_stmt 0 view .LVU375
+ 1237 0044 0AA9     		add	r1, sp, #40
+ 1238 0046 1548     		ldr	r0, .L98
+ 1239 0048 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 1240              	.LVL56:
+ 662:Core/Src/main.c ****   {
+ 1241              		.loc 1 662 6 discriminator 1 view .LVU376
+ 1242 004c E8B9     		cbnz	r0, .L94
+ 666:Core/Src/main.c ****   {
+ 1243              		.loc 1 666 3 is_stmt 1 view .LVU377
+ 666:Core/Src/main.c ****   {
+ 1244              		.loc 1 666 7 is_stmt 0 view .LVU378
+ 1245 004e 1348     		ldr	r0, .L98
+ 1246 0050 FFF7FEFF 		bl	HAL_TIM_PWM_Init
+ 1247              	.LVL57:
+ 666:Core/Src/main.c ****   {
+ 1248              		.loc 1 666 6 discriminator 1 view .LVU379
+ 1249 0054 D8B9     		cbnz	r0, .L95
+ 670:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 1250              		.loc 1 670 3 is_stmt 1 view .LVU380
+ 670:Core/Src/main.c ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 1251              		.loc 1 670 37 is_stmt 0 view .LVU381
+ 1252 0056 0023     		movs	r3, #0
+ 1253 0058 0793     		str	r3, [sp, #28]
+ 671:Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+ 1254              		.loc 1 671 3 is_stmt 1 view .LVU382
+ 671:Core/Src/main.c ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+ 1255              		.loc 1 671 33 is_stmt 0 view .LVU383
+ 1256 005a 0993     		str	r3, [sp, #36]
+ 672:Core/Src/main.c ****   {
+ 1257              		.loc 1 672 3 is_stmt 1 view .LVU384
+ 672:Core/Src/main.c ****   {
+ 1258              		.loc 1 672 7 is_stmt 0 view .LVU385
+ 1259 005c 07A9     		add	r1, sp, #28
+ 1260 005e 0F48     		ldr	r0, .L98
+ 1261 0060 FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 1262              	.LVL58:
+ 672:Core/Src/main.c ****   {
+ 1263              		.loc 1 672 6 discriminator 1 view .LVU386
+ 1264 0064 A8B9     		cbnz	r0, .L96
+ 676:Core/Src/main.c ****   sConfigOC.Pulse = 0;
+ 1265              		.loc 1 676 3 is_stmt 1 view .LVU387
+ 676:Core/Src/main.c ****   sConfigOC.Pulse = 0;
+ 1266              		.loc 1 676 20 is_stmt 0 view .LVU388
+ 1267 0066 6023     		movs	r3, #96
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 46
+
+
+ 1268 0068 0093     		str	r3, [sp]
+ 677:Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 1269              		.loc 1 677 3 is_stmt 1 view .LVU389
+ 677:Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 1270              		.loc 1 677 19 is_stmt 0 view .LVU390
+ 1271 006a 0022     		movs	r2, #0
+ 1272 006c 0192     		str	r2, [sp, #4]
+ 678:Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 1273              		.loc 1 678 3 is_stmt 1 view .LVU391
+ 678:Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 1274              		.loc 1 678 24 is_stmt 0 view .LVU392
+ 1275 006e 0292     		str	r2, [sp, #8]
+ 679:Core/Src/main.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 1276              		.loc 1 679 3 is_stmt 1 view .LVU393
+ 679:Core/Src/main.c ****   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 1277              		.loc 1 679 24 is_stmt 0 view .LVU394
+ 1278 0070 0492     		str	r2, [sp, #16]
+ 680:Core/Src/main.c ****   {
+ 1279              		.loc 1 680 3 is_stmt 1 view .LVU395
+ 680:Core/Src/main.c ****   {
+ 1280              		.loc 1 680 7 is_stmt 0 view .LVU396
+ 1281 0072 6946     		mov	r1, sp
+ 1282 0074 0948     		ldr	r0, .L98
+ 1283 0076 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 1284              	.LVL59:
+ 680:Core/Src/main.c ****   {
+ 1285              		.loc 1 680 6 discriminator 1 view .LVU397
+ 1286 007a 60B9     		cbnz	r0, .L97
+ 687:Core/Src/main.c **** }
+ 1287              		.loc 1 687 3 is_stmt 1 view .LVU398
+ 1288 007c 0748     		ldr	r0, .L98
+ 1289 007e FFF7FEFF 		bl	HAL_TIM_MspPostInit
+ 1290              	.LVL60:
+ 688:Core/Src/main.c **** 
+ 1291              		.loc 1 688 1 is_stmt 0 view .LVU399
+ 1292 0082 0FB0     		add	sp, sp, #60
+ 1293              	.LCFI32:
+ 1294              		.cfi_remember_state
+ 1295              		.cfi_def_cfa_offset 4
+ 1296              		@ sp needed
+ 1297 0084 00BD     		pop	{pc}
+ 1298              	.L93:
+ 1299              	.LCFI33:
+ 1300              		.cfi_restore_state
+ 659:Core/Src/main.c ****   }
+ 1301              		.loc 1 659 5 is_stmt 1 view .LVU400
+ 1302 0086 FFF7FEFF 		bl	Error_Handler
+ 1303              	.LVL61:
+ 1304              	.L94:
+ 664:Core/Src/main.c ****   }
+ 1305              		.loc 1 664 5 view .LVU401
+ 1306 008a FFF7FEFF 		bl	Error_Handler
+ 1307              	.LVL62:
+ 1308              	.L95:
+ 668:Core/Src/main.c ****   }
+ 1309              		.loc 1 668 5 view .LVU402
+ 1310 008e FFF7FEFF 		bl	Error_Handler
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 47
+
+
+ 1311              	.LVL63:
+ 1312              	.L96:
+ 674:Core/Src/main.c ****   }
+ 1313              		.loc 1 674 5 view .LVU403
+ 1314 0092 FFF7FEFF 		bl	Error_Handler
+ 1315              	.LVL64:
+ 1316              	.L97:
+ 682:Core/Src/main.c ****   }
+ 1317              		.loc 1 682 5 view .LVU404
+ 1318 0096 FFF7FEFF 		bl	Error_Handler
+ 1319              	.LVL65:
+ 1320              	.L99:
+ 1321 009a 00BF     		.align	2
+ 1322              	.L98:
+ 1323 009c 00000000 		.word	htim3
+ 1324 00a0 00040040 		.word	1073742848
+ 1325              		.cfi_endproc
+ 1326              	.LFE138:
+ 1328              		.section	.text.MX_TIM17_Init,"ax",%progbits
+ 1329              		.align	1
+ 1330              		.syntax unified
+ 1331              		.thumb
+ 1332              		.thumb_func
+ 1334              	MX_TIM17_Init:
+ 1335              	.LFB139:
+ 696:Core/Src/main.c **** 
+ 1336              		.loc 1 696 1 view -0
+ 1337              		.cfi_startproc
+ 1338              		@ args = 0, pretend = 0, frame = 72
+ 1339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1340 0000 10B5     		push	{r4, lr}
+ 1341              	.LCFI34:
+ 1342              		.cfi_def_cfa_offset 8
+ 1343              		.cfi_offset 4, -8
+ 1344              		.cfi_offset 14, -4
+ 1345 0002 92B0     		sub	sp, sp, #72
+ 1346              	.LCFI35:
+ 1347              		.cfi_def_cfa_offset 80
+ 702:Core/Src/main.c ****   TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig = {0};
+ 1348              		.loc 1 702 3 view .LVU406
+ 702:Core/Src/main.c ****   TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig = {0};
+ 1349              		.loc 1 702 22 is_stmt 0 view .LVU407
+ 1350 0004 0024     		movs	r4, #0
+ 1351 0006 0B94     		str	r4, [sp, #44]
+ 1352 0008 0C94     		str	r4, [sp, #48]
+ 1353 000a 0D94     		str	r4, [sp, #52]
+ 1354 000c 0E94     		str	r4, [sp, #56]
+ 1355 000e 0F94     		str	r4, [sp, #60]
+ 1356 0010 1094     		str	r4, [sp, #64]
+ 1357 0012 1194     		str	r4, [sp, #68]
+ 703:Core/Src/main.c **** 
+ 1358              		.loc 1 703 3 is_stmt 1 view .LVU408
+ 703:Core/Src/main.c **** 
+ 1359              		.loc 1 703 34 is_stmt 0 view .LVU409
+ 1360 0014 2C22     		movs	r2, #44
+ 1361 0016 2146     		mov	r1, r4
+ 1362 0018 6846     		mov	r0, sp
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 48
+
+
+ 1363 001a FFF7FEFF 		bl	memset
+ 1364              	.LVL66:
+ 708:Core/Src/main.c ****   htim17.Init.Prescaler = 59999;
+ 1365              		.loc 1 708 3 is_stmt 1 view .LVU410
+ 708:Core/Src/main.c ****   htim17.Init.Prescaler = 59999;
+ 1366              		.loc 1 708 19 is_stmt 0 view .LVU411
+ 1367 001e 1F48     		ldr	r0, .L110
+ 1368 0020 1F4B     		ldr	r3, .L110+4
+ 1369 0022 0360     		str	r3, [r0]
+ 709:Core/Src/main.c ****   htim17.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1370              		.loc 1 709 3 is_stmt 1 view .LVU412
+ 709:Core/Src/main.c ****   htim17.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 1371              		.loc 1 709 25 is_stmt 0 view .LVU413
+ 1372 0024 4EF65F23 		movw	r3, #59999
+ 1373 0028 4360     		str	r3, [r0, #4]
+ 710:Core/Src/main.c ****   htim17.Init.Period = 39;
+ 1374              		.loc 1 710 3 is_stmt 1 view .LVU414
+ 710:Core/Src/main.c ****   htim17.Init.Period = 39;
+ 1375              		.loc 1 710 27 is_stmt 0 view .LVU415
+ 1376 002a 8460     		str	r4, [r0, #8]
+ 711:Core/Src/main.c ****   htim17.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1377              		.loc 1 711 3 is_stmt 1 view .LVU416
+ 711:Core/Src/main.c ****   htim17.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 1378              		.loc 1 711 22 is_stmt 0 view .LVU417
+ 1379 002c 2723     		movs	r3, #39
+ 1380 002e C360     		str	r3, [r0, #12]
+ 712:Core/Src/main.c ****   htim17.Init.RepetitionCounter = 0;
+ 1381              		.loc 1 712 3 is_stmt 1 view .LVU418
+ 712:Core/Src/main.c ****   htim17.Init.RepetitionCounter = 0;
+ 1382              		.loc 1 712 29 is_stmt 0 view .LVU419
+ 1383 0030 0461     		str	r4, [r0, #16]
+ 713:Core/Src/main.c ****   htim17.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 1384              		.loc 1 713 3 is_stmt 1 view .LVU420
+ 713:Core/Src/main.c ****   htim17.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+ 1385              		.loc 1 713 33 is_stmt 0 view .LVU421
+ 1386 0032 4461     		str	r4, [r0, #20]
+ 714:Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim17) != HAL_OK)
+ 1387              		.loc 1 714 3 is_stmt 1 view .LVU422
+ 714:Core/Src/main.c ****   if (HAL_TIM_Base_Init(&htim17) != HAL_OK)
+ 1388              		.loc 1 714 33 is_stmt 0 view .LVU423
+ 1389 0034 8461     		str	r4, [r0, #24]
+ 715:Core/Src/main.c ****   {
+ 1390              		.loc 1 715 3 is_stmt 1 view .LVU424
+ 715:Core/Src/main.c ****   {
+ 1391              		.loc 1 715 7 is_stmt 0 view .LVU425
+ 1392 0036 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 1393              	.LVL67:
+ 715:Core/Src/main.c ****   {
+ 1394              		.loc 1 715 6 discriminator 1 view .LVU426
+ 1395 003a 30BB     		cbnz	r0, .L106
+ 719:Core/Src/main.c ****   {
+ 1396              		.loc 1 719 3 is_stmt 1 view .LVU427
+ 719:Core/Src/main.c ****   {
+ 1397              		.loc 1 719 7 is_stmt 0 view .LVU428
+ 1398 003c 1748     		ldr	r0, .L110
+ 1399 003e FFF7FEFF 		bl	HAL_TIM_OC_Init
+ 1400              	.LVL68:
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 49
+
+
+ 719:Core/Src/main.c ****   {
+ 1401              		.loc 1 719 6 discriminator 1 view .LVU429
+ 1402 0042 20BB     		cbnz	r0, .L107
+ 723:Core/Src/main.c ****   sConfigOC.Pulse = 0;
+ 1403              		.loc 1 723 3 is_stmt 1 view .LVU430
+ 723:Core/Src/main.c ****   sConfigOC.Pulse = 0;
+ 1404              		.loc 1 723 20 is_stmt 0 view .LVU431
+ 1405 0044 3023     		movs	r3, #48
+ 1406 0046 0B93     		str	r3, [sp, #44]
+ 724:Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 1407              		.loc 1 724 3 is_stmt 1 view .LVU432
+ 724:Core/Src/main.c ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 1408              		.loc 1 724 19 is_stmt 0 view .LVU433
+ 1409 0048 0022     		movs	r2, #0
+ 1410 004a 0C92     		str	r2, [sp, #48]
+ 725:Core/Src/main.c ****   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
+ 1411              		.loc 1 725 3 is_stmt 1 view .LVU434
+ 725:Core/Src/main.c ****   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
+ 1412              		.loc 1 725 24 is_stmt 0 view .LVU435
+ 1413 004c 0D92     		str	r2, [sp, #52]
+ 726:Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 1414              		.loc 1 726 3 is_stmt 1 view .LVU436
+ 726:Core/Src/main.c ****   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 1415              		.loc 1 726 25 is_stmt 0 view .LVU437
+ 1416 004e 0E92     		str	r2, [sp, #56]
+ 727:Core/Src/main.c ****   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
+ 1417              		.loc 1 727 3 is_stmt 1 view .LVU438
+ 727:Core/Src/main.c ****   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
+ 1418              		.loc 1 727 24 is_stmt 0 view .LVU439
+ 1419 0050 0F92     		str	r2, [sp, #60]
+ 728:Core/Src/main.c ****   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+ 1420              		.loc 1 728 3 is_stmt 1 view .LVU440
+ 728:Core/Src/main.c ****   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+ 1421              		.loc 1 728 25 is_stmt 0 view .LVU441
+ 1422 0052 1092     		str	r2, [sp, #64]
+ 729:Core/Src/main.c ****   if (HAL_TIM_OC_ConfigChannel(&htim17, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 1423              		.loc 1 729 3 is_stmt 1 view .LVU442
+ 729:Core/Src/main.c ****   if (HAL_TIM_OC_ConfigChannel(&htim17, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 1424              		.loc 1 729 26 is_stmt 0 view .LVU443
+ 1425 0054 1192     		str	r2, [sp, #68]
+ 730:Core/Src/main.c ****   {
+ 1426              		.loc 1 730 3 is_stmt 1 view .LVU444
+ 730:Core/Src/main.c ****   {
+ 1427              		.loc 1 730 7 is_stmt 0 view .LVU445
+ 1428 0056 0BA9     		add	r1, sp, #44
+ 1429 0058 1048     		ldr	r0, .L110
+ 1430 005a FFF7FEFF 		bl	HAL_TIM_OC_ConfigChannel
+ 1431              	.LVL69:
+ 730:Core/Src/main.c ****   {
+ 1432              		.loc 1 730 6 discriminator 1 view .LVU446
+ 1433 005e C0B9     		cbnz	r0, .L108
+ 734:Core/Src/main.c ****   sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
+ 1434              		.loc 1 734 3 is_stmt 1 view .LVU447
+ 734:Core/Src/main.c ****   sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
+ 1435              		.loc 1 734 40 is_stmt 0 view .LVU448
+ 1436 0060 0023     		movs	r3, #0
+ 1437 0062 0093     		str	r3, [sp]
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 50
+
+
+ 735:Core/Src/main.c ****   sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
+ 1438              		.loc 1 735 3 is_stmt 1 view .LVU449
+ 735:Core/Src/main.c ****   sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
+ 1439              		.loc 1 735 41 is_stmt 0 view .LVU450
+ 1440 0064 0193     		str	r3, [sp, #4]
+ 736:Core/Src/main.c ****   sBreakDeadTimeConfig.DeadTime = 0;
+ 1441              		.loc 1 736 3 is_stmt 1 view .LVU451
+ 736:Core/Src/main.c ****   sBreakDeadTimeConfig.DeadTime = 0;
+ 1442              		.loc 1 736 34 is_stmt 0 view .LVU452
+ 1443 0066 0293     		str	r3, [sp, #8]
+ 737:Core/Src/main.c ****   sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
+ 1444              		.loc 1 737 3 is_stmt 1 view .LVU453
+ 737:Core/Src/main.c ****   sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
+ 1445              		.loc 1 737 33 is_stmt 0 view .LVU454
+ 1446 0068 0393     		str	r3, [sp, #12]
+ 738:Core/Src/main.c ****   sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
+ 1447              		.loc 1 738 3 is_stmt 1 view .LVU455
+ 738:Core/Src/main.c ****   sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
+ 1448              		.loc 1 738 35 is_stmt 0 view .LVU456
+ 1449 006a 0493     		str	r3, [sp, #16]
+ 739:Core/Src/main.c ****   sBreakDeadTimeConfig.BreakFilter = 0;
+ 1450              		.loc 1 739 3 is_stmt 1 view .LVU457
+ 739:Core/Src/main.c ****   sBreakDeadTimeConfig.BreakFilter = 0;
+ 1451              		.loc 1 739 38 is_stmt 0 view .LVU458
+ 1452 006c 4FF40052 		mov	r2, #8192
+ 1453 0070 0592     		str	r2, [sp, #20]
+ 740:Core/Src/main.c ****   sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
+ 1454              		.loc 1 740 3 is_stmt 1 view .LVU459
+ 740:Core/Src/main.c ****   sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
+ 1455              		.loc 1 740 36 is_stmt 0 view .LVU460
+ 1456 0072 0693     		str	r3, [sp, #24]
+ 741:Core/Src/main.c ****   if (HAL_TIMEx_ConfigBreakDeadTime(&htim17, &sBreakDeadTimeConfig) != HAL_OK)
+ 1457              		.loc 1 741 3 is_stmt 1 view .LVU461
+ 741:Core/Src/main.c ****   if (HAL_TIMEx_ConfigBreakDeadTime(&htim17, &sBreakDeadTimeConfig) != HAL_OK)
+ 1458              		.loc 1 741 40 is_stmt 0 view .LVU462
+ 1459 0074 0A93     		str	r3, [sp, #40]
+ 742:Core/Src/main.c ****   {
+ 1460              		.loc 1 742 3 is_stmt 1 view .LVU463
+ 742:Core/Src/main.c ****   {
+ 1461              		.loc 1 742 7 is_stmt 0 view .LVU464
+ 1462 0076 6946     		mov	r1, sp
+ 1463 0078 0848     		ldr	r0, .L110
+ 1464 007a FFF7FEFF 		bl	HAL_TIMEx_ConfigBreakDeadTime
+ 1465              	.LVL70:
+ 742:Core/Src/main.c ****   {
+ 1466              		.loc 1 742 6 discriminator 1 view .LVU465
+ 1467 007e 50B9     		cbnz	r0, .L109
+ 749:Core/Src/main.c **** }
+ 1468              		.loc 1 749 3 is_stmt 1 view .LVU466
+ 1469 0080 0648     		ldr	r0, .L110
+ 1470 0082 FFF7FEFF 		bl	HAL_TIM_MspPostInit
+ 1471              	.LVL71:
+ 750:Core/Src/main.c **** 
+ 1472              		.loc 1 750 1 is_stmt 0 view .LVU467
+ 1473 0086 12B0     		add	sp, sp, #72
+ 1474              	.LCFI36:
+ 1475              		.cfi_remember_state
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 51
+
+
+ 1476              		.cfi_def_cfa_offset 8
+ 1477              		@ sp needed
+ 1478 0088 10BD     		pop	{r4, pc}
+ 1479              	.L106:
+ 1480              	.LCFI37:
+ 1481              		.cfi_restore_state
+ 717:Core/Src/main.c ****   }
+ 1482              		.loc 1 717 5 is_stmt 1 view .LVU468
+ 1483 008a FFF7FEFF 		bl	Error_Handler
+ 1484              	.LVL72:
+ 1485              	.L107:
+ 721:Core/Src/main.c ****   }
+ 1486              		.loc 1 721 5 view .LVU469
+ 1487 008e FFF7FEFF 		bl	Error_Handler
+ 1488              	.LVL73:
+ 1489              	.L108:
+ 732:Core/Src/main.c ****   }
+ 1490              		.loc 1 732 5 view .LVU470
+ 1491 0092 FFF7FEFF 		bl	Error_Handler
+ 1492              	.LVL74:
+ 1493              	.L109:
+ 744:Core/Src/main.c ****   }
+ 1494              		.loc 1 744 5 view .LVU471
+ 1495 0096 FFF7FEFF 		bl	Error_Handler
+ 1496              	.LVL75:
+ 1497              	.L111:
+ 1498 009a 00BF     		.align	2
+ 1499              	.L110:
+ 1500 009c 00000000 		.word	htim17
+ 1501 00a0 00480140 		.word	1073825792
+ 1502              		.cfi_endproc
+ 1503              	.LFE139:
+ 1505              		.section	.text.SystemClock_Config,"ax",%progbits
+ 1506              		.align	1
+ 1507              		.global	SystemClock_Config
+ 1508              		.syntax unified
+ 1509              		.thumb
+ 1510              		.thumb_func
+ 1512              	SystemClock_Config:
+ 1513              	.LFB132:
+ 356:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 1514              		.loc 1 356 1 view -0
+ 1515              		.cfi_startproc
+ 1516              		@ args = 0, pretend = 0, frame = 88
+ 1517              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1518 0000 10B5     		push	{r4, lr}
+ 1519              	.LCFI38:
+ 1520              		.cfi_def_cfa_offset 8
+ 1521              		.cfi_offset 4, -8
+ 1522              		.cfi_offset 14, -4
+ 1523 0002 96B0     		sub	sp, sp, #88
+ 1524              	.LCFI39:
+ 1525              		.cfi_def_cfa_offset 96
+ 357:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 1526              		.loc 1 357 3 view .LVU473
+ 357:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 1527              		.loc 1 357 22 is_stmt 0 view .LVU474
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 52
+
+
+ 1528 0004 0CAC     		add	r4, sp, #48
+ 1529 0006 2822     		movs	r2, #40
+ 1530 0008 0021     		movs	r1, #0
+ 1531 000a 2046     		mov	r0, r4
+ 1532 000c FFF7FEFF 		bl	memset
+ 1533              	.LVL76:
+ 358:Core/Src/main.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+ 1534              		.loc 1 358 3 is_stmt 1 view .LVU475
+ 358:Core/Src/main.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+ 1535              		.loc 1 358 22 is_stmt 0 view .LVU476
+ 1536 0010 0023     		movs	r3, #0
+ 1537 0012 0793     		str	r3, [sp, #28]
+ 1538 0014 0893     		str	r3, [sp, #32]
+ 1539 0016 0993     		str	r3, [sp, #36]
+ 1540 0018 0A93     		str	r3, [sp, #40]
+ 1541 001a 0B93     		str	r3, [sp, #44]
+ 359:Core/Src/main.c **** 
+ 1542              		.loc 1 359 3 is_stmt 1 view .LVU477
+ 359:Core/Src/main.c **** 
+ 1543              		.loc 1 359 28 is_stmt 0 view .LVU478
+ 1544 001c 0193     		str	r3, [sp, #4]
+ 1545 001e 0293     		str	r3, [sp, #8]
+ 1546 0020 0393     		str	r3, [sp, #12]
+ 1547 0022 0493     		str	r3, [sp, #16]
+ 1548 0024 0593     		str	r3, [sp, #20]
+ 1549 0026 0693     		str	r3, [sp, #24]
+ 364:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 1550              		.loc 1 364 3 is_stmt 1 view .LVU479
+ 364:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 1551              		.loc 1 364 36 is_stmt 0 view .LVU480
+ 1552 0028 0223     		movs	r3, #2
+ 1553 002a 0C93     		str	r3, [sp, #48]
+ 365:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 1554              		.loc 1 365 3 is_stmt 1 view .LVU481
+ 365:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 1555              		.loc 1 365 30 is_stmt 0 view .LVU482
+ 1556 002c 0122     		movs	r2, #1
+ 1557 002e 1092     		str	r2, [sp, #64]
+ 366:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 1558              		.loc 1 366 3 is_stmt 1 view .LVU483
+ 366:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 1559              		.loc 1 366 41 is_stmt 0 view .LVU484
+ 1560 0030 1022     		movs	r2, #16
+ 1561 0032 1192     		str	r2, [sp, #68]
+ 367:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+ 1562              		.loc 1 367 3 is_stmt 1 view .LVU485
+ 367:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+ 1563              		.loc 1 367 34 is_stmt 0 view .LVU486
+ 1564 0034 1393     		str	r3, [sp, #76]
+ 368:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL15;
+ 1565              		.loc 1 368 3 is_stmt 1 view .LVU487
+ 369:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 1566              		.loc 1 369 3 view .LVU488
+ 369:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 1567              		.loc 1 369 32 is_stmt 0 view .LVU489
+ 1568 0036 4FF45013 		mov	r3, #3407872
+ 1569 003a 1593     		str	r3, [sp, #84]
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 53
+
+
+ 370:Core/Src/main.c ****   {
+ 1570              		.loc 1 370 3 is_stmt 1 view .LVU490
+ 370:Core/Src/main.c ****   {
+ 1571              		.loc 1 370 7 is_stmt 0 view .LVU491
+ 1572 003c 2046     		mov	r0, r4
+ 1573 003e FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 1574              	.LVL77:
+ 370:Core/Src/main.c ****   {
+ 1575              		.loc 1 370 6 discriminator 1 view .LVU492
+ 1576 0042 C0B9     		cbnz	r0, .L117
+ 377:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 1577              		.loc 1 377 3 is_stmt 1 view .LVU493
+ 377:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 1578              		.loc 1 377 31 is_stmt 0 view .LVU494
+ 1579 0044 0F23     		movs	r3, #15
+ 1580 0046 0793     		str	r3, [sp, #28]
+ 378:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 1581              		.loc 1 378 3 is_stmt 1 view .LVU495
+ 378:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 1582              		.loc 1 378 34 is_stmt 0 view .LVU496
+ 1583 0048 0221     		movs	r1, #2
+ 1584 004a 0891     		str	r1, [sp, #32]
+ 379:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 1585              		.loc 1 379 3 is_stmt 1 view .LVU497
+ 379:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 1586              		.loc 1 379 35 is_stmt 0 view .LVU498
+ 1587 004c 0023     		movs	r3, #0
+ 1588 004e 0993     		str	r3, [sp, #36]
+ 380:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 1589              		.loc 1 380 3 is_stmt 1 view .LVU499
+ 380:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 1590              		.loc 1 380 36 is_stmt 0 view .LVU500
+ 1591 0050 4FF48062 		mov	r2, #1024
+ 1592 0054 0A92     		str	r2, [sp, #40]
+ 381:Core/Src/main.c **** 
+ 1593              		.loc 1 381 3 is_stmt 1 view .LVU501
+ 381:Core/Src/main.c **** 
+ 1594              		.loc 1 381 36 is_stmt 0 view .LVU502
+ 1595 0056 0B93     		str	r3, [sp, #44]
+ 383:Core/Src/main.c ****   {
+ 1596              		.loc 1 383 3 is_stmt 1 view .LVU503
+ 383:Core/Src/main.c ****   {
+ 1597              		.loc 1 383 7 is_stmt 0 view .LVU504
+ 1598 0058 07A8     		add	r0, sp, #28
+ 1599 005a FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 1600              	.LVL78:
+ 383:Core/Src/main.c ****   {
+ 1601              		.loc 1 383 6 discriminator 1 view .LVU505
+ 1602 005e 60B9     		cbnz	r0, .L118
+ 387:Core/Src/main.c ****   PeriphClkInit.Tim1ClockSelection = RCC_TIM1CLK_HCLK;
+ 1603              		.loc 1 387 3 is_stmt 1 view .LVU506
+ 387:Core/Src/main.c ****   PeriphClkInit.Tim1ClockSelection = RCC_TIM1CLK_HCLK;
+ 1604              		.loc 1 387 38 is_stmt 0 view .LVU507
+ 1605 0060 4FF48053 		mov	r3, #4096
+ 1606 0064 0193     		str	r3, [sp, #4]
+ 388:Core/Src/main.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+ 1607              		.loc 1 388 3 is_stmt 1 view .LVU508
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 54
+
+
+ 388:Core/Src/main.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+ 1608              		.loc 1 388 36 is_stmt 0 view .LVU509
+ 1609 0066 0023     		movs	r3, #0
+ 1610 0068 0693     		str	r3, [sp, #24]
+ 389:Core/Src/main.c ****   {
+ 1611              		.loc 1 389 3 is_stmt 1 view .LVU510
+ 389:Core/Src/main.c ****   {
+ 1612              		.loc 1 389 7 is_stmt 0 view .LVU511
+ 1613 006a 01A8     		add	r0, sp, #4
+ 1614 006c FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
+ 1615              	.LVL79:
+ 389:Core/Src/main.c ****   {
+ 1616              		.loc 1 389 6 discriminator 1 view .LVU512
+ 1617 0070 28B9     		cbnz	r0, .L119
+ 393:Core/Src/main.c **** 
+ 1618              		.loc 1 393 1 view .LVU513
+ 1619 0072 16B0     		add	sp, sp, #88
+ 1620              	.LCFI40:
+ 1621              		.cfi_remember_state
+ 1622              		.cfi_def_cfa_offset 8
+ 1623              		@ sp needed
+ 1624 0074 10BD     		pop	{r4, pc}
+ 1625              	.L117:
+ 1626              	.LCFI41:
+ 1627              		.cfi_restore_state
+ 372:Core/Src/main.c ****   }
+ 1628              		.loc 1 372 5 is_stmt 1 view .LVU514
+ 1629 0076 FFF7FEFF 		bl	Error_Handler
+ 1630              	.LVL80:
+ 1631              	.L118:
+ 385:Core/Src/main.c ****   }
+ 1632              		.loc 1 385 5 view .LVU515
+ 1633 007a FFF7FEFF 		bl	Error_Handler
+ 1634              	.LVL81:
+ 1635              	.L119:
+ 391:Core/Src/main.c ****   }
+ 1636              		.loc 1 391 5 view .LVU516
+ 1637 007e FFF7FEFF 		bl	Error_Handler
+ 1638              	.LVL82:
+ 1639              		.cfi_endproc
+ 1640              	.LFE132:
+ 1642              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+ 1643              		.align	2
+ 1644              	.LC0:
+ 1645 0000 746F6D61 		.ascii	"tomarimasu\000"
+ 1645      72696D61 
+ 1645      737500
+ 1646 000b 00       		.align	2
+ 1647              	.LC1:
+ 1648 000c 70776D31 		.ascii	"pwm1\000"
+ 1648      00
+ 1649 0011 000000   		.align	2
+ 1650              	.LC2:
+ 1651 0014 70776D32 		.ascii	"pwm2\000"
+ 1651      00
+ 1652 0019 000000   		.align	2
+ 1653              	.LC3:
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 55
+
+
+ 1654 001c 746F6269 		.ascii	"tobimasu\000"
+ 1654      6D617375 
+ 1654      00
+ 1655              		.section	.text.main,"ax",%progbits
+ 1656              		.align	1
+ 1657              		.global	main
+ 1658              		.syntax unified
+ 1659              		.thumb
+ 1660              		.thumb_func
+ 1662              	main:
+ 1663              	.LFB131:
+ 185:Core/Src/main.c **** 
+ 1664              		.loc 1 185 1 view -0
+ 1665              		.cfi_startproc
+ 1666              		@ args = 0, pretend = 0, frame = 8
+ 1667              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1668 0000 70B5     		push	{r4, r5, r6, lr}
+ 1669              	.LCFI42:
+ 1670              		.cfi_def_cfa_offset 16
+ 1671              		.cfi_offset 4, -16
+ 1672              		.cfi_offset 5, -12
+ 1673              		.cfi_offset 6, -8
+ 1674              		.cfi_offset 14, -4
+ 1675 0002 82B0     		sub	sp, sp, #8
+ 1676              	.LCFI43:
+ 1677              		.cfi_def_cfa_offset 24
+ 188:Core/Src/main.c ****   /* USER CODE END 1 */
+ 1678              		.loc 1 188 3 view .LVU518
+ 188:Core/Src/main.c ****   /* USER CODE END 1 */
+ 1679              		.loc 1 188 10 is_stmt 0 view .LVU519
+ 1680 0004 7E4B     		ldr	r3, .L137
+ 1681 0006 1B68     		ldr	r3, [r3]
+ 188:Core/Src/main.c ****   /* USER CODE END 1 */
+ 1682              		.loc 1 188 3 view .LVU520
+ 1683 0008 0021     		movs	r1, #0
+ 1684 000a 9868     		ldr	r0, [r3, #8]
+ 1685 000c FFF7FEFF 		bl	setbuf
+ 1686              	.LVL83:
+ 194:Core/Src/main.c **** 
+ 1687              		.loc 1 194 3 is_stmt 1 view .LVU521
+ 1688 0010 FFF7FEFF 		bl	HAL_Init
+ 1689              	.LVL84:
+ 201:Core/Src/main.c **** 
+ 1690              		.loc 1 201 3 view .LVU522
+ 1691 0014 FFF7FEFF 		bl	SystemClock_Config
+ 1692              	.LVL85:
+ 208:Core/Src/main.c ****   MX_USART2_UART_Init();
+ 1693              		.loc 1 208 3 view .LVU523
+ 1694 0018 FFF7FEFF 		bl	MX_GPIO_Init
+ 1695              	.LVL86:
+ 209:Core/Src/main.c ****   MX_CAN_Init();
+ 1696              		.loc 1 209 3 view .LVU524
+ 1697 001c FFF7FEFF 		bl	MX_USART2_UART_Init
+ 1698              	.LVL87:
+ 210:Core/Src/main.c ****   MX_COMP4_Init();
+ 1699              		.loc 1 210 3 view .LVU525
+ 1700 0020 FFF7FEFF 		bl	MX_CAN_Init
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 56
+
+
+ 1701              	.LVL88:
+ 211:Core/Src/main.c ****   MX_DAC1_Init();
+ 1702              		.loc 1 211 3 view .LVU526
+ 1703 0024 FFF7FEFF 		bl	MX_COMP4_Init
+ 1704              	.LVL89:
+ 212:Core/Src/main.c ****   MX_TIM1_Init();
+ 1705              		.loc 1 212 3 view .LVU527
+ 1706 0028 FFF7FEFF 		bl	MX_DAC1_Init
+ 1707              	.LVL90:
+ 213:Core/Src/main.c ****   MX_TIM2_Init();
+ 1708              		.loc 1 213 3 view .LVU528
+ 1709 002c FFF7FEFF 		bl	MX_TIM1_Init
+ 1710              	.LVL91:
+ 214:Core/Src/main.c ****   MX_TIM3_Init();
+ 1711              		.loc 1 214 3 view .LVU529
+ 1712 0030 FFF7FEFF 		bl	MX_TIM2_Init
+ 1713              	.LVL92:
+ 215:Core/Src/main.c ****   MX_TIM17_Init();
+ 1714              		.loc 1 215 3 view .LVU530
+ 1715 0034 FFF7FEFF 		bl	MX_TIM3_Init
+ 1716              	.LVL93:
+ 216:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
+ 1717              		.loc 1 216 3 view .LVU531
+ 1718 0038 FFF7FEFF 		bl	MX_TIM17_Init
+ 1719              	.LVL94:
+ 218:Core/Src/main.c ****   HAL_DAC_Start(&hdac1, DAC_CHANNEL_2);
+ 1720              		.loc 1 218 3 view .LVU532
+ 1721 003c 7148     		ldr	r0, .L137+4
+ 1722 003e FFF7FEFF 		bl	HAL_COMP_Start
+ 1723              	.LVL95:
+ 219:Core/Src/main.c ****   HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, 2122); // 1.71v
+ 1724              		.loc 1 219 3 view .LVU533
+ 1725 0042 714C     		ldr	r4, .L137+8
+ 1726 0044 1021     		movs	r1, #16
+ 1727 0046 2046     		mov	r0, r4
+ 1728 0048 FFF7FEFF 		bl	HAL_DAC_Start
+ 1729              	.LVL96:
+ 220:Core/Src/main.c **** 
+ 1730              		.loc 1 220 3 view .LVU534
+ 1731 004c 40F64A03 		movw	r3, #2122
+ 1732 0050 0022     		movs	r2, #0
+ 1733 0052 1021     		movs	r1, #16
+ 1734 0054 2046     		mov	r0, r4
+ 1735 0056 FFF7FEFF 		bl	HAL_DAC_SetValue
+ 1736              	.LVL97:
+ 223:Core/Src/main.c ****   // 割り込み有効
+ 1737              		.loc 1 223 3 view .LVU535
+ 1738 005a 6C4C     		ldr	r4, .L137+12
+ 1739 005c 2046     		mov	r0, r4
+ 1740 005e FFF7FEFF 		bl	HAL_CAN_Start
+ 1741              	.LVL98:
+ 225:Core/Src/main.c **** 
+ 1742              		.loc 1 225 3 view .LVU536
+ 1743 0062 0221     		movs	r1, #2
+ 1744 0064 2046     		mov	r0, r4
+ 1745 0066 FFF7FEFF 		bl	HAL_CAN_ActivateNotification
+ 1746              	.LVL99:
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 57
+
+
+ 227:Core/Src/main.c ****   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
+ 1747              		.loc 1 227 3 view .LVU537
+ 1748 006a 694C     		ldr	r4, .L137+16
+ 1749 006c 0421     		movs	r1, #4
+ 1750 006e 2046     		mov	r0, r4
+ 1751 0070 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 1752              	.LVL100:
+ 228:Core/Src/main.c ****   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);       // サーボ
+ 1753              		.loc 1 228 3 view .LVU538
+ 1754 0074 0C21     		movs	r1, #12
+ 1755 0076 2046     		mov	r0, r4
+ 1756 0078 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 1757              	.LVL101:
+ 229:Core/Src/main.c ****   HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL); // エンコーダー
+ 1758              		.loc 1 229 3 view .LVU539
+ 1759 007c 654E     		ldr	r6, .L137+20
+ 1760 007e 0021     		movs	r1, #0
+ 1761 0080 3046     		mov	r0, r6
+ 1762 0082 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 1763              	.LVL102:
+ 230:Core/Src/main.c **** 
+ 1764              		.loc 1 230 3 view .LVU540
+ 1765 0086 3C21     		movs	r1, #60
+ 1766 0088 6348     		ldr	r0, .L137+24
+ 1767 008a FFF7FEFF 		bl	HAL_TIM_Encoder_Start
+ 1768              	.LVL103:
+ 232:Core/Src/main.c **** 
+ 1769              		.loc 1 232 3 view .LVU541
+ 1770 008e 6348     		ldr	r0, .L137+28
+ 1771 0090 FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
+ 1772              	.LVL104:
+ 234:Core/Src/main.c ****   uint8_t last_state_2 = GPIO_PIN_RESET;
+ 1773              		.loc 1 234 3 view .LVU542
+ 235:Core/Src/main.c **** 
+ 1774              		.loc 1 235 3 view .LVU543
+ 237:Core/Src/main.c ****   static GPIO_PinState dir2_before = GPIO_PIN_RESET;
+ 1775              		.loc 1 237 3 view .LVU544
+ 238:Core/Src/main.c **** 
+ 1776              		.loc 1 238 3 view .LVU545
+ 240:Core/Src/main.c ****   __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+ 1777              		.loc 1 240 3 view .LVU546
+ 1778 0094 2368     		ldr	r3, [r4]
+ 1779 0096 0025     		movs	r5, #0
+ 1780 0098 9D63     		str	r5, [r3, #56]
+ 241:Core/Src/main.c ****   __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
+ 1781              		.loc 1 241 3 view .LVU547
+ 1782 009a 1D64     		str	r5, [r3, #64]
+ 242:Core/Src/main.c **** 
+ 1783              		.loc 1 242 3 view .LVU548
+ 1784 009c 3368     		ldr	r3, [r6]
+ 1785 009e 5D63     		str	r5, [r3, #52]
+ 244:Core/Src/main.c ****   uint8_t motor_running = 0;
+ 1786              		.loc 1 244 3 view .LVU549
+ 1787              	.LVL105:
+ 245:Core/Src/main.c **** 
+ 1788              		.loc 1 245 3 view .LVU550
+ 247:Core/Src/main.c ****   int pwm2 = 500;
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 58
+
+
+ 1789              		.loc 1 247 3 view .LVU551
+ 248:Core/Src/main.c ****   /* USER CODE END 2 */
+ 1790              		.loc 1 248 3 view .LVU552
+ 245:Core/Src/main.c **** 
+ 1791              		.loc 1 245 11 is_stmt 0 view .LVU553
+ 1792 00a0 2C46     		mov	r4, r5
+ 1793              	.LVL106:
+ 1794              	.L129:
+ 253:Core/Src/main.c ****   {
+ 1795              		.loc 1 253 3 is_stmt 1 view .LVU554
+ 1796              	.LBB17:
+ 258:Core/Src/main.c ****     static uint32_t last_can = 0;
+ 1797              		.loc 1 258 5 view .LVU555
+ 259:Core/Src/main.c ****     static int32_t pwm = 0;
+ 1798              		.loc 1 259 5 view .LVU556
+ 260:Core/Src/main.c ****     static float time = 0.0f;
+ 1799              		.loc 1 260 5 view .LVU557
+ 261:Core/Src/main.c **** 
+ 1800              		.loc 1 261 5 view .LVU558
+ 263:Core/Src/main.c ****     {
+ 1801              		.loc 1 263 5 view .LVU559
+ 263:Core/Src/main.c ****     {
+ 1802              		.loc 1 263 9 is_stmt 0 view .LVU560
+ 1803 00a2 5F4B     		ldr	r3, .L137+32
+ 1804 00a4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 263:Core/Src/main.c ****     {
+ 1805              		.loc 1 263 8 view .LVU561
+ 1806 00a6 002B     		cmp	r3, #0
+ 1807 00a8 35D1     		bne	.L132
+ 284:Core/Src/main.c ****     {
+ 1808              		.loc 1 284 5 is_stmt 1 view .LVU562
+ 284:Core/Src/main.c ****     {
+ 1809              		.loc 1 284 8 is_stmt 0 view .LVU563
+ 1810 00aa 94B1     		cbz	r4, .L123
+ 1811              	.LVL107:
+ 1812              	.L122:
+ 286:Core/Src/main.c ****       {
+ 1813              		.loc 1 286 7 is_stmt 1 view .LVU564
+ 286:Core/Src/main.c ****       {
+ 1814              		.loc 1 286 12 is_stmt 0 view .LVU565
+ 1815 00ac FFF7FEFF 		bl	HAL_GetTick
+ 1816              	.LVL108:
+ 286:Core/Src/main.c ****       {
+ 1817              		.loc 1 286 26 discriminator 1 view .LVU566
+ 1818 00b0 431B     		subs	r3, r0, r5
+ 1819 00b2 07EE903A 		vmov	s15, r3	@ int
+ 286:Core/Src/main.c ****       {
+ 1820              		.loc 1 286 46 discriminator 1 view .LVU567
+ 1821 00b6 F8EE677A 		vcvt.f32.u32	s15, s15
+ 286:Core/Src/main.c ****       {
+ 1822              		.loc 1 286 54 discriminator 1 view .LVU568
+ 1823 00ba 5A4B     		ldr	r3, .L137+36
+ 1824 00bc 93ED007A 		vldr.32	s14, [r3]
+ 1825 00c0 DFED596A 		vldr.32	s13, .L137+40
+ 1826 00c4 27EE267A 		vmul.f32	s14, s14, s13
+ 286:Core/Src/main.c ****       {
+ 1827              		.loc 1 286 10 discriminator 1 view .LVU569
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 59
+
+
+ 1828 00c8 F4EEC77A 		vcmpe.f32	s15, s14
+ 1829 00cc F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1830 00d0 49DA     		bge	.L133
+ 1831              	.L123:
+ 1832              	.LVL109:
+ 298:Core/Src/main.c ****     {
+ 1833              		.loc 1 298 5 is_stmt 1 view .LVU570
+ 298:Core/Src/main.c ****     {
+ 1834              		.loc 1 298 9 is_stmt 0 view .LVU571
+ 1835 00d2 564B     		ldr	r3, .L137+44
+ 1836 00d4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 298:Core/Src/main.c ****     {
+ 1837              		.loc 1 298 8 view .LVU572
+ 1838 00d6 002B     		cmp	r3, #0
+ 1839 00d8 5BD1     		bne	.L134
+ 1840              	.L125:
+ 306:Core/Src/main.c ****     {
+ 1841              		.loc 1 306 5 is_stmt 1 view .LVU573
+ 306:Core/Src/main.c ****     {
+ 1842              		.loc 1 306 18 is_stmt 0 view .LVU574
+ 1843 00da 9DF80060 		ldrb	r6, [sp]	@ zero_extendqisi2
+ 306:Core/Src/main.c ****     {
+ 1844              		.loc 1 306 8 view .LVU575
+ 1845 00de 012E     		cmp	r6, #1
+ 1846 00e0 67D0     		beq	.L135
+ 1847              	.LVL110:
+ 1848              	.L126:
+ 318:Core/Src/main.c ****     {
+ 1849              		.loc 1 318 5 is_stmt 1 view .LVU576
+ 318:Core/Src/main.c ****     {
+ 1850              		.loc 1 318 8 is_stmt 0 view .LVU577
+ 1851 00e2 022E     		cmp	r6, #2
+ 1852 00e4 78D0     		beq	.L136
+ 1853              	.LVL111:
+ 1854              	.L127:
+ 330:Core/Src/main.c **** 
+ 1855              		.loc 1 330 5 is_stmt 1 view .LVU578
+ 1856 00e6 5248     		ldr	r0, .L137+48
+ 1857 00e8 FFF7FEFF 		bl	printf
+ 1858              	.LVL112:
+ 333:Core/Src/main.c ****     {
+ 1859              		.loc 1 333 5 view .LVU579
+ 333:Core/Src/main.c ****     {
+ 1860              		.loc 1 333 8 is_stmt 0 view .LVU580
+ 1861 00ec 002C     		cmp	r4, #0
+ 1862 00ee D8D0     		beq	.L129
+ 335:Core/Src/main.c ****       {
+ 1863              		.loc 1 335 7 is_stmt 1 view .LVU581
+ 335:Core/Src/main.c ****       {
+ 1864              		.loc 1 335 12 is_stmt 0 view .LVU582
+ 1865 00f0 FFF7FEFF 		bl	HAL_GetTick
+ 1866              	.LVL113:
+ 335:Core/Src/main.c ****       {
+ 1867              		.loc 1 335 26 discriminator 1 view .LVU583
+ 1868 00f4 401B     		subs	r0, r0, r5
+ 335:Core/Src/main.c ****       {
+ 1869              		.loc 1 335 10 discriminator 1 view .LVU584
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 60
+
+
+ 1870 00f6 C728     		cmp	r0, #199
+ 1871 00f8 D3D9     		bls	.L129
+ 337:Core/Src/main.c ****         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+ 1872              		.loc 1 337 9 is_stmt 1 view .LVU585
+ 1873 00fa 454B     		ldr	r3, .L137+16
+ 1874 00fc 1B68     		ldr	r3, [r3]
+ 1875 00fe 0024     		movs	r4, #0
+ 1876              	.LVL114:
+ 337:Core/Src/main.c ****         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+ 1877              		.loc 1 337 9 is_stmt 0 view .LVU586
+ 1878 0100 9C63     		str	r4, [r3, #56]
+ 338:Core/Src/main.c **** 
+ 1879              		.loc 1 338 9 is_stmt 1 view .LVU587
+ 1880 0102 0122     		movs	r2, #1
+ 1881 0104 1021     		movs	r1, #16
+ 1882 0106 4FF09040 		mov	r0, #1207959552
+ 1883 010a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1884              	.LVL115:
+ 340:Core/Src/main.c ****         printf("tomarimasu");
+ 1885              		.loc 1 340 9 view .LVU588
+ 341:Core/Src/main.c ****       }
+ 1886              		.loc 1 341 9 view .LVU589
+ 1887 010e 4948     		ldr	r0, .L137+52
+ 1888 0110 FFF7FEFF 		bl	printf
+ 1889              	.LVL116:
+ 341:Core/Src/main.c ****       }
+ 1890              		.loc 1 341 9 is_stmt 0 view .LVU590
+ 1891              	.LBE17:
+ 253:Core/Src/main.c ****   {
+ 1892              		.loc 1 253 9 is_stmt 1 view .LVU591
+ 254:Core/Src/main.c ****     /* USER CODE END WHILE */
+ 1893              		.loc 1 254 3 is_stmt 0 view .LVU592
+ 1894 0114 C5E7     		b	.L129
+ 1895              	.L132:
+ 1896              	.LBB22:
+ 265:Core/Src/main.c ****       memcpy(local_buf, can_buf, 8);
+ 1897              		.loc 1 265 7 is_stmt 1 view .LVU593
+ 1898              	.LBB18:
+ 1899              	.LBI18:
+ 140:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 1900              		.loc 2 140 27 view .LVU594
+ 1901              	.LBB19:
+ 1902              		.loc 2 142 3 view .LVU595
+ 1903              		.syntax unified
+ 1904              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 1905 0116 72B6     		cpsid i
+ 1906              	@ 0 "" 2
+ 1907              		.thumb
+ 1908              		.syntax unified
+ 1909              	.LBE19:
+ 1910              	.LBE18:
+ 266:Core/Src/main.c ****       can_updated = 0;
+ 1911              		.loc 1 266 7 view .LVU596
+ 1912 0118 474B     		ldr	r3, .L137+56
+ 1913 011a 93E80300 		ldm	r3, {r0, r1}
+ 1914 011e 02AB     		add	r3, sp, #8
+ 1915 0120 03E90300 		stmdb	r3, {r0, r1}
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 61
+
+
+ 267:Core/Src/main.c ****       __enable_irq();
+ 1916              		.loc 1 267 7 view .LVU597
+ 267:Core/Src/main.c ****       __enable_irq();
+ 1917              		.loc 1 267 19 is_stmt 0 view .LVU598
+ 1918 0124 3E4B     		ldr	r3, .L137+32
+ 1919 0126 0022     		movs	r2, #0
+ 1920 0128 1A70     		strb	r2, [r3]
+ 268:Core/Src/main.c **** 
+ 1921              		.loc 1 268 7 is_stmt 1 view .LVU599
+ 1922              	.LBB20:
+ 1923              	.LBI20:
+ 129:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 1924              		.loc 2 129 27 view .LVU600
+ 1925              	.LBB21:
+ 131:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 1926              		.loc 2 131 3 view .LVU601
+ 1927              		.syntax unified
+ 1928              	@ 131 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 1929 012a 62B6     		cpsie i
+ 1930              	@ 0 "" 2
+ 1931              		.thumb
+ 1932              		.syntax unified
+ 1933              	.LBE21:
+ 1934              	.LBE20:
+ 271:Core/Src/main.c ****       memcpy(&time, &local_buf[4], sizeof(float));
+ 1935              		.loc 1 271 7 view .LVU602
+ 1936 012c 009B     		ldr	r3, [sp]
+ 1937 012e 434C     		ldr	r4, .L137+60
+ 1938              	.LVL117:
+ 271:Core/Src/main.c ****       memcpy(&time, &local_buf[4], sizeof(float));
+ 1939              		.loc 1 271 7 is_stmt 0 view .LVU603
+ 1940 0130 2360     		str	r3, [r4]
+ 272:Core/Src/main.c **** 
+ 1941              		.loc 1 272 7 is_stmt 1 view .LVU604
+ 1942 0132 3C4A     		ldr	r2, .L137+36
+ 1943 0134 0199     		ldr	r1, [sp, #4]
+ 1944 0136 1160     		str	r1, [r2]
+ 275:Core/Src/main.c ****       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+ 1945              		.loc 1 275 7 view .LVU605
+ 1946 0138 354D     		ldr	r5, .L137+16
+ 1947              	.LVL118:
+ 275:Core/Src/main.c ****       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+ 1948              		.loc 1 275 7 is_stmt 0 view .LVU606
+ 1949 013a 2A68     		ldr	r2, [r5]
+ 1950 013c 9363     		str	r3, [r2, #56]
+ 276:Core/Src/main.c ****       __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pwm);
+ 1951              		.loc 1 276 7 is_stmt 1 view .LVU607
+ 1952 013e 0122     		movs	r2, #1
+ 1953 0140 1021     		movs	r1, #16
+ 1954 0142 4FF09040 		mov	r0, #1207959552
+ 1955 0146 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1956              	.LVL119:
+ 277:Core/Src/main.c ****       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+ 1957              		.loc 1 277 7 view .LVU608
+ 1958 014a 2B68     		ldr	r3, [r5]
+ 1959 014c 2268     		ldr	r2, [r4]
+ 1960 014e 1A64     		str	r2, [r3, #64]
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 62
+
+
+ 278:Core/Src/main.c **** 
+ 1961              		.loc 1 278 7 view .LVU609
+ 1962 0150 0122     		movs	r2, #1
+ 1963 0152 1146     		mov	r1, r2
+ 1964 0154 4FF09040 		mov	r0, #1207959552
+ 1965 0158 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1966              	.LVL120:
+ 280:Core/Src/main.c ****       motor_running = 1;
+ 1967              		.loc 1 280 7 view .LVU610
+ 280:Core/Src/main.c ****       motor_running = 1;
+ 1968              		.loc 1 280 26 is_stmt 0 view .LVU611
+ 1969 015c FFF7FEFF 		bl	HAL_GetTick
+ 1970              	.LVL121:
+ 1971 0160 0546     		mov	r5, r0
+ 1972              	.LVL122:
+ 281:Core/Src/main.c ****     }
+ 1973              		.loc 1 281 7 is_stmt 1 view .LVU612
+ 284:Core/Src/main.c ****     {
+ 1974              		.loc 1 284 5 view .LVU613
+ 281:Core/Src/main.c ****     }
+ 1975              		.loc 1 281 21 is_stmt 0 view .LVU614
+ 1976 0162 0124     		movs	r4, #1
+ 1977 0164 A2E7     		b	.L122
+ 1978              	.LVL123:
+ 1979              	.L133:
+ 288:Core/Src/main.c ****         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+ 1980              		.loc 1 288 9 is_stmt 1 view .LVU615
+ 1981 0166 2A4E     		ldr	r6, .L137+16
+ 1982 0168 3368     		ldr	r3, [r6]
+ 1983 016a 0024     		movs	r4, #0
+ 1984 016c 9C63     		str	r4, [r3, #56]
+ 289:Core/Src/main.c ****         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+ 1985              		.loc 1 289 9 view .LVU616
+ 1986 016e 0122     		movs	r2, #1
+ 1987 0170 1021     		movs	r1, #16
+ 1988 0172 4FF09040 		mov	r0, #1207959552
+ 1989 0176 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1990              	.LVL124:
+ 290:Core/Src/main.c ****         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+ 1991              		.loc 1 290 9 view .LVU617
+ 1992 017a 3368     		ldr	r3, [r6]
+ 1993 017c 1C64     		str	r4, [r3, #64]
+ 291:Core/Src/main.c **** 
+ 1994              		.loc 1 291 9 view .LVU618
+ 1995 017e 0122     		movs	r2, #1
+ 1996 0180 1146     		mov	r1, r2
+ 1997 0182 4FF09040 		mov	r0, #1207959552
+ 1998 0186 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1999              	.LVL125:
+ 293:Core/Src/main.c ****         printf("tomarimasu");
+ 2000              		.loc 1 293 9 view .LVU619
+ 294:Core/Src/main.c ****       }
+ 2001              		.loc 1 294 9 view .LVU620
+ 2002 018a 2A48     		ldr	r0, .L137+52
+ 2003 018c FFF7FEFF 		bl	printf
+ 2004              	.LVL126:
+ 2005 0190 9FE7     		b	.L123
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 63
+
+
+ 2006              	.LVL127:
+ 2007              	.L134:
+ 300:Core/Src/main.c **** 
+ 2008              		.loc 1 300 7 view .LVU621
+ 300:Core/Src/main.c **** 
+ 2009              		.loc 1 300 20 is_stmt 0 view .LVU622
+ 2010 0192 264B     		ldr	r3, .L137+44
+ 2011 0194 0022     		movs	r2, #0
+ 2012 0196 1A70     		strb	r2, [r3]
+ 302:Core/Src/main.c **** 
+ 2013              		.loc 1 302 7 is_stmt 1 view .LVU623
+ 302:Core/Src/main.c **** 
+ 2014              		.loc 1 302 18 is_stmt 0 view .LVU624
+ 2015 0198 FFF7FEFF 		bl	read_encoder_value_1
+ 2016              	.LVL128:
+ 302:Core/Src/main.c **** 
+ 2017              		.loc 1 302 15 discriminator 1 view .LVU625
+ 2018 019c 284B     		ldr	r3, .L137+64
+ 2019 019e 1A88     		ldrh	r2, [r3]
+ 2020 01a0 12FA80F0 		uxtah	r0, r2, r0
+ 2021 01a4 00B2     		sxth	r0, r0
+ 2022 01a6 1880     		strh	r0, [r3]	@ movhi
+ 304:Core/Src/main.c ****     }
+ 2023              		.loc 1 304 7 is_stmt 1 view .LVU626
+ 2024 01a8 4FF48270 		mov	r0, #260
+ 2025 01ac FFF7FEFF 		bl	CAN_TX
+ 2026              	.LVL129:
+ 2027 01b0 93E7     		b	.L125
+ 2028              	.L135:
+ 309:Core/Src/main.c ****       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+ 2029              		.loc 1 309 7 view .LVU627
+ 2030 01b2 174B     		ldr	r3, .L137+16
+ 2031 01b4 1B68     		ldr	r3, [r3]
+ 2032 01b6 40F6B732 		movw	r2, #2999
+ 2033 01ba 9A63     		str	r2, [r3, #56]
+ 310:Core/Src/main.c **** 
+ 2034              		.loc 1 310 7 view .LVU628
+ 2035 01bc 0122     		movs	r2, #1
+ 2036 01be 1021     		movs	r1, #16
+ 2037 01c0 4FF09040 		mov	r0, #1207959552
+ 2038 01c4 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 2039              	.LVL130:
+ 312:Core/Src/main.c ****       motor_running = 1;
+ 2040              		.loc 1 312 7 view .LVU629
+ 312:Core/Src/main.c ****       motor_running = 1;
+ 2041              		.loc 1 312 26 is_stmt 0 view .LVU630
+ 2042 01c8 FFF7FEFF 		bl	HAL_GetTick
+ 2043              	.LVL131:
+ 2044 01cc 0546     		mov	r5, r0
+ 2045              	.LVL132:
+ 313:Core/Src/main.c **** 
+ 2046              		.loc 1 313 7 is_stmt 1 view .LVU631
+ 315:Core/Src/main.c ****     }
+ 2047              		.loc 1 315 7 view .LVU632
+ 2048 01ce 1D48     		ldr	r0, .L137+68
+ 2049              	.LVL133:
+ 315:Core/Src/main.c ****     }
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 64
+
+
+ 2050              		.loc 1 315 7 is_stmt 0 view .LVU633
+ 2051 01d0 FFF7FEFF 		bl	printf
+ 2052              	.LVL134:
+ 313:Core/Src/main.c **** 
+ 2053              		.loc 1 313 21 view .LVU634
+ 2054 01d4 3446     		mov	r4, r6
+ 2055 01d6 84E7     		b	.L126
+ 2056              	.LVL135:
+ 2057              	.L136:
+ 321:Core/Src/main.c ****       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+ 2058              		.loc 1 321 7 is_stmt 1 view .LVU635
+ 2059 01d8 0D4B     		ldr	r3, .L137+16
+ 2060 01da 1B68     		ldr	r3, [r3]
+ 2061 01dc 4FF4FA72 		mov	r2, #500
+ 2062 01e0 9A63     		str	r2, [r3, #56]
+ 322:Core/Src/main.c **** 
+ 2063              		.loc 1 322 7 view .LVU636
+ 2064 01e2 0122     		movs	r2, #1
+ 2065 01e4 1021     		movs	r1, #16
+ 2066 01e6 4FF09040 		mov	r0, #1207959552
+ 2067 01ea FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 2068              	.LVL136:
+ 324:Core/Src/main.c ****       motor_running = 1;
+ 2069              		.loc 1 324 7 view .LVU637
+ 324:Core/Src/main.c ****       motor_running = 1;
+ 2070              		.loc 1 324 26 is_stmt 0 view .LVU638
+ 2071 01ee FFF7FEFF 		bl	HAL_GetTick
+ 2072              	.LVL137:
+ 2073 01f2 0546     		mov	r5, r0
+ 2074              	.LVL138:
+ 325:Core/Src/main.c **** 
+ 2075              		.loc 1 325 7 is_stmt 1 view .LVU639
+ 327:Core/Src/main.c ****     }
+ 2076              		.loc 1 327 7 view .LVU640
+ 2077 01f4 1448     		ldr	r0, .L137+72
+ 2078              	.LVL139:
+ 327:Core/Src/main.c ****     }
+ 2079              		.loc 1 327 7 is_stmt 0 view .LVU641
+ 2080 01f6 FFF7FEFF 		bl	printf
+ 2081              	.LVL140:
+ 325:Core/Src/main.c **** 
+ 2082              		.loc 1 325 21 view .LVU642
+ 2083 01fa 0124     		movs	r4, #1
+ 2084 01fc 73E7     		b	.L127
+ 2085              	.L138:
+ 2086 01fe 00BF     		.align	2
+ 2087              	.L137:
+ 2088 0200 00000000 		.word	_impure_ptr
+ 2089 0204 00000000 		.word	hcomp4
+ 2090 0208 00000000 		.word	hdac1
+ 2091 020c 00000000 		.word	hcan
+ 2092 0210 00000000 		.word	htim2
+ 2093 0214 00000000 		.word	htim3
+ 2094 0218 00000000 		.word	htim1
+ 2095 021c 00000000 		.word	htim17
+ 2096 0220 00000000 		.word	can_updated
+ 2097 0224 00000000 		.word	time.0
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 65
+
+
+ 2098 0228 00007A44 		.word	1148846080
+ 2099 022c 00000000 		.word	control_flag
+ 2100 0230 1C000000 		.word	.LC3
+ 2101 0234 00000000 		.word	.LC0
+ 2102 0238 00000000 		.word	can_buf
+ 2103 023c 00000000 		.word	pwm.1
+ 2104 0240 00000000 		.word	count_1
+ 2105 0244 0C000000 		.word	.LC1
+ 2106 0248 14000000 		.word	.LC2
+ 2107              	.LBE22:
+ 2108              		.cfi_endproc
+ 2109              	.LFE131:
+ 2111              		.section	.bss.time.0,"aw",%nobits
+ 2112              		.align	2
+ 2115              	time.0:
+ 2116 0000 00000000 		.space	4
+ 2117              		.section	.bss.pwm.1,"aw",%nobits
+ 2118              		.align	2
+ 2121              	pwm.1:
+ 2122 0000 00000000 		.space	4
+ 2123              		.global	control_flag
+ 2124              		.section	.bss.control_flag,"aw",%nobits
+ 2127              	control_flag:
+ 2128 0000 00       		.space	1
+ 2129              		.global	can_updated
+ 2130              		.section	.bss.can_updated,"aw",%nobits
+ 2133              	can_updated:
+ 2134 0000 00       		.space	1
+ 2135              		.global	can_buf
+ 2136              		.section	.bss.can_buf,"aw",%nobits
+ 2137              		.align	2
+ 2140              	can_buf:
+ 2141 0000 00000000 		.space	8
+ 2141      00000000 
+ 2142              		.global	id
+ 2143              		.section	.bss.id,"aw",%nobits
+ 2144              		.align	2
+ 2147              	id:
+ 2148 0000 00000000 		.space	4
+ 2149              		.global	tail
+ 2150              		.section	.bss.tail,"aw",%nobits
+ 2153              	tail:
+ 2154 0000 00       		.space	1
+ 2155              		.global	head
+ 2156              		.section	.bss.head,"aw",%nobits
+ 2159              	head:
+ 2160 0000 00       		.space	1
+ 2161              		.global	rx_queue
+ 2162              		.section	.bss.rx_queue,"aw",%nobits
+ 2163              		.align	2
+ 2166              	rx_queue:
+ 2167 0000 00000000 		.space	64
+ 2167      00000000 
+ 2167      00000000 
+ 2167      00000000 
+ 2167      00000000 
+ 2168              		.global	TxData
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 66
+
+
+ 2169              		.section	.bss.TxData,"aw",%nobits
+ 2170              		.align	2
+ 2173              	TxData:
+ 2174 0000 00000000 		.space	8
+ 2174      00000000 
+ 2175              		.global	usr_buf_1
+ 2176              		.section	.bss.usr_buf_1,"aw",%nobits
+ 2177              		.align	2
+ 2180              	usr_buf_1:
+ 2181 0000 00000000 		.space	1000
+ 2181      00000000 
+ 2181      00000000 
+ 2181      00000000 
+ 2181      00000000 
+ 2182              		.global	prev_state_1
+ 2183              		.section	.bss.prev_state_1,"aw",%nobits
+ 2186              	prev_state_1:
+ 2187 0000 00       		.space	1
+ 2188              		.global	count_1
+ 2189              		.section	.bss.count_1,"aw",%nobits
+ 2190              		.align	1
+ 2193              	count_1:
+ 2194 0000 0000     		.space	2
+ 2195              		.global	huart2
+ 2196              		.section	.bss.huart2,"aw",%nobits
+ 2197              		.align	2
+ 2200              	huart2:
+ 2201 0000 00000000 		.space	136
+ 2201      00000000 
+ 2201      00000000 
+ 2201      00000000 
+ 2201      00000000 
+ 2202              		.global	htim17
+ 2203              		.section	.bss.htim17,"aw",%nobits
+ 2204              		.align	2
+ 2207              	htim17:
+ 2208 0000 00000000 		.space	76
+ 2208      00000000 
+ 2208      00000000 
+ 2208      00000000 
+ 2208      00000000 
+ 2209              		.global	htim3
+ 2210              		.section	.bss.htim3,"aw",%nobits
+ 2211              		.align	2
+ 2214              	htim3:
+ 2215 0000 00000000 		.space	76
+ 2215      00000000 
+ 2215      00000000 
+ 2215      00000000 
+ 2215      00000000 
+ 2216              		.global	htim2
+ 2217              		.section	.bss.htim2,"aw",%nobits
+ 2218              		.align	2
+ 2221              	htim2:
+ 2222 0000 00000000 		.space	76
+ 2222      00000000 
+ 2222      00000000 
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 67
+
+
+ 2222      00000000 
+ 2222      00000000 
+ 2223              		.global	htim1
+ 2224              		.section	.bss.htim1,"aw",%nobits
+ 2225              		.align	2
+ 2228              	htim1:
+ 2229 0000 00000000 		.space	76
+ 2229      00000000 
+ 2229      00000000 
+ 2229      00000000 
+ 2229      00000000 
+ 2230              		.global	hdac1
+ 2231              		.section	.bss.hdac1,"aw",%nobits
+ 2232              		.align	2
+ 2235              	hdac1:
+ 2236 0000 00000000 		.space	20
+ 2236      00000000 
+ 2236      00000000 
+ 2236      00000000 
+ 2236      00000000 
+ 2237              		.global	hcomp4
+ 2238              		.section	.bss.hcomp4,"aw",%nobits
+ 2239              		.align	2
+ 2242              	hcomp4:
+ 2243 0000 00000000 		.space	48
+ 2243      00000000 
+ 2243      00000000 
+ 2243      00000000 
+ 2243      00000000 
+ 2244              		.global	hcan
+ 2245              		.section	.bss.hcan,"aw",%nobits
+ 2246              		.align	2
+ 2249              	hcan:
+ 2250 0000 00000000 		.space	40
+ 2250      00000000 
+ 2250      00000000 
+ 2250      00000000 
+ 2250      00000000 
+ 2251              		.text
+ 2252              	.Letext0:
+ 2253              		.file 3 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../../
+ 2254              		.file 4 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../../
+ 2255              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303x8.h"
+ 2256              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h"
+ 2257              		.file 7 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 2258              		.file 8 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h"
+ 2259              		.file 9 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc_ex.h"
+ 2260              		.file 10 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
+ 2261              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
+ 2262              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_can.h"
+ 2263              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_comp.h"
+ 2264              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dac.h"
+ 2265              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h"
+ 2266              		.file 16 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h"
+ 2267              		.file 17 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/inclu
+ 2268              		.file 18 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../..
+ 2269              		.file 19 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../..
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 68
+
+
+ 2270              		.file 20 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../..
+ 2271              		.file 21 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../..
+ 2272              		.file 22 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h"
+ 2273              		.file 23 "Core/Inc/main.h"
+ 2274              		.file 24 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
+ 2275              		.file 25 "<built-in>"
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 69
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:21     .text.MX_GPIO_Init:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:26     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:146    .text.MX_GPIO_Init:00000084 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:151    .text.HAL_CAN_RxFifo0MsgPendingCallback:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:157    .text.HAL_CAN_RxFifo0MsgPendingCallback:00000000 HAL_CAN_RxFifo0MsgPendingCallback
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:241    .text.HAL_CAN_RxFifo0MsgPendingCallback:00000044 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2147   .bss.id:00000000 id
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2140   .bss.can_buf:00000000 can_buf
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2133   .bss.can_updated:00000000 can_updated
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:249    .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:255    .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:284    .text.HAL_TIM_PeriodElapsedCallback:00000014 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2127   .bss.control_flag:00000000 control_flag
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:290    .text.read_encoder_value_1:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:296    .text.read_encoder_value_1:00000000 read_encoder_value_1
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:320    .text.read_encoder_value_1:0000000c $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:325    .text._write:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:331    .text._write:00000000 _write
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:364    .text._write:00000014 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2200   .bss.huart2:00000000 huart2
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:369    .text.Error_Handler:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:375    .text.Error_Handler:00000000 Error_Handler
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:407    .text.CAN_TX:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:413    .text.CAN_TX:00000000 CAN_TX
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:520    .text.CAN_TX:00000050 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2249   .bss.hcan:00000000 hcan
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2193   .bss.count_1:00000000 count_1
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2173   .bss.TxData:00000000 TxData
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:528    .text.MX_USART2_UART_Init:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:533    .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:594    .text.MX_USART2_UART_Init:00000030 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:600    .text.MX_CAN_Init:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:605    .text.MX_CAN_Init:00000000 MX_CAN_Init
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:718    .text.MX_CAN_Init:0000005c $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:724    .text.MX_COMP4_Init:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:729    .text.MX_COMP4_Init:00000000 MX_COMP4_Init
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:781    .text.MX_COMP4_Init:00000028 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2242   .bss.hcomp4:00000000 hcomp4
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:787    .text.MX_DAC1_Init:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:792    .text.MX_DAC1_Init:00000000 MX_DAC1_Init
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:855    .text.MX_DAC1_Init:00000034 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2235   .bss.hdac1:00000000 hdac1
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:861    .text.MX_TIM1_Init:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:866    .text.MX_TIM1_Init:00000000 MX_TIM1_Init
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:979    .text.MX_TIM1_Init:0000005c $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2228   .bss.htim1:00000000 htim1
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:985    .text.MX_TIM2_Init:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:990    .text.MX_TIM2_Init:00000000 MX_TIM2_Init
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:1159   .text.MX_TIM2_Init:000000b0 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2221   .bss.htim2:00000000 htim2
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:1164   .text.MX_TIM3_Init:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:1169   .text.MX_TIM3_Init:00000000 MX_TIM3_Init
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:1323   .text.MX_TIM3_Init:0000009c $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2214   .bss.htim3:00000000 htim3
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:1329   .text.MX_TIM17_Init:00000000 $t
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 70
+
+
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:1334   .text.MX_TIM17_Init:00000000 MX_TIM17_Init
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:1500   .text.MX_TIM17_Init:0000009c $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2207   .bss.htim17:00000000 htim17
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:1506   .text.SystemClock_Config:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:1512   .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:1643   .rodata.main.str1.4:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:1656   .text.main:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:1662   .text.main:00000000 main
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2088   .text.main:00000200 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2115   .bss.time.0:00000000 time.0
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2121   .bss.pwm.1:00000000 pwm.1
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2112   .bss.time.0:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2118   .bss.pwm.1:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2128   .bss.control_flag:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2134   .bss.can_updated:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2137   .bss.can_buf:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2144   .bss.id:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2153   .bss.tail:00000000 tail
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2154   .bss.tail:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2159   .bss.head:00000000 head
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2160   .bss.head:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2166   .bss.rx_queue:00000000 rx_queue
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2163   .bss.rx_queue:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2170   .bss.TxData:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2180   .bss.usr_buf_1:00000000 usr_buf_1
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2177   .bss.usr_buf_1:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2186   .bss.prev_state_1:00000000 prev_state_1
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2187   .bss.prev_state_1:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2190   .bss.count_1:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2197   .bss.huart2:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2204   .bss.htim17:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2211   .bss.htim3:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2218   .bss.htim2:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2225   .bss.htim1:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2232   .bss.hdac1:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2239   .bss.hcomp4:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s:2246   .bss.hcan:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+HAL_GPIO_Init
+HAL_CAN_GetRxMessage
+HAL_UART_Transmit
+HAL_CAN_GetTxMailboxesFreeLevel
+HAL_CAN_AddTxMessage
+HAL_UART_Init
+HAL_CAN_Init
+memset
+HAL_CAN_ConfigFilter
+HAL_COMP_Init
+HAL_DAC_Init
+HAL_DAC_ConfigChannel
+HAL_TIM_Encoder_Init
+HAL_TIMEx_MasterConfigSynchronization
+HAL_TIM_Base_Init
+HAL_TIM_ConfigClockSource
+HAL_TIM_PWM_Init
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccZTb0op.s 			page 71
+
+
+HAL_TIM_PWM_ConfigChannel
+HAL_TIM_MspPostInit
+HAL_TIM_OC_Init
+HAL_TIM_OC_ConfigChannel
+HAL_TIMEx_ConfigBreakDeadTime
+HAL_RCC_OscConfig
+HAL_RCC_ClockConfig
+HAL_RCCEx_PeriphCLKConfig
+setbuf
+HAL_Init
+HAL_COMP_Start
+HAL_DAC_Start
+HAL_DAC_SetValue
+HAL_CAN_Start
+HAL_CAN_ActivateNotification
+HAL_TIM_PWM_Start
+HAL_TIM_Encoder_Start
+HAL_TIM_Base_Start_IT
+HAL_GetTick
+printf
+_impure_ptr

@@ -1,0 +1,2871 @@
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"stm32f3xx_hal_comp.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c"
+  20              		.section	.text.HAL_COMP_MspInit,"ax",%progbits
+  21              		.align	1
+  22              		.weak	HAL_COMP_MspInit
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	HAL_COMP_MspInit:
+  28              	.LVL0:
+  29              	.LFB125:
+   1:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+   2:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   ******************************************************************************
+   3:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @file    stm32f3xx_hal_comp.c
+   4:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @author  MCD Application Team
+   5:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief   COMP HAL module driver.
+   6:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *          This file provides firmware functions to manage the following
+   7:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *          functionalities of the COMP peripheral:
+   8:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *           + Initialization and de-initialization functions
+   9:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *           + Peripheral Control functions
+  10:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *           + Peripheral State functions
+  11:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *
+  12:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   ******************************************************************************
+  13:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @attention
+  14:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *
+  15:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * Copyright (c) 2016 STMicroelectronics.
+  16:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * All rights reserved.
+  17:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *
+  18:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  19:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * in the root directory of this software component.
+  20:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  21:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *
+  22:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   ******************************************************************************
+  23:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   @verbatim
+  24:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** ================================================================================
+  25:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           ##### COMP Peripheral features #####
+  26:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** ================================================================================
+  27:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  28:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   [..]
+  29:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       The STM32F3xx device family integrates up to 7 analog comparators COMP1, COMP2...COMP7:
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 2
+
+
+  30:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) The non inverting input and inverting input can be set to GPIO pins.
+  31:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           For STM32F3xx devices please refer to the COMP peripheral section in corresponding
+  32:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           Reference Manual.
+  33:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  34:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) The COMP output is available using HAL_COMP_GetOutputLevel()
+  35:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           and can be set on GPIO pins.
+  36:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           For STM32F3xx devices please refer to the COMP peripheral section in corresponding
+  37:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           Reference Manual.
+  38:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  39:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) The COMP output can be redirected to embedded timers (TIM1, TIM2, TIM3...).
+  40:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           For STM32F3xx devices please refer to the COMP peripheral section in corresponding
+  41:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           Reference Manual.
+  42:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  43:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) Each couple of comparators COMP1 and COMP2, COMP3 and COMP4, COMP5 and COMP6 can be combi
+  44:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           mode and respectively COMP1, COMP3 and COMP5 non inverting input is used as common non-in
+  45:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  46:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) The seven comparators have interrupt capability with wake-up
+  47:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           from Sleep and Stop modes (through the EXTI controller):
+  48:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           (++) COMP1 is internally connected to EXTI Line 21
+  49:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           (++) COMP2 is internally connected to EXTI Line 22
+  50:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           (++) COMP3 is internally connected to EXTI Line 29
+  51:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           (++) COMP4 is internally connected to EXTI Line 30
+  52:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           (++) COMP5 is internally connected to EXTI Line 31
+  53:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           (++) COMP6 is internally connected to EXTI Line 32
+  54:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           (++) COMP7 is internally connected to EXTI Line 33.
+  55:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  56:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           From the corresponding IRQ handler, the right interrupt source can be retrieved with the
+  57:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           adequate macro __HAL_COMP_COMPx_EXTI_GET_FLAG().
+  58:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  59:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  60:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****             ##### How to use this driver #####
+  61:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** ================================================================================
+  62:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   [..]
+  63:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       This driver provides functions to configure and program the Comparators of all STM32F3xx devi
+  64:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  65:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       To use the comparator, perform the following steps:
+  66:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  67:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) Fill in the HAL_COMP_MspInit() to
+  68:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (++) Configure the comparator input in analog mode using HAL_GPIO_Init()
+  69:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (++) Configure the comparator output in alternate function mode using HAL_GPIO_Init() to map 
+  70:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****            output to the GPIO pin
+  71:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (++) If required enable the COMP interrupt (EXTI line Interrupt): by configuring and enabling
+  72:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****            selecting the desired sensitivity level using HAL_GPIO_Init() function. After that enabl
+  73:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****            interrupt vector using HAL_NVIC_SetPriority() and HAL_NVIC_EnableIRQ() functions.
+  74:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  75:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) Configure the comparator using HAL_COMP_Init() function:
+  76:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (++) Select the inverting input (input minus)
+  77:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (++) Select the non-inverting input (input plus)
+  78:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (++) Select the output polarity
+  79:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (++) Select the output redirection
+  80:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (++) Select the hysteresis level
+  81:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (++) Select the power mode
+  82:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (++) Select the event/interrupt mode
+  83:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  84:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       -@@- HAL_COMP_Init() calls internally __HAL_RCC_SYSCFG_CLK_ENABLE() in order
+  85:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           to enable the comparator(s).
+  86:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 3
+
+
+  87:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) On-the-fly reconfiguration of comparator(s) may be done by calling again HAL_COMP_Init(
+  88:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           function with new input parameter values; HAL_COMP_MspInit() function shall be adapted
+  89:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           to support multi configurations.
+  90:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  91:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) Enable the comparator using HAL_COMP_Start() or HAL_COMP_Start_IT() functions.
+  92:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  93:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) Use HAL_COMP_TriggerCallback() and/or HAL_COMP_GetOutputLevel() functions
+  94:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           to manage comparator outputs (events and output level).
+  95:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  96:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) Disable the comparator using HAL_COMP_Stop() or HAL_COMP_Stop_IT()
+  97:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           function.
+  98:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  99:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) De-initialize the comparator using HAL_COMP_DeInit() function.
+ 100:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 101:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) For safety purposes comparator(s) can be locked using HAL_COMP_Lock() function.
+ 102:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           Only a MCU reset can reset that protection.
+ 103:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 104:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     *** Callback registration ***
+ 105:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     =============================================
+ 106:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     [..]
+ 107:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 108:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      The compilation flag USE_HAL_COMP_REGISTER_CALLBACKS, when set to 1,
+ 109:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      allows the user to configure dynamically the driver callbacks.
+ 110:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      Use Functions HAL_COMP_RegisterCallback()
+ 111:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      to register an interrupt callback.
+ 112:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     [..]
+ 113:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 114:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      Function HAL_COMP_RegisterCallback() allows to register following callbacks:
+ 115:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****        (+) OperationCpltCallback : callback for End of operation.
+ 116:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****        (+) ErrorCallback         : callback for error detection.
+ 117:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****        (+) MspInitCallback       : callback for Msp Init.
+ 118:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****        (+) MspDeInitCallback     : callback for Msp DeInit.
+ 119:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      This function takes as parameters the HAL peripheral handle, the Callback ID
+ 120:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      and a pointer to the user callback function.
+ 121:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     [..]
+ 122:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 123:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      Use function HAL_COMP_UnRegisterCallback to reset a callback to the default
+ 124:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      weak function.
+ 125:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     [..]
+ 126:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 127:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      HAL_COMP_UnRegisterCallback takes as parameters the HAL peripheral handle,
+ 128:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      and the Callback ID.
+ 129:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      This function allows to reset following callbacks:
+ 130:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****        (+) OperationCpltCallback : callback for End of operation.
+ 131:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****        (+) ErrorCallback         : callback for error detection.
+ 132:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****        (+) MspInitCallback       : callback for Msp Init.
+ 133:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****        (+) MspDeInitCallback     : callback for Msp DeInit.
+ 134:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      [..]
+ 135:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 136:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      By default, after the HAL_COMP_Init() and when the state is HAL_COMP_STATE_RESET
+ 137:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      all callbacks are set to the corresponding weak functions:
+ 138:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      examples HAL_COMP_OperationCpltCallback(), HAL_COMP_ErrorCallback().
+ 139:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      Exception done for MspInit and MspDeInit functions that are
+ 140:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      reset to the legacy weak functions in the HAL_COMP_Init()/ HAL_COMP_DeInit() only when
+ 141:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      these callbacks are null (not registered beforehand).
+ 142:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     [..]
+ 143:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 4
+
+
+ 144:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      If MspInit or MspDeInit are not null, the HAL_COMP_Init()/ HAL_COMP_DeInit()
+ 145:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      keep and use the user MspInit/MspDeInit callbacks (registered beforehand) whatever the state.
+ 146:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      [..]
+ 147:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 148:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      Callbacks can be registered/unregistered in HAL_COMP_STATE_READY state only.
+ 149:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      Exception done MspInit/MspDeInit functions that can be registered/unregistered
+ 150:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      in HAL_COMP_STATE_READY or HAL_COMP_STATE_RESET state,
+ 151:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      thus registered (user) MspInit/DeInit callbacks can be used during the Init/DeInit.
+ 152:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     [..]
+ 153:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 154:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      Then, the user first registers the MspInit/MspDeInit user callbacks
+ 155:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      using HAL_COMP_RegisterCallback() before calling HAL_COMP_DeInit()
+ 156:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      or HAL_COMP_Init() function.
+ 157:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      [..]
+ 158:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 159:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      When the compilation flag USE_HAL_COMP_REGISTER_CALLBACKS is set to 0 or
+ 160:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      not defined, the callback registration feature is not available and all callbacks
+ 161:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      are set to the corresponding weak functions.
+ 162:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 163:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   ******************************************************************************
+ 164:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 165:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 166:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /*
+ 167:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   Additional Tables:
+ 168:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 169:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     Table 1. COMP Inputs for the STM32F303xB/STM32F303xC/STM32F303xE devices
+ 170:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     +------------------------------------------------------------------------------------------+
+ 171:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                 |                | COMP1 | COMP2 | COMP3 | COMP4 | COMP5 | COMP6 | COMP7 |
+ 172:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |-----------------|----------------|---------------|---------------------------------------|
+ 173:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                 | 1U/4 VREFINT    |  OK   |  OK   |  OK   |  OK   |  OK   |  OK   |  OK   |
+ 174:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                 | 1U/2 VREFINT    |  OK   |  OK   |  OK   |  OK   |  OK   |  OK   |  OK   |
+ 175:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                 | 3U/4 VREFINT    |  OK   |  OK   |  OK   |  OK   |  OK   |  OK   |  OK   |
+ 176:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     | Inverting Input | VREFINT        |  OK   |  OK   |  OK   |  OK   |  OK   |  OK   |  OK   |
+ 177:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                 | DAC1 OUT (PA4) |  OK   |  OK   |  OK   |  OK   |  OK   |  OK   |  OK   |
+ 178:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                 | DAC2 OUT (PA5) |  OK   |  OK   |  OK   |  OK   |  OK   |  OK   |  OK   |
+ 179:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                 | IO1            |  PA0  |  PA2  |  PD15U |  PE8  |  PD13U |  PD10U |  PC0  |
+ 180:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                 | IO2            |  ---  |  ---  |  PB12U |  PB2  |  PB10U |  PB15U |  ---  |
+ 181:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |-----------------|----------------|-------|-------|-------|-------|-------|-------|-------|
+ 182:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  Non Inverting  | IO1            |  PA1  |  PA7  |  PB14U |  PB0  |  PD12U |  PD11U |  PA0  |
+ 183:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |    Input        | IO2            |  ---  |  PA3  |  PD14U |  PE7  |  PB13U |  PB11U |  PC1  |
+ 184:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     +------------------------------------------------------------------------------------------+
+ 185:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 186:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     Table 2. COMP Outputs for the STM32F303xB/STM32F303xC/STM32F303xE devices
+ 187:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     +-------------------------------------------------------+
+ 188:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     | COMP1 | COMP2 | COMP3 | COMP4 | COMP5 | COMP6 | COMP7 |
+ 189:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |-------|-------|-------|-------|-------|-------|-------|
+ 190:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  PA0  |  PA2  |  PB1  |  PC8  |  PC7  |  PA10U |  PC2  |
+ 191:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  PF4  |  PA7  |  ---  |  PA8  |  PA9  |  PC6  |  ---  |
+ 192:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  PA6  |  PA12U |  ---  |  ---  |  ---  |  ---  |  ---  |
+ 193:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  PA11U |  PB9  |  ---  |  ---  |  ---  |  ---  |  ---  |
+ 194:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  PB8  |  ---  |  ---  |  ---  |  ---  |  ---  |  ---  |
+ 195:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     +-------------------------------------------------------+
+ 196:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 197:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     Table 3. COMP Outputs redirection to embedded timers for the STM32F303xB/STM32F303xC devices
+ 198:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     +----------------------------------------------------------------------------------------------
+ 199:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |     COMP1      |     COMP2      |     COMP3      |     COMP4      |     COMP5      |     COMP
+ 200:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |----------------|----------------|----------------|----------------|----------------|---------
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 5
+
+
+ 201:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 BKIN     |  TIM1 BKIN     |  TIM1 BKIN     |  TIM1 BKIN     |  TIM1 BKIN     |  TIM1 BK
+ 202:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 203:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BK
+ 204:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 205:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM8 BKIN     |  TIM8 BKIN     |  TIM8 BKIN     |  TIM8 BKIN     |  TIM8 BKIN     |  TIM8 BK
+ 206:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 207:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM8 BKIN2    |  TIM8 BKIN2    |  TIM8 BKIN2    |  TIM8 BKIN2    |  TIM8 BKIN2    |  TIM8 BK
+ 208:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 209:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BK
+ 210:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |     +          |     +          |     +          |     +          |     +          |     +   
+ 211:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM8BKIN2     |  TIM8BKIN2     |  TIM8BKIN2     |  TIM8BKIN2     |  TIM8BKIN2     |  TIM8BKI
+ 212:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 213:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 OCREFCLR |  TIM1 OCREFCLR |  TIM1 OCREFCLR |  TIM8 OCREFCLR |  TIM8 OCREFCLR |  TIM8 OC
+ 214:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 215:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 IC1      |  TIM1 IC1      |  TIM2 OCREFCLR |  TIM3 IC3      |  TIM2 IC1      |  TIM2 IC
+ 216:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 217:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM2 IC4      |  TIM2 IC4      |  TIM3 IC2      |  TIM3 OCREFCLR |  TIM3 OCREFCLR |  TIM2 OC
+ 218:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 219:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM2 OCREFCLR |  TIM2 OCREFCLR |  TIM4 IC1      |  TIM4 IC2      |  TIM4 IC3      |  TIM16 O
+ 220:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 221:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM3 IC1      |  TIM3 IC1      |  TIM15 IC1     |  TIM15 OCREFCLR|  TIM16 BKIN    |  TIM16 I
+ 222:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 223:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM3 OCREFCLR |  TIM3 OCREFCLR |  TIM15 BKIN    |  TIM15 IC2     |  TIM17 IC1     |  TIM4 IC
+ 224:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     +----------------------------------------------------------------------------------------------
+ 225:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 226:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     Table 4. COMP Outputs redirection to embedded timers for the STM32F303xE devices
+ 227:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     +----------------------------------------------------------------------------------------------
+ 228:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |     COMP1      |     COMP2      |     COMP3      |     COMP4      |     COMP5      |     COMP
+ 229:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |----------------|----------------|----------------|----------------|----------------|---------
+ 230:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 BKIN     |  TIM1 BKIN     |  TIM1 BKIN     |  TIM1 BKIN (1U) |  TIM1 BKIN     |  TIM1 B
+ 231:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 232:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BK
+ 233:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 234:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM8 BKIN     |  TIM8 BKIN     |  TIM8 BKIN     |  TIM8 BKIN (1U) |  TIM8 BKIN     |  TIM8 B
+ 235:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 236:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM8 BKIN2    |  TIM8 BKIN2    |  TIM8 BKIN2    |  TIM8 BKIN2    |  TIM8 BKIN2    |  TIM8 BK
+ 237:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 238:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BK
+ 239:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |     +          |     +          |     +          |     +          |     +          |     +   
+ 240:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM8BKIN2     |  TIM8BKIN2     |  TIM8BKIN2     |  TIM8BKIN2     |  TIM8BKIN2     |  TIM8BKI
+ 241:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 242:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 OCREFCLR |  TIM1 OCREFCLR |  TIM1 OCREFCLR |  TIM8 OCREFCLR |  TIM8 OCREFCLR |  TIM8 OC
+ 243:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 244:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 IC1      |  TIM1 IC1      |  TIM2 OCREFCLR |  TIM3 IC3      |  TIM2 IC1      |  TIM2 IC
+ 245:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 246:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM2 IC4      |  TIM2 IC4      |  TIM3 IC2      |  TIM3 OCREFCLR |  TIM3 OCREFCLR |  TIM2 OC
+ 247:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 248:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM2 OCREFCLR |  TIM2 OCREFCLR |  TIM4 IC1      |  TIM4 IC2      |  TIM4 IC3      |  TIM16 O
+ 249:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 250:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM3 IC1      |  TIM3 IC1      |  TIM15 IC1     |  TIM15 OCREFCLR|  TIM16 BKIN    |  TIM16 I
+ 251:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 252:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM3 OCREFCLR |  TIM3 OCREFCLR |  TIM15 BKIN    |  TIM15 IC2     |  TIM17 IC1     |  TIM4 IC
+ 253:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 254:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM20 BKIN    |  TIM20 BKIN    |  TIM20 BKIN    |  TIM20 BKIN (1U)|  TIM20 BKIN    |  TIM20 
+ 255:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 256:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM20 BKIN2   |  TIM20 BKIN2   |  TIM20 BKIN2   |  TIM20 BKIN2   |  TIM20 BKIN2   |  TIM20 B
+ 257:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 6
+
+
+ 258:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BK
+ 259:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |     +          |     +          |     +          |     +          |     +          |     +   
+ 260:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM8 BKIN2    |  TIM8 BKIN2    |  TIM8 BKIN2    |  TIM8 BKIN2    |  TIM8 BKIN2    |  TIM8 BK
+ 261:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |     +          |     +          |     +          |     +          |     +          |     +   
+ 262:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM20 BKIN2   |  TIM20 BKIN2   |  TIM20 BKIN2   |  TIM20 BKIN2   |  TIM20 BKIN2   |  TIM20 B
+ 263:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 264:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     +----------------------------------------------------------------------------------------------
+ 265:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     (1U):  This connection consists of connecting both GPIO and COMP output to TIM1/8U/20 BRK input
+ 266:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           of connecting the GPIO to the TIM1/8U/20 BRK input and the COMP output to the TIM1/8U/20 
+ 267:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           add a digital filter (3  bits) on the COMP output.
+ 268:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 269:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     Table 5. COMP Outputs blanking sources for the STM32F303xB/STM32F303xC/STM32F303xE devices
+ 270:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     +----------------------------------------------------------------------------------------------
+ 271:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |     COMP1      |     COMP2      |     COMP3      |     COMP4      |     COMP5      |     COMP
+ 272:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |----------------|----------------|----------------|----------------|----------------|---------
+ 273:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 OC5      |  TIM1 OC5      |  TIM1 OC5      |  TIM3 OC4      |  --------      |  TIM8 OC
+ 274:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 275:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM2 OC3      |  TIM2 OC3      |  --------      |  TIM8 OC5      |  TIM3 OC3      |  TIM2 OC
+ 276:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 277:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM3 OC3      |  TIM3 OC3      |  TIM2 OC4      |  TIM15 OC1     |  TIM8 OC5      |  TIM15 O
+ 278:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
+ 279:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     +----------------------------------------------------------------------------------------------
+ 280:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 281:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** */
+ 282:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 283:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Includes ------------------------------------------------------------------*/
+ 284:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #include "stm32f3xx_hal.h"
+ 285:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 286:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /** @addtogroup STM32F3xx_HAL_Driver
+ 287:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @{
+ 288:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 289:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 290:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /** @defgroup COMP COMP
+ 291:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief COMP HAL module driver
+ 292:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @{
+ 293:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 294:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 295:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #ifdef HAL_COMP_MODULE_ENABLED
+ 296:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 297:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Private typedef -----------------------------------------------------------*/
+ 298:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Private define ------------------------------------------------------------*/
+ 299:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /** @defgroup COMP_Private_Constants COMP Private Constants
+ 300:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @{
+ 301:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 302:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #define COMP_LOCK_DISABLE                      (0x00000000U)
+ 303:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #define COMP_LOCK_ENABLE                       COMP_CSR_COMPxLOCK
+ 304:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 305:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Delay for COMP startup time.                                               */
+ 306:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Note: Delay required to reach propagation delay specification.             */
+ 307:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Literal set to maximum value (refer to device datasheet,                   */
+ 308:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* parameter "tSTART").                                                       */
+ 309:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Unit: us                                                                   */
+ 310:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #define COMP_DELAY_STARTUP_US          (80UL)      /*!< Delay for COMP startup time */
+ 311:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 312:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Delay for COMP voltage scaler stabilization time.                          */
+ 313:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Literal set to maximum value (refer to device datasheet,                   */
+ 314:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* parameter "tSTART_SCALER").                                                */
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 7
+
+
+ 315:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Unit: us                                                                   */
+ 316:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #define COMP_DELAY_VOLTAGE_SCALER_STAB_US (200UL)  /*!< Delay for COMP voltage scaler stabilization
+ 317:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 318:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 319:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @}
+ 320:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 321:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 322:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Private macro -------------------------------------------------------------*/
+ 323:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Private variables ---------------------------------------------------------*/
+ 324:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Private function prototypes -----------------------------------------------*/
+ 325:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Exported functions --------------------------------------------------------*/
+ 326:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 327:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /** @defgroup COMP_Exported_Functions COMP Exported Functions
+ 328:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @{
+ 329:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 330:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 331:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /** @defgroup COMP_Exported_Functions_Group1 Initialization/de-initialization functions
+ 332:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  *  @brief    Initialization and de-initialization functions.
+ 333:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  *
+ 334:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** @verbatim
+ 335:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  ===============================================================================
+ 336:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****               ##### Initialization and de-initialization functions #####
+ 337:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  ===============================================================================
+ 338:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     [..]  This section provides functions to initialize and de-initialize comparators.
+ 339:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 340:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** @endverbatim
+ 341:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @{
+ 342:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 343:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 344:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 345:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Initialize the COMP peripheral according to the specified
+ 346:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         parameters in the COMP_InitTypeDef and initialize the associated handle.
+ 347:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @note   If the selected comparator is locked, initialization cannot be performed.
+ 348:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         To unlock the configuration, perform a system reset.
+ 349:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+ 350:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval HAL status
+ 351:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 352:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** HAL_StatusTypeDef HAL_COMP_Init(COMP_HandleTypeDef *hcomp)
+ 353:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 354:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   uint32_t comp_voltage_scaler_initialized; /* Value "0" if comparator voltage scaler is not initia
+ 355:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   __IO uint32_t wait_loop_index = 0UL;
+ 356:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 357:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 358:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Check the COMP handle allocation and lock status */
+ 359:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if ((hcomp == NULL) || ((hcomp->State & COMP_STATE_BIT_LOCK) != RESET))
+ 360:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 361:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     status = HAL_ERROR;
+ 362:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 363:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   else
+ 364:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 365:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Check the parameters */
+ 366:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_ALL_INSTANCE(hcomp->Instance));
+ 367:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_INVERTINGINPUT(hcomp->Init.InvertingInput));
+ 368:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_NONINVERTINGINPUT(hcomp->Init.NonInvertingInput));
+ 369:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_NONINVERTINGINPUT_INSTANCE(hcomp->Instance, hcomp->Init.NonInvertingInput)
+ 370:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_OUTPUT(hcomp->Init.Output));
+ 371:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_OUTPUT_INSTANCE(hcomp->Instance, hcomp->Init.Output));
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 8
+
+
+ 372:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_OUTPUTPOL(hcomp->Init.OutputPol));
+ 373:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_HYSTERESIS(hcomp->Init.Hysteresis));
+ 374:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_MODE(hcomp->Init.Mode));
+ 375:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_BLANKINGSRCE(hcomp->Init.BlankingSrce));
+ 376:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_BLANKINGSRCE_INSTANCE(hcomp->Instance, hcomp->Init.BlankingSrce));
+ 377:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_TRIGGERMODE(hcomp->Init.TriggerMode));
+ 378:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 379:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     if (hcomp->Init.WindowMode != COMP_WINDOWMODE_DISABLE)
+ 380:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 381:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       assert_param(IS_COMP_WINDOWMODE_INSTANCE(hcomp->Instance));
+ 382:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       assert_param(IS_COMP_WINDOWMODE(hcomp->Init.WindowMode));
+ 383:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 384:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 385:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Init SYSCFG and the low level hardware to access comparators */
+ 386:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     __HAL_RCC_SYSCFG_CLK_ENABLE();
+ 387:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 388:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #if (USE_HAL_COMP_REGISTER_CALLBACKS == 1)
+ 389:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Init the COMP Callback settings */
+ 390:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       hcomp->TriggerCallback = HAL_COMP_TriggerCallback; /* Legacy weak callback */
+ 391:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 392:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       if (hcomp->MspInitCallback == NULL)
+ 393:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 394:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->MspInitCallback = HAL_COMP_MspInit; /* Legacy weak MspInit  */
+ 395:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 396:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       
+ 397:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Init the low level hardware */
+ 398:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       hcomp->MspInitCallback(hcomp);
+ 399:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #else
+ 400:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Init the low level hardware : SYSCFG to access comparators */
+ 401:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       HAL_COMP_MspInit(hcomp);
+ 402:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #endif /* USE_HAL_COMP_REGISTER_CALLBACKS */
+ 403:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 404:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Memorize voltage scaler state before initialization */
+ 405:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     comp_voltage_scaler_initialized = READ_BIT(hcomp->Instance->CSR, (COMP_CSR_COMPxINSEL_1 | COMP_
+ 406:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 407:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     if (hcomp->State == HAL_COMP_STATE_RESET)
+ 408:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 409:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Allocate lock resource and initialize it */
+ 410:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       hcomp->Lock = HAL_UNLOCKED;
+ 411:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 412:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 413:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Manage inverting input comparator inverting input connected to a GPIO  */
+ 414:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* for STM32F302x, STM32F32xx, STM32F33x.                                 */
+ 415:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     hcomp->Init.InvertingInput = COMP_INVERTINGINPUT_SELECTION(hcomp->Instance, hcomp->Init.Inverti
+ 416:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 417:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Set COMP parameters */
+ 418:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /*     Set COMPxINSEL bits according to hcomp->Init.InvertingInput value        */
+ 419:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /*     Set COMPxNONINSEL bits according to hcomp->Init.NonInvertingInput value  */
+ 420:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /*     Set COMPxBLANKING bits according to hcomp->Init.BlankingSrce value       */
+ 421:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /*     Set COMPxOUTSEL bits according to hcomp->Init.Output value               */
+ 422:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /*     Set COMPxPOL bit according to hcomp->Init.OutputPol value                */
+ 423:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /*     Set COMPxHYST bits according to hcomp->Init.Hysteresis value             */
+ 424:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /*     Set COMPxMODE bits according to hcomp->Init.Mode value                   */
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     COMP_INIT(hcomp);
+ 426:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 427:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Delay for COMP scaler bridge voltage stabilization */
+ 428:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Apply the delay if voltage scaler bridge is required and not already enabled */
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 9
+
+
+ 429:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     if ((READ_BIT(hcomp->Instance->CSR, (COMP_CSR_COMPxINSEL_1 | COMP_CSR_COMPxINSEL_0)) != 0UL) &&
+ 430:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         (comp_voltage_scaler_initialized == 0UL))
+ 431:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 432:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Wait loop initialization and execution */
+ 433:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Note: Variable divided by 2 to compensate partially              */
+ 434:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /*       CPU processing cycles, scaling in us split to not          */
+ 435:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /*       exceed 32 bits register capacity and handle low frequency. */
+ 436:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       wait_loop_index = ((COMP_DELAY_VOLTAGE_SCALER_STAB_US / 10UL) * ((SystemCoreClock / (100000UL
+ 437:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
+ 438:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 439:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         wait_loop_index--;
+ 440:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 441:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 442:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 443:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Initialize the COMP state*/
+ 444:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     hcomp->State = HAL_COMP_STATE_READY;
+ 445:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 446:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 447:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return status;
+ 448:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 449:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 450:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 451:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  DeInitialize the COMP peripheral.
+ 452:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @note   If the selected comparator is locked, deinitialization cannot be performed.
+ 453:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         To unlock the configuration, perform a system reset.
+ 454:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+ 455:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval HAL status
+ 456:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 457:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** HAL_StatusTypeDef HAL_COMP_DeInit(COMP_HandleTypeDef *hcomp)
+ 458:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 459:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 460:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 461:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Check the COMP handle allocation and lock status */
+ 462:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if ((hcomp == NULL) || ((hcomp->State & COMP_STATE_BIT_LOCK) != RESET))
+ 463:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 464:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     status = HAL_ERROR;
+ 465:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 466:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   else
+ 467:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 468:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Check the parameter */
+ 469:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_ALL_INSTANCE(hcomp->Instance));
+ 470:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 471:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Set COMP_CSR register to reset value */
+ 472:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     COMP_DEINIT(hcomp);
+ 473:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 474:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #if (USE_HAL_COMP_REGISTER_CALLBACKS == 1)
+ 475:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     if (hcomp->MspDeInitCallback == NULL)
+ 476:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 477:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       hcomp->MspDeInitCallback = HAL_COMP_MspDeInit; /* Legacy weak MspDeInit  */
+ 478:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 479:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     
+ 480:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* DeInit the low level hardware: SYSCFG, GPIO, CLOCK and NVIC */
+ 481:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     hcomp->MspDeInitCallback(hcomp);
+ 482:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #else
+ 483:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* DeInit the low level hardware: SYSCFG, GPIO, CLOCK and NVIC */
+ 484:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     HAL_COMP_MspDeInit(hcomp);
+ 485:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #endif /* USE_HAL_COMP_REGISTER_CALLBACKS */
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 10
+
+
+ 486:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 487:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     hcomp->State = HAL_COMP_STATE_RESET;
+ 488:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 489:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Release Lock */
+ 490:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     __HAL_UNLOCK(hcomp);
+ 491:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 492:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 493:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return status;
+ 494:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 495:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 496:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 497:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Initialize the COMP MSP.
+ 498:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+ 499:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval None
+ 500:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 501:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** __weak void HAL_COMP_MspInit(COMP_HandleTypeDef *hcomp)
+ 502:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+  30              		.loc 1 502 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+ 503:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Prevent unused argument(s) compilation warning */
+ 504:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   UNUSED(hcomp);
+  35              		.loc 1 504 3 view .LVU1
+ 505:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 506:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* NOTE : This function should not be modified, when the callback is needed,
+ 507:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****             the HAL_COMP_MspInit could be implemented in the user file
+ 508:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****    */
+ 509:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+  36              		.loc 1 509 1 is_stmt 0 view .LVU2
+  37 0000 7047     		bx	lr
+  38              		.cfi_endproc
+  39              	.LFE125:
+  41              		.section	.text.HAL_COMP_Init,"ax",%progbits
+  42              		.align	1
+  43              		.global	HAL_COMP_Init
+  44              		.syntax unified
+  45              		.thumb
+  46              		.thumb_func
+  48              	HAL_COMP_Init:
+  49              	.LVL1:
+  50              	.LFB123:
+ 353:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   uint32_t comp_voltage_scaler_initialized; /* Value "0" if comparator voltage scaler is not initia
+  51              		.loc 1 353 1 is_stmt 1 view -0
+  52              		.cfi_startproc
+  53              		@ args = 0, pretend = 0, frame = 16
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+ 353:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   uint32_t comp_voltage_scaler_initialized; /* Value "0" if comparator voltage scaler is not initia
+  55              		.loc 1 353 1 is_stmt 0 view .LVU4
+  56 0000 30B5     		push	{r4, r5, lr}
+  57              	.LCFI0:
+  58              		.cfi_def_cfa_offset 12
+  59              		.cfi_offset 4, -12
+  60              		.cfi_offset 5, -8
+  61              		.cfi_offset 14, -4
+  62 0002 85B0     		sub	sp, sp, #20
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 11
+
+
+  63              	.LCFI1:
+  64              		.cfi_def_cfa_offset 32
+ 354:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   __IO uint32_t wait_loop_index = 0UL;
+  65              		.loc 1 354 3 is_stmt 1 view .LVU5
+ 355:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+  66              		.loc 1 355 3 view .LVU6
+ 355:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+  67              		.loc 1 355 17 is_stmt 0 view .LVU7
+  68 0004 0023     		movs	r3, #0
+  69 0006 0393     		str	r3, [sp, #12]
+ 356:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  70              		.loc 1 356 3 is_stmt 1 view .LVU8
+  71              	.LVL2:
+ 359:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+  72              		.loc 1 359 3 view .LVU9
+ 359:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+  73              		.loc 1 359 6 is_stmt 0 view .LVU10
+  74 0008 0028     		cmp	r0, #0
+  75 000a 78D0     		beq	.L9
+  76 000c 0446     		mov	r4, r0
+ 359:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+  77              		.loc 1 359 33 discriminator 1 view .LVU11
+  78 000e 90F82950 		ldrb	r5, [r0, #41]	@ zero_extendqisi2
+ 359:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+  79              		.loc 1 359 23 discriminator 1 view .LVU12
+  80 0012 15F01005 		ands	r5, r5, #16
+  81 0016 03D0     		beq	.L13
+ 361:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+  82              		.loc 1 361 12 view .LVU13
+  83 0018 0125     		movs	r5, #1
+  84              	.LVL3:
+  85              	.L3:
+ 447:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+  86              		.loc 1 447 3 is_stmt 1 view .LVU14
+ 448:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+  87              		.loc 1 448 1 is_stmt 0 view .LVU15
+  88 001a 2846     		mov	r0, r5
+  89 001c 05B0     		add	sp, sp, #20
+  90              	.LCFI2:
+  91              		.cfi_remember_state
+  92              		.cfi_def_cfa_offset 12
+  93              		@ sp needed
+  94 001e 30BD     		pop	{r4, r5, pc}
+  95              	.LVL4:
+  96              	.L13:
+  97              	.LCFI3:
+  98              		.cfi_restore_state
+ 366:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_INVERTINGINPUT(hcomp->Init.InvertingInput));
+  99              		.loc 1 366 5 is_stmt 1 view .LVU16
+ 367:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_NONINVERTINGINPUT(hcomp->Init.NonInvertingInput));
+ 100              		.loc 1 367 5 view .LVU17
+ 368:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_NONINVERTINGINPUT_INSTANCE(hcomp->Instance, hcomp->Init.NonInvertingInput)
+ 101              		.loc 1 368 5 view .LVU18
+ 369:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_OUTPUT(hcomp->Init.Output));
+ 102              		.loc 1 369 5 view .LVU19
+ 370:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_OUTPUT_INSTANCE(hcomp->Instance, hcomp->Init.Output));
+ 103              		.loc 1 370 5 view .LVU20
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 12
+
+
+ 371:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_OUTPUTPOL(hcomp->Init.OutputPol));
+ 104              		.loc 1 371 5 view .LVU21
+ 372:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_HYSTERESIS(hcomp->Init.Hysteresis));
+ 105              		.loc 1 372 5 view .LVU22
+ 373:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_MODE(hcomp->Init.Mode));
+ 106              		.loc 1 373 5 view .LVU23
+ 374:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_BLANKINGSRCE(hcomp->Init.BlankingSrce));
+ 107              		.loc 1 374 5 view .LVU24
+ 375:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_BLANKINGSRCE_INSTANCE(hcomp->Instance, hcomp->Init.BlankingSrce));
+ 108              		.loc 1 375 5 view .LVU25
+ 376:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_TRIGGERMODE(hcomp->Init.TriggerMode));
+ 109              		.loc 1 376 5 view .LVU26
+ 377:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 110              		.loc 1 377 5 view .LVU27
+ 379:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 111              		.loc 1 379 5 view .LVU28
+ 381:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       assert_param(IS_COMP_WINDOWMODE(hcomp->Init.WindowMode));
+ 112              		.loc 1 381 7 view .LVU29
+ 382:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 113              		.loc 1 382 7 view .LVU30
+ 386:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 114              		.loc 1 386 5 view .LVU31
+ 115              	.LBB2:
+ 386:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 116              		.loc 1 386 5 view .LVU32
+ 386:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 117              		.loc 1 386 5 view .LVU33
+ 118 0020 03F18043 		add	r3, r3, #1073741824
+ 119 0024 03F50433 		add	r3, r3, #135168
+ 120 0028 9A69     		ldr	r2, [r3, #24]
+ 121 002a 42F00102 		orr	r2, r2, #1
+ 122 002e 9A61     		str	r2, [r3, #24]
+ 386:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 123              		.loc 1 386 5 view .LVU34
+ 124 0030 9B69     		ldr	r3, [r3, #24]
+ 125 0032 03F00103 		and	r3, r3, #1
+ 126 0036 0193     		str	r3, [sp, #4]
+ 386:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 127              		.loc 1 386 5 view .LVU35
+ 128 0038 019B     		ldr	r3, [sp, #4]
+ 129              	.LBE2:
+ 386:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 130              		.loc 1 386 5 view .LVU36
+ 401:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #endif /* USE_HAL_COMP_REGISTER_CALLBACKS */
+ 131              		.loc 1 401 7 view .LVU37
+ 132 003a FFF7FEFF 		bl	HAL_COMP_MspInit
+ 133              	.LVL5:
+ 405:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 134              		.loc 1 405 5 view .LVU38
+ 405:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 135              		.loc 1 405 39 is_stmt 0 view .LVU39
+ 136 003e 2268     		ldr	r2, [r4]
+ 137 0040 1168     		ldr	r1, [r2]
+ 405:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 138              		.loc 1 405 37 view .LVU40
+ 139 0042 01F03001 		and	r1, r1, #48
+ 140              	.LVL6:
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 13
+
+
+ 407:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 141              		.loc 1 407 5 is_stmt 1 view .LVU41
+ 407:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 142              		.loc 1 407 14 is_stmt 0 view .LVU42
+ 143 0046 94F82930 		ldrb	r3, [r4, #41]	@ zero_extendqisi2
+ 407:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 144              		.loc 1 407 8 view .LVU43
+ 145 004a 0BB9     		cbnz	r3, .L4
+ 410:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 146              		.loc 1 410 7 is_stmt 1 view .LVU44
+ 410:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 147              		.loc 1 410 19 is_stmt 0 view .LVU45
+ 148 004c 84F82830 		strb	r3, [r4, #40]
+ 149              	.L4:
+ 415:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 150              		.loc 1 415 5 is_stmt 1 view .LVU46
+ 415:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 151              		.loc 1 415 34 is_stmt 0 view .LVU47
+ 152 0050 6068     		ldr	r0, [r4, #4]
+ 153 0052 6028     		cmp	r0, #96
+ 154 0054 44D0     		beq	.L14
+ 155              	.L5:
+ 415:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 156              		.loc 1 415 32 discriminator 8 view .LVU48
+ 157 0056 6060     		str	r0, [r4, #4]
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 158              		.loc 1 425 5 is_stmt 1 view .LVU49
+ 159              	.LBB3:
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 160              		.loc 1 425 5 view .LVU50
+ 161 0058 0023     		movs	r3, #0
+ 162 005a 0293     		str	r3, [sp, #8]
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 163              		.loc 1 425 5 view .LVU51
+ 164 005c 1368     		ldr	r3, [r2]
+ 165 005e 0293     		str	r3, [sp, #8]
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 166              		.loc 1 425 5 view .LVU52
+ 167 0060 029B     		ldr	r3, [sp, #8]
+ 168 0062 23F48003 		bic	r3, r3, #4194304
+ 169 0066 23F07003 		bic	r3, r3, #112
+ 170 006a 0343     		orrs	r3, r3, r0
+ 171 006c 0293     		str	r3, [sp, #8]
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 172              		.loc 1 425 5 view .LVU53
+ 173 006e A368     		ldr	r3, [r4, #8]
+ 174 0070 0298     		ldr	r0, [sp, #8]
+ 175 0072 0343     		orrs	r3, r3, r0
+ 176 0074 0293     		str	r3, [sp, #8]
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 177              		.loc 1 425 5 view .LVU54
+ 178 0076 029B     		ldr	r3, [sp, #8]
+ 179 0078 23F44023 		bic	r3, r3, #786432
+ 180 007c A069     		ldr	r0, [r4, #24]
+ 181 007e 0343     		orrs	r3, r3, r0
+ 182 0080 0293     		str	r3, [sp, #8]
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 14
+
+
+ 183              		.loc 1 425 5 view .LVU55
+ 184 0082 029B     		ldr	r3, [sp, #8]
+ 185 0084 23F47053 		bic	r3, r3, #15360
+ 186 0088 E068     		ldr	r0, [r4, #12]
+ 187 008a 00F47050 		and	r0, r0, #15360
+ 188 008e 0343     		orrs	r3, r3, r0
+ 189 0090 0293     		str	r3, [sp, #8]
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 190              		.loc 1 425 5 view .LVU56
+ 191 0092 029B     		ldr	r3, [sp, #8]
+ 192 0094 23F40043 		bic	r3, r3, #32768
+ 193 0098 2069     		ldr	r0, [r4, #16]
+ 194 009a 0343     		orrs	r3, r3, r0
+ 195 009c 0293     		str	r3, [sp, #8]
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 196              		.loc 1 425 5 view .LVU57
+ 197 009e 6369     		ldr	r3, [r4, #20]
+ 198 00a0 0298     		ldr	r0, [sp, #8]
+ 199 00a2 0343     		orrs	r3, r3, r0
+ 200 00a4 0293     		str	r3, [sp, #8]
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 201              		.loc 1 425 5 view .LVU58
+ 202 00a6 E369     		ldr	r3, [r4, #28]
+ 203 00a8 0298     		ldr	r0, [sp, #8]
+ 204 00aa 0343     		orrs	r3, r3, r0
+ 205 00ac 0293     		str	r3, [sp, #8]
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 206              		.loc 1 425 5 view .LVU59
+ 207 00ae 236A     		ldr	r3, [r4, #32]
+ 208 00b0 0298     		ldr	r0, [sp, #8]
+ 209 00b2 0343     		orrs	r3, r3, r0
+ 210 00b4 0293     		str	r3, [sp, #8]
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 211              		.loc 1 425 5 view .LVU60
+ 212 00b6 029B     		ldr	r3, [sp, #8]
+ 213 00b8 1360     		str	r3, [r2]
+ 214              	.LBE3:
+ 425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 215              		.loc 1 425 5 view .LVU61
+ 429:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         (comp_voltage_scaler_initialized == 0UL))
+ 216              		.loc 1 429 5 view .LVU62
+ 429:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         (comp_voltage_scaler_initialized == 0UL))
+ 217              		.loc 1 429 10 is_stmt 0 view .LVU63
+ 218 00ba 2368     		ldr	r3, [r4]
+ 219 00bc 1B68     		ldr	r3, [r3]
+ 429:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         (comp_voltage_scaler_initialized == 0UL))
+ 220              		.loc 1 429 8 view .LVU64
+ 221 00be 13F0300F 		tst	r3, #48
+ 222 00c2 18D0     		beq	.L6
+ 429:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         (comp_voltage_scaler_initialized == 0UL))
+ 223              		.loc 1 429 98 discriminator 1 view .LVU65
+ 224 00c4 B9B9     		cbnz	r1, .L6
+ 436:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
+ 225              		.loc 1 436 7 is_stmt 1 view .LVU66
+ 436:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
+ 226              		.loc 1 436 89 is_stmt 0 view .LVU67
+ 227 00c6 0F4B     		ldr	r3, .L15
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 15
+
+
+ 228 00c8 1B68     		ldr	r3, [r3]
+ 229 00ca 9B09     		lsrs	r3, r3, #6
+ 230 00cc 0E4A     		ldr	r2, .L15+4
+ 231 00ce A2FB0323 		umull	r2, r3, r2, r3
+ 232 00d2 9B09     		lsrs	r3, r3, #6
+ 436:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
+ 233              		.loc 1 436 69 view .LVU68
+ 234 00d4 0133     		adds	r3, r3, #1
+ 235 00d6 03EB8303 		add	r3, r3, r3, lsl #2
+ 236 00da 9B00     		lsls	r3, r3, #2
+ 436:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
+ 237              		.loc 1 436 23 view .LVU69
+ 238 00dc 0393     		str	r3, [sp, #12]
+ 437:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 239              		.loc 1 437 7 is_stmt 1 view .LVU70
+ 437:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 240              		.loc 1 437 13 is_stmt 0 view .LVU71
+ 241 00de 07E0     		b	.L7
+ 242              	.L14:
+ 415:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 243              		.loc 1 415 34 discriminator 2 view .LVU72
+ 244 00e0 0A4B     		ldr	r3, .L15+8
+ 245 00e2 9A42     		cmp	r2, r3
+ 246 00e4 B7D0     		beq	.L5
+ 415:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 247              		.loc 1 415 34 discriminator 5 view .LVU73
+ 248 00e6 0A48     		ldr	r0, .L15+12
+ 249 00e8 B5E7     		b	.L5
+ 250              	.L8:
+ 439:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 251              		.loc 1 439 9 is_stmt 1 view .LVU74
+ 439:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 252              		.loc 1 439 24 is_stmt 0 view .LVU75
+ 253 00ea 039B     		ldr	r3, [sp, #12]
+ 254 00ec 013B     		subs	r3, r3, #1
+ 255 00ee 0393     		str	r3, [sp, #12]
+ 256              	.L7:
+ 437:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 257              		.loc 1 437 30 is_stmt 1 view .LVU76
+ 258 00f0 039B     		ldr	r3, [sp, #12]
+ 259 00f2 002B     		cmp	r3, #0
+ 260 00f4 F9D1     		bne	.L8
+ 261              	.L6:
+ 444:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 262              		.loc 1 444 5 view .LVU77
+ 444:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 263              		.loc 1 444 18 is_stmt 0 view .LVU78
+ 264 00f6 0123     		movs	r3, #1
+ 265 00f8 84F82930 		strb	r3, [r4, #41]
+ 266 00fc 8DE7     		b	.L3
+ 267              	.LVL7:
+ 268              	.L9:
+ 361:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 269              		.loc 1 361 12 view .LVU79
+ 270 00fe 0125     		movs	r5, #1
+ 271 0100 8BE7     		b	.L3
+ 272              	.L16:
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 16
+
+
+ 273 0102 00BF     		.align	2
+ 274              	.L15:
+ 275 0104 00000000 		.word	SystemCoreClock
+ 276 0108 632D3E05 		.word	87960931
+ 277 010c 20000140 		.word	1073807392
+ 278 0110 70004000 		.word	4194416
+ 279              		.cfi_endproc
+ 280              	.LFE123:
+ 282              		.section	.text.HAL_COMP_MspDeInit,"ax",%progbits
+ 283              		.align	1
+ 284              		.weak	HAL_COMP_MspDeInit
+ 285              		.syntax unified
+ 286              		.thumb
+ 287              		.thumb_func
+ 289              	HAL_COMP_MspDeInit:
+ 290              	.LVL8:
+ 291              	.LFB126:
+ 510:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 511:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 512:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  DeInitialize the COMP MSP.
+ 513:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+ 514:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval None
+ 515:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 516:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** __weak void HAL_COMP_MspDeInit(COMP_HandleTypeDef *hcomp)
+ 517:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 292              		.loc 1 517 1 is_stmt 1 view -0
+ 293              		.cfi_startproc
+ 294              		@ args = 0, pretend = 0, frame = 0
+ 295              		@ frame_needed = 0, uses_anonymous_args = 0
+ 296              		@ link register save eliminated.
+ 518:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Prevent unused argument(s) compilation warning */
+ 519:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   UNUSED(hcomp);
+ 297              		.loc 1 519 3 view .LVU81
+ 520:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 521:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* NOTE : This function should not be modified, when the callback is needed,
+ 522:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****             the HAL_COMP_MspDeInit could be implemented in the user file
+ 523:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****    */
+ 524:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 298              		.loc 1 524 1 is_stmt 0 view .LVU82
+ 299 0000 7047     		bx	lr
+ 300              		.cfi_endproc
+ 301              	.LFE126:
+ 303              		.section	.text.HAL_COMP_DeInit,"ax",%progbits
+ 304              		.align	1
+ 305              		.global	HAL_COMP_DeInit
+ 306              		.syntax unified
+ 307              		.thumb
+ 308              		.thumb_func
+ 310              	HAL_COMP_DeInit:
+ 311              	.LVL9:
+ 312              	.LFB124:
+ 458:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 313              		.loc 1 458 1 is_stmt 1 view -0
+ 314              		.cfi_startproc
+ 315              		@ args = 0, pretend = 0, frame = 0
+ 316              		@ frame_needed = 0, uses_anonymous_args = 0
+ 458:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 17
+
+
+ 317              		.loc 1 458 1 is_stmt 0 view .LVU84
+ 318 0000 70B5     		push	{r4, r5, r6, lr}
+ 319              	.LCFI4:
+ 320              		.cfi_def_cfa_offset 16
+ 321              		.cfi_offset 4, -16
+ 322              		.cfi_offset 5, -12
+ 323              		.cfi_offset 6, -8
+ 324              		.cfi_offset 14, -4
+ 459:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 325              		.loc 1 459 3 is_stmt 1 view .LVU85
+ 326              	.LVL10:
+ 462:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 327              		.loc 1 462 3 view .LVU86
+ 462:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 328              		.loc 1 462 6 is_stmt 0 view .LVU87
+ 329 0002 90B1     		cbz	r0, .L20
+ 330 0004 0546     		mov	r5, r0
+ 462:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 331              		.loc 1 462 33 discriminator 1 view .LVU88
+ 332 0006 90F82940 		ldrb	r4, [r0, #41]	@ zero_extendqisi2
+ 462:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 333              		.loc 1 462 23 discriminator 1 view .LVU89
+ 334 000a 14F01004 		ands	r4, r4, #16
+ 335 000e 02D0     		beq	.L23
+ 464:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 336              		.loc 1 464 12 view .LVU90
+ 337 0010 0124     		movs	r4, #1
+ 338              	.LVL11:
+ 339              	.L19:
+ 490:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 340              		.loc 1 490 5 is_stmt 1 view .LVU91
+ 493:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 341              		.loc 1 493 3 view .LVU92
+ 494:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 342              		.loc 1 494 1 is_stmt 0 view .LVU93
+ 343 0012 2046     		mov	r0, r4
+ 344 0014 70BD     		pop	{r4, r5, r6, pc}
+ 345              	.LVL12:
+ 346              	.L23:
+ 469:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 347              		.loc 1 469 5 is_stmt 1 view .LVU94
+ 472:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 348              		.loc 1 472 5 view .LVU95
+ 349 0016 0368     		ldr	r3, [r0]
+ 350 0018 0026     		movs	r6, #0
+ 351 001a 1E60     		str	r6, [r3]
+ 484:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #endif /* USE_HAL_COMP_REGISTER_CALLBACKS */
+ 352              		.loc 1 484 5 view .LVU96
+ 353 001c FFF7FEFF 		bl	HAL_COMP_MspDeInit
+ 354              	.LVL13:
+ 487:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 355              		.loc 1 487 5 view .LVU97
+ 487:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 356              		.loc 1 487 18 is_stmt 0 view .LVU98
+ 357 0020 85F82960 		strb	r6, [r5, #41]
+ 490:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 358              		.loc 1 490 5 is_stmt 1 view .LVU99
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 18
+
+
+ 490:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 359              		.loc 1 490 5 view .LVU100
+ 360 0024 85F82860 		strb	r6, [r5, #40]
+ 361 0028 F3E7     		b	.L19
+ 362              	.LVL14:
+ 363              	.L20:
+ 464:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 364              		.loc 1 464 12 is_stmt 0 view .LVU101
+ 365 002a 0124     		movs	r4, #1
+ 366 002c F1E7     		b	.L19
+ 367              		.cfi_endproc
+ 368              	.LFE124:
+ 370              		.section	.text.HAL_COMP_Start,"ax",%progbits
+ 371              		.align	1
+ 372              		.global	HAL_COMP_Start
+ 373              		.syntax unified
+ 374              		.thumb
+ 375              		.thumb_func
+ 377              	HAL_COMP_Start:
+ 378              	.LVL15:
+ 379              	.LFB127:
+ 525:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 526:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #if (USE_HAL_COMP_REGISTER_CALLBACKS == 1)
+ 527:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 528:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Register a User COMP Callback
+ 529:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         To be used instead of the weak predefined callback
+ 530:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp Pointer to a COMP_HandleTypeDef structure that contains
+ 531:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *                the configuration information for the specified COMP.
+ 532:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  CallbackID ID of the callback to be registered
+ 533:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         This parameter can be one of the following values:
+ 534:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *          @arg @ref HAL_COMP_TRIGGER_CB_ID Trigger callback ID
+ 535:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *          @arg @ref HAL_COMP_MSPINIT_CB_ID MspInit callback ID
+ 536:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *          @arg @ref HAL_COMP_MSPDEINIT_CB_ID MspDeInit callback ID
+ 537:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  pCallback pointer to the Callback function
+ 538:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval HAL status
+ 539:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 540:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** HAL_StatusTypeDef HAL_COMP_RegisterCallback(COMP_HandleTypeDef *hcomp, HAL_COMP_CallbackIDTypeDef C
+ 541:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 542:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 543:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   
+ 544:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if (pCallback == NULL)
+ 545:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 546:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Update the error code */
+ 547:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     hcomp->ErrorCode |= HAL_COMP_ERROR_INVALID_CALLBACK;
+ 548:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 549:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     return HAL_ERROR;
+ 550:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 551:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   
+ 552:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if (HAL_COMP_STATE_READY == hcomp->State)
+ 553:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 554:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     switch (CallbackID)
+ 555:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 556:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_TRIGGER_CB_ID :
+ 557:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->TriggerCallback = pCallback;
+ 558:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 559:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       
+ 560:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_MSPINIT_CB_ID :
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 19
+
+
+ 561:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->MspInitCallback = pCallback;
+ 562:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 563:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       
+ 564:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_MSPDEINIT_CB_ID :
+ 565:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->MspDeInitCallback = pCallback;
+ 566:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 567:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       
+ 568:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       default :
+ 569:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Update the error code */
+ 570:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->ErrorCode |= HAL_COMP_ERROR_INVALID_CALLBACK;
+ 571:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         
+ 572:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Return error status */
+ 573:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         status = HAL_ERROR;
+ 574:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 575:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 576:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 577:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   else if (HAL_COMP_STATE_RESET == hcomp->State)
+ 578:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 579:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     switch (CallbackID)
+ 580:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 581:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_MSPINIT_CB_ID :
+ 582:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->MspInitCallback = pCallback;
+ 583:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 584:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       
+ 585:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_MSPDEINIT_CB_ID :
+ 586:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->MspDeInitCallback = pCallback;
+ 587:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 588:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       
+ 589:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       default :
+ 590:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Update the error code */
+ 591:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->ErrorCode |= HAL_COMP_ERROR_INVALID_CALLBACK;
+ 592:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         
+ 593:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Return error status */
+ 594:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         status = HAL_ERROR;
+ 595:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 596:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 597:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 598:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   else
+ 599:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 600:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Update the error code */
+ 601:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     hcomp->ErrorCode |= HAL_COMP_ERROR_INVALID_CALLBACK;
+ 602:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     
+ 603:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Return error status */
+ 604:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     status =  HAL_ERROR;
+ 605:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 606:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   
+ 607:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return status;
+ 608:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 609:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 610:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 611:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Unregister a COMP Callback
+ 612:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         COMP callback is redirected to the weak predefined callback
+ 613:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp Pointer to a COMP_HandleTypeDef structure that contains
+ 614:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *                the configuration information for the specified COMP.
+ 615:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  CallbackID ID of the callback to be unregistered
+ 616:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         This parameter can be one of the following values:
+ 617:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *          @arg @ref HAL_COMP_TRIGGER_CB_ID Trigger callback ID
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 20
+
+
+ 618:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *          @arg @ref HAL_COMP_MSPINIT_CB_ID MspInit callback ID
+ 619:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *          @arg @ref HAL_COMP_MSPDEINIT_CB_ID MspDeInit callback ID
+ 620:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval HAL status
+ 621:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 622:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** HAL_StatusTypeDef HAL_COMP_UnRegisterCallback(COMP_HandleTypeDef *hcomp, HAL_COMP_CallbackIDTypeDef
+ 623:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 624:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 625:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 626:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if (HAL_COMP_STATE_READY == hcomp->State)
+ 627:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 628:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     switch (CallbackID)
+ 629:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 630:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_TRIGGER_CB_ID :
+ 631:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->TriggerCallback = HAL_COMP_TriggerCallback;         /* Legacy weak callback */
+ 632:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 633:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       
+ 634:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_MSPINIT_CB_ID :
+ 635:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->MspInitCallback = HAL_COMP_MspInit;                 /* Legacy weak MspInit */
+ 636:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 637:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 638:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_MSPDEINIT_CB_ID :
+ 639:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->MspDeInitCallback = HAL_COMP_MspDeInit;             /* Legacy weak MspDeInit */
+ 640:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 641:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 642:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       default :
+ 643:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Update the error code */
+ 644:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->ErrorCode |= HAL_COMP_ERROR_INVALID_CALLBACK;
+ 645:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 646:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Return error status */
+ 647:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         status =  HAL_ERROR;
+ 648:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 649:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 650:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 651:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   else if (HAL_COMP_STATE_RESET == hcomp->State)
+ 652:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 653:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     switch (CallbackID)
+ 654:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 655:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_MSPINIT_CB_ID :
+ 656:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->MspInitCallback = HAL_COMP_MspInit;                 /* Legacy weak MspInit */
+ 657:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 658:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 659:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_MSPDEINIT_CB_ID :
+ 660:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->MspDeInitCallback = HAL_COMP_MspDeInit;             /* Legacy weak MspDeInit */
+ 661:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 662:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 663:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       default :
+ 664:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Update the error code */
+ 665:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->ErrorCode |= HAL_COMP_ERROR_INVALID_CALLBACK;
+ 666:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 667:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Return error status */
+ 668:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         status =  HAL_ERROR;
+ 669:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 670:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 671:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 672:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   else
+ 673:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 674:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Update the error code */
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 21
+
+
+ 675:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     hcomp->ErrorCode |= HAL_COMP_ERROR_INVALID_CALLBACK;
+ 676:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 677:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Return error status */
+ 678:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     status =  HAL_ERROR;
+ 679:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 680:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 681:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return status;
+ 682:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 683:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 684:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #endif /* USE_HAL_COMP_REGISTER_CALLBACKS */
+ 685:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 686:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 687:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @}
+ 688:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 689:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 690:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /** @defgroup COMP_Exported_Functions_Group2 Start Stop operation functions
+ 691:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  *  @brief   Start-Stop operation functions.
+ 692:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  *
+ 693:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** @verbatim
+ 694:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  ===============================================================================
+ 695:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****                       ##### Start Stop operation functions #####
+ 696:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  ===============================================================================
+ 697:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     [..]  This section provides functions allowing to:
+ 698:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (+) Start a comparator without interrupt generation.
+ 699:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (+) Stop a comparator without interrupt generation.
+ 700:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (+) Start a comparator with interrupt generation.
+ 701:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (+) Stop a comparator with interrupt generation.
+ 702:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (+) Handle interrupts from a comparator with associated callback function.
+ 703:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 704:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** @endverbatim
+ 705:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @{
+ 706:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 707:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 708:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 709:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Start the comparator.
+ 710:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+ 711:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval HAL status
+ 712:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 713:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** HAL_StatusTypeDef HAL_COMP_Start(COMP_HandleTypeDef *hcomp)
+ 714:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 380              		.loc 1 714 1 is_stmt 1 view -0
+ 381              		.cfi_startproc
+ 382              		@ args = 0, pretend = 0, frame = 8
+ 383              		@ frame_needed = 0, uses_anonymous_args = 0
+ 384              		@ link register save eliminated.
+ 385              		.loc 1 714 1 is_stmt 0 view .LVU103
+ 386 0000 30B4     		push	{r4, r5}
+ 387              	.LCFI5:
+ 388              		.cfi_def_cfa_offset 8
+ 389              		.cfi_offset 4, -8
+ 390              		.cfi_offset 5, -4
+ 391 0002 82B0     		sub	sp, sp, #8
+ 392              	.LCFI6:
+ 393              		.cfi_def_cfa_offset 16
+ 715:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   __IO uint32_t wait_loop_index = 0UL;
+ 394              		.loc 1 715 3 is_stmt 1 view .LVU104
+ 395              		.loc 1 715 17 is_stmt 0 view .LVU105
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 22
+
+
+ 396 0004 0023     		movs	r3, #0
+ 397 0006 0193     		str	r3, [sp, #4]
+ 716:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 398              		.loc 1 716 3 is_stmt 1 view .LVU106
+ 399              	.LVL16:
+ 717:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   uint32_t extiline = 0U;
+ 400              		.loc 1 717 3 view .LVU107
+ 718:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 719:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Check the COMP handle allocation and lock status */
+ 720:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if ((hcomp == NULL) || ((hcomp->State & COMP_STATE_BIT_LOCK) != RESET))
+ 401              		.loc 1 720 3 view .LVU108
+ 402              		.loc 1 720 6 is_stmt 0 view .LVU109
+ 403 0008 0028     		cmp	r0, #0
+ 404 000a 00F08980 		beq	.L41
+ 405 000e 0346     		mov	r3, r0
+ 406              		.loc 1 720 33 discriminator 1 view .LVU110
+ 407 0010 90F82900 		ldrb	r0, [r0, #41]	@ zero_extendqisi2
+ 408              	.LVL17:
+ 409              		.loc 1 720 23 discriminator 1 view .LVU111
+ 410 0014 10F01000 		ands	r0, r0, #16
+ 411 0018 40F08480 		bne	.L42
+ 721:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 722:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     status = HAL_ERROR;
+ 723:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 724:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   else
+ 725:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 726:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Check the parameter */
+ 727:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_ALL_INSTANCE(hcomp->Instance));
+ 412              		.loc 1 727 5 is_stmt 1 view .LVU112
+ 728:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 729:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     if (hcomp->State == HAL_COMP_STATE_READY)
+ 413              		.loc 1 729 5 view .LVU113
+ 414              		.loc 1 729 14 is_stmt 0 view .LVU114
+ 415 001c 93F82920 		ldrb	r2, [r3, #41]	@ zero_extendqisi2
+ 416              		.loc 1 729 8 view .LVU115
+ 417 0020 012A     		cmp	r2, #1
+ 418 0022 01D0     		beq	.L47
+ 730:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 731:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Get the EXTI Line output configuration */
+ 732:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       extiline = COMP_GET_EXTI_LINE(hcomp->Instance);
+ 733:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 734:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Configure the event generation */
+ 735:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       if ((hcomp->Init.TriggerMode & (COMP_TRIGGERMODE_EVENT_RISING | COMP_TRIGGERMODE_EVENT_FALLIN
+ 736:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 737:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Configure the event trigger rising edge */
+ 738:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         if ((hcomp->Init.TriggerMode & COMP_TRIGGERMODE_EVENT_RISING) != RESET)
+ 739:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 740:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           COMP_EXTI_RISING_ENABLE(extiline);
+ 741:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 742:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         else
+ 743:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 744:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           COMP_EXTI_RISING_DISABLE(extiline);
+ 745:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 746:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 747:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Configure the trigger falling edge */
+ 748:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         if ((hcomp->Init.TriggerMode & COMP_TRIGGERMODE_EVENT_FALLING) != RESET)
+ 749:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 23
+
+
+ 750:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           COMP_EXTI_FALLING_ENABLE(extiline);
+ 751:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 752:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         else
+ 753:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 754:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           COMP_EXTI_FALLING_DISABLE(extiline);
+ 755:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 756:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 757:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Enable EXTI event generation */
+ 758:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         COMP_EXTI_ENABLE_EVENT(extiline);
+ 759:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 760:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Clear COMP EXTI pending bit */
+ 761:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         COMP_EXTI_CLEAR_FLAG(extiline);
+ 762:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 763:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 764:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Enable the selected comparator */
+ 765:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       __HAL_COMP_ENABLE(hcomp);
+ 766:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 767:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       hcomp->State = HAL_COMP_STATE_BUSY;
+ 768:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 769:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Delay for COMP startup time */
+ 770:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Wait loop initialization and execution */
+ 771:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Note: Variable divided by 2 to compensate partially              */
+ 772:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /*       CPU processing cycles, scaling in us split to not          */
+ 773:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /*       exceed 32 bits register capacity and handle low frequency. */
+ 774:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       wait_loop_index = ((COMP_DELAY_STARTUP_US / 10UL) * ((SystemCoreClock / (100000UL * 2UL)) + 1
+ 775:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
+ 776:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 777:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         wait_loop_index--;
+ 778:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 779:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 780:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     else
+ 781:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 782:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       status = HAL_ERROR;
+ 419              		.loc 1 782 14 view .LVU116
+ 420 0024 0120     		movs	r0, #1
+ 421 0026 7EE0     		b	.L25
+ 422              	.L47:
+ 732:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 423              		.loc 1 732 7 is_stmt 1 view .LVU117
+ 732:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 424              		.loc 1 732 18 is_stmt 0 view .LVU118
+ 425 0028 1A68     		ldr	r2, [r3]
+ 426 002a 4049     		ldr	r1, .L49
+ 427 002c 8A42     		cmp	r2, r1
+ 428 002e 3DD0     		beq	.L44
+ 732:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 429              		.loc 1 732 18 discriminator 1 view .LVU119
+ 430 0030 0831     		adds	r1, r1, #8
+ 431 0032 8A42     		cmp	r2, r1
+ 432 0034 37D0     		beq	.L48
+ 732:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 433              		.loc 1 732 18 discriminator 4 view .LVU120
+ 434 0036 0122     		movs	r2, #1
+ 435              	.L26:
+ 436              	.LVL18:
+ 735:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 437              		.loc 1 735 7 is_stmt 1 view .LVU121
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 24
+
+
+ 735:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 438              		.loc 1 735 23 is_stmt 0 view .LVU122
+ 439 0038 596A     		ldr	r1, [r3, #36]
+ 735:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 440              		.loc 1 735 10 view .LVU123
+ 441 003a 11F0300F 		tst	r1, #48
+ 442 003e 1FD0     		beq	.L27
+ 738:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 443              		.loc 1 738 9 is_stmt 1 view .LVU124
+ 738:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 444              		.loc 1 738 12 is_stmt 0 view .LVU125
+ 445 0040 11F0100F 		tst	r1, #16
+ 446 0044 3AD0     		beq	.L28
+ 740:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 447              		.loc 1 740 11 is_stmt 1 view .LVU126
+ 448 0046 12F0010F 		tst	r2, #1
+ 449 004a 32D0     		beq	.L29
+ 740:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 450              		.loc 1 740 11 is_stmt 0 discriminator 1 view .LVU127
+ 451 004c 384C     		ldr	r4, .L49+4
+ 452 004e A16A     		ldr	r1, [r4, #40]
+ 453 0050 1143     		orrs	r1, r1, r2
+ 454 0052 A162     		str	r1, [r4, #40]
+ 455              	.L30:
+ 748:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 456              		.loc 1 748 9 is_stmt 1 view .LVU128
+ 748:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 457              		.loc 1 748 25 is_stmt 0 view .LVU129
+ 458 0054 596A     		ldr	r1, [r3, #36]
+ 748:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 459              		.loc 1 748 12 view .LVU130
+ 460 0056 11F0200F 		tst	r1, #32
+ 461 005a 43D0     		beq	.L32
+ 750:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 462              		.loc 1 750 11 is_stmt 1 view .LVU131
+ 463 005c 12F0010F 		tst	r2, #1
+ 464 0060 3BD0     		beq	.L33
+ 750:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 465              		.loc 1 750 11 is_stmt 0 discriminator 1 view .LVU132
+ 466 0062 334C     		ldr	r4, .L49+4
+ 467 0064 E16A     		ldr	r1, [r4, #44]
+ 468 0066 1143     		orrs	r1, r1, r2
+ 469 0068 E162     		str	r1, [r4, #44]
+ 470              	.L34:
+ 758:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 471              		.loc 1 758 9 is_stmt 1 view .LVU133
+ 472 006a 12F00101 		ands	r1, r2, #1
+ 473 006e 48D0     		beq	.L36
+ 758:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 474              		.loc 1 758 9 is_stmt 0 discriminator 1 view .LVU134
+ 475 0070 2F4D     		ldr	r5, .L49+4
+ 476 0072 6C6A     		ldr	r4, [r5, #36]
+ 477 0074 1443     		orrs	r4, r4, r2
+ 478 0076 6C62     		str	r4, [r5, #36]
+ 479              	.L37:
+ 761:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 480              		.loc 1 761 9 is_stmt 1 view .LVU135
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 25
+
+
+ 481 0078 0029     		cmp	r1, #0
+ 482 007a 47D0     		beq	.L38
+ 761:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 483              		.loc 1 761 9 is_stmt 0 discriminator 1 view .LVU136
+ 484 007c 2C49     		ldr	r1, .L49+4
+ 485 007e 4A63     		str	r2, [r1, #52]
+ 486              	.L27:
+ 765:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 487              		.loc 1 765 7 is_stmt 1 view .LVU137
+ 488 0080 1968     		ldr	r1, [r3]
+ 489 0082 0A68     		ldr	r2, [r1]
+ 490              	.LVL19:
+ 765:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 491              		.loc 1 765 7 is_stmt 0 view .LVU138
+ 492 0084 42F00102 		orr	r2, r2, #1
+ 493 0088 0A60     		str	r2, [r1]
+ 767:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 494              		.loc 1 767 7 is_stmt 1 view .LVU139
+ 767:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 495              		.loc 1 767 20 is_stmt 0 view .LVU140
+ 496 008a 0222     		movs	r2, #2
+ 497 008c 83F82920 		strb	r2, [r3, #41]
+ 774:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
+ 498              		.loc 1 774 7 is_stmt 1 view .LVU141
+ 774:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
+ 499              		.loc 1 774 77 is_stmt 0 view .LVU142
+ 500 0090 284B     		ldr	r3, .L49+8
+ 501              	.LVL20:
+ 774:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
+ 502              		.loc 1 774 77 view .LVU143
+ 503 0092 1B68     		ldr	r3, [r3]
+ 504 0094 9B09     		lsrs	r3, r3, #6
+ 505 0096 284A     		ldr	r2, .L49+12
+ 506 0098 A2FB0323 		umull	r2, r3, r2, r3
+ 507 009c 9B09     		lsrs	r3, r3, #6
+ 774:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
+ 508              		.loc 1 774 97 view .LVU144
+ 509 009e 0133     		adds	r3, r3, #1
+ 774:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
+ 510              		.loc 1 774 57 view .LVU145
+ 511 00a0 DB00     		lsls	r3, r3, #3
+ 774:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
+ 512              		.loc 1 774 23 view .LVU146
+ 513 00a2 0193     		str	r3, [sp, #4]
+ 775:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 514              		.loc 1 775 7 is_stmt 1 view .LVU147
+ 775:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 515              		.loc 1 775 13 is_stmt 0 view .LVU148
+ 516 00a4 38E0     		b	.L39
+ 517              	.LVL21:
+ 518              	.L48:
+ 732:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 519              		.loc 1 732 18 discriminator 3 view .LVU149
+ 520 00a6 4FF08042 		mov	r2, #1073741824
+ 521 00aa C5E7     		b	.L26
+ 522              	.L44:
+ 732:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 26
+
+
+ 523              		.loc 1 732 18 discriminator 2 view .LVU150
+ 524 00ac 4FF48002 		mov	r2, #4194304
+ 525 00b0 C2E7     		b	.L26
+ 526              	.LVL22:
+ 527              	.L29:
+ 740:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 528              		.loc 1 740 11 discriminator 2 view .LVU151
+ 529 00b2 1F4C     		ldr	r4, .L49+4
+ 530 00b4 A168     		ldr	r1, [r4, #8]
+ 531 00b6 1143     		orrs	r1, r1, r2
+ 532 00b8 A160     		str	r1, [r4, #8]
+ 533 00ba CBE7     		b	.L30
+ 534              	.L28:
+ 744:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 535              		.loc 1 744 11 is_stmt 1 view .LVU152
+ 536 00bc 12F0010F 		tst	r2, #1
+ 537 00c0 05D0     		beq	.L31
+ 744:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 538              		.loc 1 744 11 is_stmt 0 discriminator 1 view .LVU153
+ 539 00c2 1B4C     		ldr	r4, .L49+4
+ 540 00c4 A16A     		ldr	r1, [r4, #40]
+ 541 00c6 21EA0201 		bic	r1, r1, r2
+ 542 00ca A162     		str	r1, [r4, #40]
+ 543 00cc C2E7     		b	.L30
+ 544              	.L31:
+ 744:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 545              		.loc 1 744 11 discriminator 2 view .LVU154
+ 546 00ce 184C     		ldr	r4, .L49+4
+ 547 00d0 A168     		ldr	r1, [r4, #8]
+ 548 00d2 21EA0201 		bic	r1, r1, r2
+ 549 00d6 A160     		str	r1, [r4, #8]
+ 550 00d8 BCE7     		b	.L30
+ 551              	.L33:
+ 750:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 552              		.loc 1 750 11 discriminator 2 view .LVU155
+ 553 00da 154C     		ldr	r4, .L49+4
+ 554 00dc E168     		ldr	r1, [r4, #12]
+ 555 00de 1143     		orrs	r1, r1, r2
+ 556 00e0 E160     		str	r1, [r4, #12]
+ 557 00e2 C2E7     		b	.L34
+ 558              	.L32:
+ 754:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 559              		.loc 1 754 11 is_stmt 1 view .LVU156
+ 560 00e4 12F0010F 		tst	r2, #1
+ 561 00e8 05D0     		beq	.L35
+ 754:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 562              		.loc 1 754 11 is_stmt 0 discriminator 1 view .LVU157
+ 563 00ea 114C     		ldr	r4, .L49+4
+ 564 00ec E16A     		ldr	r1, [r4, #44]
+ 565 00ee 21EA0201 		bic	r1, r1, r2
+ 566 00f2 E162     		str	r1, [r4, #44]
+ 567 00f4 B9E7     		b	.L34
+ 568              	.L35:
+ 754:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 569              		.loc 1 754 11 discriminator 2 view .LVU158
+ 570 00f6 0E4C     		ldr	r4, .L49+4
+ 571 00f8 E168     		ldr	r1, [r4, #12]
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 27
+
+
+ 572 00fa 21EA0201 		bic	r1, r1, r2
+ 573 00fe E160     		str	r1, [r4, #12]
+ 574 0100 B3E7     		b	.L34
+ 575              	.L36:
+ 758:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 576              		.loc 1 758 9 discriminator 2 view .LVU159
+ 577 0102 0B4D     		ldr	r5, .L49+4
+ 578 0104 6C68     		ldr	r4, [r5, #4]
+ 579 0106 1443     		orrs	r4, r4, r2
+ 580 0108 6C60     		str	r4, [r5, #4]
+ 581 010a B5E7     		b	.L37
+ 582              	.L38:
+ 761:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 583              		.loc 1 761 9 discriminator 2 view .LVU160
+ 584 010c 0849     		ldr	r1, .L49+4
+ 585 010e 4A61     		str	r2, [r1, #20]
+ 586 0110 B6E7     		b	.L27
+ 587              	.LVL23:
+ 588              	.L40:
+ 777:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 589              		.loc 1 777 9 is_stmt 1 view .LVU161
+ 777:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 590              		.loc 1 777 24 is_stmt 0 view .LVU162
+ 591 0112 019B     		ldr	r3, [sp, #4]
+ 592 0114 013B     		subs	r3, r3, #1
+ 593 0116 0193     		str	r3, [sp, #4]
+ 594              	.L39:
+ 775:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 595              		.loc 1 775 30 is_stmt 1 view .LVU163
+ 596 0118 019B     		ldr	r3, [sp, #4]
+ 597 011a 002B     		cmp	r3, #0
+ 598 011c F9D1     		bne	.L40
+ 599 011e 02E0     		b	.L25
+ 600              	.LVL24:
+ 601              	.L41:
+ 722:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 602              		.loc 1 722 12 is_stmt 0 view .LVU164
+ 603 0120 0120     		movs	r0, #1
+ 604              	.LVL25:
+ 722:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 605              		.loc 1 722 12 view .LVU165
+ 606 0122 00E0     		b	.L25
+ 607              	.LVL26:
+ 608              	.L42:
+ 722:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 609              		.loc 1 722 12 view .LVU166
+ 610 0124 0120     		movs	r0, #1
+ 611              	.LVL27:
+ 612              	.L25:
+ 783:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 784:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 785:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 786:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return status;
+ 613              		.loc 1 786 3 is_stmt 1 view .LVU167
+ 787:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 614              		.loc 1 787 1 is_stmt 0 view .LVU168
+ 615 0126 02B0     		add	sp, sp, #8
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 28
+
+
+ 616              	.LCFI7:
+ 617              		.cfi_def_cfa_offset 8
+ 618              		@ sp needed
+ 619 0128 30BC     		pop	{r4, r5}
+ 620              	.LCFI8:
+ 621              		.cfi_restore 5
+ 622              		.cfi_restore 4
+ 623              		.cfi_def_cfa_offset 0
+ 624 012a 7047     		bx	lr
+ 625              	.L50:
+ 626              		.align	2
+ 627              	.L49:
+ 628 012c 20000140 		.word	1073807392
+ 629 0130 00040140 		.word	1073808384
+ 630 0134 00000000 		.word	SystemCoreClock
+ 631 0138 632D3E05 		.word	87960931
+ 632              		.cfi_endproc
+ 633              	.LFE127:
+ 635              		.section	.text.HAL_COMP_Stop,"ax",%progbits
+ 636              		.align	1
+ 637              		.global	HAL_COMP_Stop
+ 638              		.syntax unified
+ 639              		.thumb
+ 640              		.thumb_func
+ 642              	HAL_COMP_Stop:
+ 643              	.LVL28:
+ 644              	.LFB128:
+ 788:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 789:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 790:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Stop the comparator.
+ 791:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+ 792:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval HAL status
+ 793:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 794:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** HAL_StatusTypeDef HAL_COMP_Stop(COMP_HandleTypeDef *hcomp)
+ 795:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 645              		.loc 1 795 1 is_stmt 1 view -0
+ 646              		.cfi_startproc
+ 647              		@ args = 0, pretend = 0, frame = 0
+ 648              		@ frame_needed = 0, uses_anonymous_args = 0
+ 649              		@ link register save eliminated.
+ 796:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 650              		.loc 1 796 3 view .LVU170
+ 797:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 798:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Check the COMP handle allocation and lock status */
+ 799:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if ((hcomp == NULL) || ((hcomp->State & COMP_STATE_BIT_LOCK) != RESET))
+ 651              		.loc 1 799 3 view .LVU171
+ 652              		.loc 1 799 6 is_stmt 0 view .LVU172
+ 653 0000 0028     		cmp	r0, #0
+ 654 0002 38D0     		beq	.L56
+ 655 0004 0346     		mov	r3, r0
+ 656              		.loc 1 799 33 discriminator 1 view .LVU173
+ 657 0006 90F82900 		ldrb	r0, [r0, #41]	@ zero_extendqisi2
+ 658              	.LVL29:
+ 659              		.loc 1 799 23 discriminator 1 view .LVU174
+ 660 000a 10F01000 		ands	r0, r0, #16
+ 661 000e 34D1     		bne	.L57
+ 800:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 29
+
+
+ 801:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     status = HAL_ERROR;
+ 802:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 803:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   else
+ 804:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 805:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Check the parameter */
+ 806:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_ALL_INSTANCE(hcomp->Instance));
+ 662              		.loc 1 806 5 is_stmt 1 view .LVU175
+ 807:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 808:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     if (hcomp->State == HAL_COMP_STATE_BUSY)
+ 663              		.loc 1 808 5 view .LVU176
+ 664              		.loc 1 808 14 is_stmt 0 view .LVU177
+ 665 0010 93F82920 		ldrb	r2, [r3, #41]	@ zero_extendqisi2
+ 666              		.loc 1 808 8 view .LVU178
+ 667 0014 022A     		cmp	r2, #2
+ 668 0016 01D0     		beq	.L65
+ 809:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 810:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Disable the EXTI Line event mode if any */
+ 811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       COMP_EXTI_DISABLE_EVENT(COMP_GET_EXTI_LINE(hcomp->Instance));
+ 812:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 813:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Disable the selected comparator */
+ 814:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       __HAL_COMP_DISABLE(hcomp);
+ 815:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 816:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       hcomp->State = HAL_COMP_STATE_READY;
+ 817:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 818:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     else
+ 819:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 820:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       status = HAL_ERROR;
+ 669              		.loc 1 820 14 view .LVU179
+ 670 0018 0120     		movs	r0, #1
+ 671              	.LVL30:
+ 821:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 822:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 823:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 824:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return status;
+ 672              		.loc 1 824 3 is_stmt 1 view .LVU180
+ 825:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 673              		.loc 1 825 1 is_stmt 0 view .LVU181
+ 674 001a 7047     		bx	lr
+ 675              	.LVL31:
+ 676              	.L65:
+ 795:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 677              		.loc 1 795 1 view .LVU182
+ 678 001c 10B4     		push	{r4}
+ 679              	.LCFI9:
+ 680              		.cfi_def_cfa_offset 4
+ 681              		.cfi_offset 4, -4
+ 811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 682              		.loc 1 811 7 is_stmt 1 view .LVU183
+ 683 001e 1A68     		ldr	r2, [r3]
+ 684 0020 1749     		ldr	r1, .L67
+ 685 0022 8A42     		cmp	r2, r1
+ 686 0024 09D0     		beq	.L53
+ 811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 687              		.loc 1 811 7 is_stmt 0 discriminator 1 view .LVU184
+ 688 0026 0831     		adds	r1, r1, #8
+ 689 0028 8A42     		cmp	r2, r1
+ 690 002a 06D0     		beq	.L53
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 30
+
+
+ 811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 691              		.loc 1 811 7 discriminator 7 view .LVU185
+ 692 002c 01F57671 		add	r1, r1, #984
+ 693 0030 4A6A     		ldr	r2, [r1, #36]
+ 811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 694              		.loc 1 811 7 discriminator 16 view .LVU186
+ 695 0032 22F00102 		bic	r2, r2, #1
+ 696 0036 4A62     		str	r2, [r1, #36]
+ 697 0038 0CE0     		b	.L54
+ 698              	.L53:
+ 811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 699              		.loc 1 811 7 discriminator 8 view .LVU187
+ 700 003a 1249     		ldr	r1, .L67+4
+ 701 003c 4968     		ldr	r1, [r1, #4]
+ 702 003e 104C     		ldr	r4, .L67
+ 703 0040 A242     		cmp	r2, r4
+ 704 0042 15D0     		beq	.L59
+ 811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 705              		.loc 1 811 7 discriminator 17 view .LVU188
+ 706 0044 0834     		adds	r4, r4, #8
+ 707 0046 A242     		cmp	r2, r4
+ 708 0048 0FD0     		beq	.L66
+ 811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 709              		.loc 1 811 7 discriminator 20 view .LVU189
+ 710 004a 6FF00102 		mvn	r2, #1
+ 711              	.L55:
+ 811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 712              		.loc 1 811 7 discriminator 24 view .LVU190
+ 713 004e 0A40     		ands	r2, r2, r1
+ 714 0050 0C49     		ldr	r1, .L67+4
+ 715 0052 4A60     		str	r2, [r1, #4]
+ 716              	.L54:
+ 814:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 717              		.loc 1 814 7 is_stmt 1 view .LVU191
+ 718 0054 1968     		ldr	r1, [r3]
+ 719 0056 0A68     		ldr	r2, [r1]
+ 720 0058 22F00102 		bic	r2, r2, #1
+ 721 005c 0A60     		str	r2, [r1]
+ 816:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 722              		.loc 1 816 7 view .LVU192
+ 816:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 723              		.loc 1 816 20 is_stmt 0 view .LVU193
+ 724 005e 0122     		movs	r2, #1
+ 725 0060 83F82920 		strb	r2, [r3, #41]
+ 726              	.LVL32:
+ 824:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 727              		.loc 1 824 3 is_stmt 1 view .LVU194
+ 728              		.loc 1 825 1 is_stmt 0 view .LVU195
+ 729 0064 5DF8044B 		ldr	r4, [sp], #4
+ 730 0068 7047     		bx	lr
+ 731              	.LVL33:
+ 732              	.L66:
+ 811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 733              		.loc 1 811 7 discriminator 19 view .LVU196
+ 734 006a 6FF08042 		mvn	r2, #1073741824
+ 735 006e EEE7     		b	.L55
+ 736              	.L59:
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 31
+
+
+ 811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 737              		.loc 1 811 7 discriminator 18 view .LVU197
+ 738 0070 6FF48002 		mvn	r2, #4194304
+ 739 0074 EBE7     		b	.L55
+ 740              	.LVL34:
+ 741              	.L56:
+ 742              	.LCFI10:
+ 743              		.cfi_def_cfa_offset 0
+ 744              		.cfi_restore 4
+ 801:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 745              		.loc 1 801 12 view .LVU198
+ 746 0076 0120     		movs	r0, #1
+ 747              	.LVL35:
+ 801:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 748              		.loc 1 801 12 view .LVU199
+ 749 0078 7047     		bx	lr
+ 750              	.LVL36:
+ 751              	.L57:
+ 801:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 752              		.loc 1 801 12 view .LVU200
+ 753 007a 0120     		movs	r0, #1
+ 754 007c 7047     		bx	lr
+ 755              	.L68:
+ 756 007e 00BF     		.align	2
+ 757              	.L67:
+ 758 0080 20000140 		.word	1073807392
+ 759 0084 00040140 		.word	1073808384
+ 760              		.cfi_endproc
+ 761              	.LFE128:
+ 763              		.section	.text.HAL_COMP_Start_IT,"ax",%progbits
+ 764              		.align	1
+ 765              		.global	HAL_COMP_Start_IT
+ 766              		.syntax unified
+ 767              		.thumb
+ 768              		.thumb_func
+ 770              	HAL_COMP_Start_IT:
+ 771              	.LVL37:
+ 772              	.LFB129:
+ 826:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 827:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 828:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Start the comparator in Interrupt mode.
+ 829:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+ 830:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval HAL status.
+ 831:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 832:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** HAL_StatusTypeDef HAL_COMP_Start_IT(COMP_HandleTypeDef *hcomp)
+ 833:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 773              		.loc 1 833 1 is_stmt 1 view -0
+ 774              		.cfi_startproc
+ 775              		@ args = 0, pretend = 0, frame = 0
+ 776              		@ frame_needed = 0, uses_anonymous_args = 0
+ 777              		@ link register save eliminated.
+ 834:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 778              		.loc 1 834 3 view .LVU202
+ 835:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   uint32_t extiline = 0U;
+ 779              		.loc 1 835 3 view .LVU203
+ 836:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 837:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Check the COMP handle allocation and lock status */
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 32
+
+
+ 838:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if ((hcomp == NULL) || ((hcomp->State & COMP_STATE_BIT_LOCK) != RESET))
+ 780              		.loc 1 838 3 view .LVU204
+ 781              		.loc 1 838 6 is_stmt 0 view .LVU205
+ 782 0000 0028     		cmp	r0, #0
+ 783 0002 7BD0     		beq	.L84
+ 784 0004 0246     		mov	r2, r0
+ 785              		.loc 1 838 33 discriminator 1 view .LVU206
+ 786 0006 90F82930 		ldrb	r3, [r0, #41]	@ zero_extendqisi2
+ 787              		.loc 1 838 23 discriminator 1 view .LVU207
+ 788 000a 13F01003 		ands	r3, r3, #16
+ 789 000e 77D1     		bne	.L85
+ 839:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 840:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     status = HAL_ERROR;
+ 841:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 842:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   else
+ 843:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 844:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Check the parameter */
+ 845:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_ALL_INSTANCE(hcomp->Instance));
+ 790              		.loc 1 845 5 is_stmt 1 view .LVU208
+ 846:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 847:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     if (hcomp->State == HAL_COMP_STATE_READY)
+ 791              		.loc 1 847 5 view .LVU209
+ 792              		.loc 1 847 14 is_stmt 0 view .LVU210
+ 793 0010 90F82910 		ldrb	r1, [r0, #41]	@ zero_extendqisi2
+ 794 0014 C8B2     		uxtb	r0, r1
+ 795              	.LVL38:
+ 796              		.loc 1 847 8 view .LVU211
+ 797 0016 0129     		cmp	r1, #1
+ 798 0018 01D0     		beq	.L93
+ 848:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 849:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       /* Configure the EXTI event generation */
+ 850:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       if ((hcomp->Init.TriggerMode & (COMP_TRIGGERMODE_IT_RISING | COMP_TRIGGERMODE_IT_FALLING)) !=
+ 851:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 852:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Get the EXTI Line output configuration */
+ 853:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         extiline = COMP_GET_EXTI_LINE(hcomp->Instance);
+ 854:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 855:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Configure the trigger rising edge */
+ 856:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         if ((hcomp->Init.TriggerMode & COMP_TRIGGERMODE_IT_RISING) != RESET)
+ 857:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 858:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           COMP_EXTI_RISING_ENABLE(extiline);
+ 859:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 860:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         else
+ 861:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 862:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           COMP_EXTI_RISING_DISABLE(extiline);
+ 863:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 864:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Configure the trigger falling edge */
+ 865:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         if ((hcomp->Init.TriggerMode & COMP_TRIGGERMODE_IT_FALLING) != RESET)
+ 866:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 867:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           COMP_EXTI_FALLING_ENABLE(extiline);
+ 868:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 869:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         else
+ 870:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 871:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           COMP_EXTI_FALLING_DISABLE(extiline);
+ 872:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 873:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 874:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Clear COMP EXTI pending bit if any */
+ 875:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         COMP_EXTI_CLEAR_FLAG(extiline);
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 33
+
+
+ 876:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 877:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Enable EXTI interrupt mode */
+ 878:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         COMP_EXTI_ENABLE_IT(extiline);
+ 879:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 880:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Enable the selected comparator */
+ 881:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         __HAL_COMP_ENABLE(hcomp);
+ 882:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 883:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->State = HAL_COMP_STATE_BUSY;
+ 884:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 885:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       else
+ 886:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 887:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         status = HAL_ERROR;
+ 888:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 889:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 890:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     else
+ 891:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 892:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       status = HAL_ERROR;
+ 799              		.loc 1 892 14 view .LVU212
+ 800 001a 0120     		movs	r0, #1
+ 801              	.LVL39:
+ 893:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+ 894:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 895:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 896:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return status;
+ 802              		.loc 1 896 3 is_stmt 1 view .LVU213
+ 897:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 803              		.loc 1 897 1 is_stmt 0 view .LVU214
+ 804 001c 7047     		bx	lr
+ 805              	.LVL40:
+ 806              	.L93:
+ 833:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 807              		.loc 1 833 1 view .LVU215
+ 808 001e 10B4     		push	{r4}
+ 809              	.LCFI11:
+ 810              		.cfi_def_cfa_offset 4
+ 811              		.cfi_offset 4, -4
+ 850:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 812              		.loc 1 850 7 is_stmt 1 view .LVU216
+ 850:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 813              		.loc 1 850 23 is_stmt 0 view .LVU217
+ 814 0020 546A     		ldr	r4, [r2, #36]
+ 850:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
+ 815              		.loc 1 850 10 view .LVU218
+ 816 0022 14F0030F 		tst	r4, #3
+ 817 0026 30D0     		beq	.L70
+ 853:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 818              		.loc 1 853 9 is_stmt 1 view .LVU219
+ 853:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 819              		.loc 1 853 20 is_stmt 0 view .LVU220
+ 820 0028 1168     		ldr	r1, [r2]
+ 821 002a 3648     		ldr	r0, .L95
+ 822 002c 8142     		cmp	r1, r0
+ 823 002e 32D0     		beq	.L87
+ 853:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 824              		.loc 1 853 20 discriminator 1 view .LVU221
+ 825 0030 0830     		adds	r0, r0, #8
+ 826 0032 8142     		cmp	r1, r0
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 34
+
+
+ 827 0034 2CD0     		beq	.L94
+ 853:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 828              		.loc 1 853 20 discriminator 4 view .LVU222
+ 829 0036 0121     		movs	r1, #1
+ 830              	.L71:
+ 831              	.LVL41:
+ 856:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 832              		.loc 1 856 9 is_stmt 1 view .LVU223
+ 856:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 833              		.loc 1 856 12 is_stmt 0 view .LVU224
+ 834 0038 14F0010F 		tst	r4, #1
+ 835 003c 33D0     		beq	.L72
+ 858:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 836              		.loc 1 858 11 is_stmt 1 view .LVU225
+ 837 003e 11F0010F 		tst	r1, #1
+ 838 0042 2BD0     		beq	.L73
+ 858:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 839              		.loc 1 858 11 is_stmt 0 discriminator 1 view .LVU226
+ 840 0044 304C     		ldr	r4, .L95+4
+ 841 0046 A06A     		ldr	r0, [r4, #40]
+ 842 0048 0843     		orrs	r0, r0, r1
+ 843 004a A062     		str	r0, [r4, #40]
+ 844              	.L74:
+ 865:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 845              		.loc 1 865 9 is_stmt 1 view .LVU227
+ 865:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 846              		.loc 1 865 25 is_stmt 0 view .LVU228
+ 847 004c 506A     		ldr	r0, [r2, #36]
+ 865:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
+ 848              		.loc 1 865 12 view .LVU229
+ 849 004e 10F0020F 		tst	r0, #2
+ 850 0052 3CD0     		beq	.L76
+ 867:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 851              		.loc 1 867 11 is_stmt 1 view .LVU230
+ 852 0054 11F0010F 		tst	r1, #1
+ 853 0058 34D0     		beq	.L77
+ 867:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 854              		.loc 1 867 11 is_stmt 0 discriminator 1 view .LVU231
+ 855 005a 2B4C     		ldr	r4, .L95+4
+ 856 005c E06A     		ldr	r0, [r4, #44]
+ 857 005e 0843     		orrs	r0, r0, r1
+ 858 0060 E062     		str	r0, [r4, #44]
+ 859              	.L78:
+ 875:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 860              		.loc 1 875 9 is_stmt 1 view .LVU232
+ 861 0062 11F00100 		ands	r0, r1, #1
+ 862 0066 41D0     		beq	.L80
+ 875:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 863              		.loc 1 875 9 is_stmt 0 discriminator 1 view .LVU233
+ 864 0068 274C     		ldr	r4, .L95+4
+ 865 006a 6163     		str	r1, [r4, #52]
+ 866              	.L81:
+ 878:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 867              		.loc 1 878 9 is_stmt 1 view .LVU234
+ 868 006c 0028     		cmp	r0, #0
+ 869 006e 40D0     		beq	.L82
+ 878:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 35
+
+
+ 870              		.loc 1 878 9 is_stmt 0 discriminator 1 view .LVU235
+ 871 0070 254C     		ldr	r4, .L95+4
+ 872 0072 206A     		ldr	r0, [r4, #32]
+ 873 0074 0143     		orrs	r1, r1, r0
+ 874              	.LVL42:
+ 878:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 875              		.loc 1 878 9 discriminator 1 view .LVU236
+ 876 0076 2162     		str	r1, [r4, #32]
+ 877              	.L83:
+ 881:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 878              		.loc 1 881 9 is_stmt 1 view .LVU237
+ 879 0078 1068     		ldr	r0, [r2]
+ 880 007a 0168     		ldr	r1, [r0]
+ 881 007c 41F00101 		orr	r1, r1, #1
+ 882 0080 0160     		str	r1, [r0]
+ 883:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 883              		.loc 1 883 9 view .LVU238
+ 883:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
+ 884              		.loc 1 883 22 is_stmt 0 view .LVU239
+ 885 0082 0221     		movs	r1, #2
+ 886 0084 82F82910 		strb	r1, [r2, #41]
+ 834:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   uint32_t extiline = 0U;
+ 887              		.loc 1 834 21 view .LVU240
+ 888 0088 1846     		mov	r0, r3
+ 889              	.LVL43:
+ 890              	.L70:
+ 896:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 891              		.loc 1 896 3 is_stmt 1 view .LVU241
+ 892              		.loc 1 897 1 is_stmt 0 view .LVU242
+ 893 008a 5DF8044B 		ldr	r4, [sp], #4
+ 894 008e 7047     		bx	lr
+ 895              	.LVL44:
+ 896              	.L94:
+ 853:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 897              		.loc 1 853 20 discriminator 3 view .LVU243
+ 898 0090 4FF08041 		mov	r1, #1073741824
+ 899 0094 D0E7     		b	.L71
+ 900              	.L87:
+ 853:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 901              		.loc 1 853 20 discriminator 2 view .LVU244
+ 902 0096 4FF48001 		mov	r1, #4194304
+ 903 009a CDE7     		b	.L71
+ 904              	.LVL45:
+ 905              	.L73:
+ 858:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 906              		.loc 1 858 11 discriminator 2 view .LVU245
+ 907 009c 1A4C     		ldr	r4, .L95+4
+ 908 009e A068     		ldr	r0, [r4, #8]
+ 909 00a0 0843     		orrs	r0, r0, r1
+ 910 00a2 A060     		str	r0, [r4, #8]
+ 911 00a4 D2E7     		b	.L74
+ 912              	.L72:
+ 862:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 913              		.loc 1 862 11 is_stmt 1 view .LVU246
+ 914 00a6 11F0010F 		tst	r1, #1
+ 915 00aa 05D0     		beq	.L75
+ 862:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 36
+
+
+ 916              		.loc 1 862 11 is_stmt 0 discriminator 1 view .LVU247
+ 917 00ac 164C     		ldr	r4, .L95+4
+ 918 00ae A06A     		ldr	r0, [r4, #40]
+ 919 00b0 20EA0100 		bic	r0, r0, r1
+ 920 00b4 A062     		str	r0, [r4, #40]
+ 921 00b6 C9E7     		b	.L74
+ 922              	.L75:
+ 862:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 923              		.loc 1 862 11 discriminator 2 view .LVU248
+ 924 00b8 134C     		ldr	r4, .L95+4
+ 925 00ba A068     		ldr	r0, [r4, #8]
+ 926 00bc 20EA0100 		bic	r0, r0, r1
+ 927 00c0 A060     		str	r0, [r4, #8]
+ 928 00c2 C3E7     		b	.L74
+ 929              	.L77:
+ 867:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 930              		.loc 1 867 11 discriminator 2 view .LVU249
+ 931 00c4 104C     		ldr	r4, .L95+4
+ 932 00c6 E068     		ldr	r0, [r4, #12]
+ 933 00c8 0843     		orrs	r0, r0, r1
+ 934 00ca E060     		str	r0, [r4, #12]
+ 935 00cc C9E7     		b	.L78
+ 936              	.L76:
+ 871:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 937              		.loc 1 871 11 is_stmt 1 view .LVU250
+ 938 00ce 11F0010F 		tst	r1, #1
+ 939 00d2 05D0     		beq	.L79
+ 871:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 940              		.loc 1 871 11 is_stmt 0 discriminator 1 view .LVU251
+ 941 00d4 0C4C     		ldr	r4, .L95+4
+ 942 00d6 E06A     		ldr	r0, [r4, #44]
+ 943 00d8 20EA0100 		bic	r0, r0, r1
+ 944 00dc E062     		str	r0, [r4, #44]
+ 945 00de C0E7     		b	.L78
+ 946              	.L79:
+ 871:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
+ 947              		.loc 1 871 11 discriminator 2 view .LVU252
+ 948 00e0 094C     		ldr	r4, .L95+4
+ 949 00e2 E068     		ldr	r0, [r4, #12]
+ 950 00e4 20EA0100 		bic	r0, r0, r1
+ 951 00e8 E060     		str	r0, [r4, #12]
+ 952 00ea BAE7     		b	.L78
+ 953              	.L80:
+ 875:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 954              		.loc 1 875 9 discriminator 2 view .LVU253
+ 955 00ec 064C     		ldr	r4, .L95+4
+ 956 00ee 6161     		str	r1, [r4, #20]
+ 957 00f0 BCE7     		b	.L81
+ 958              	.L82:
+ 878:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 959              		.loc 1 878 9 discriminator 2 view .LVU254
+ 960 00f2 054C     		ldr	r4, .L95+4
+ 961 00f4 2068     		ldr	r0, [r4]
+ 962 00f6 0143     		orrs	r1, r1, r0
+ 963              	.LVL46:
+ 878:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 964              		.loc 1 878 9 discriminator 2 view .LVU255
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 37
+
+
+ 965 00f8 2160     		str	r1, [r4]
+ 966 00fa BDE7     		b	.L83
+ 967              	.LVL47:
+ 968              	.L84:
+ 969              	.LCFI12:
+ 970              		.cfi_def_cfa_offset 0
+ 971              		.cfi_restore 4
+ 840:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 972              		.loc 1 840 12 view .LVU256
+ 973 00fc 0120     		movs	r0, #1
+ 974              	.LVL48:
+ 840:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 975              		.loc 1 840 12 view .LVU257
+ 976 00fe 7047     		bx	lr
+ 977              	.LVL49:
+ 978              	.L85:
+ 840:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 979              		.loc 1 840 12 view .LVU258
+ 980 0100 0120     		movs	r0, #1
+ 981              	.LVL50:
+ 840:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 982              		.loc 1 840 12 view .LVU259
+ 983 0102 7047     		bx	lr
+ 984              	.L96:
+ 985              		.align	2
+ 986              	.L95:
+ 987 0104 20000140 		.word	1073807392
+ 988 0108 00040140 		.word	1073808384
+ 989              		.cfi_endproc
+ 990              	.LFE129:
+ 992              		.section	.text.HAL_COMP_Stop_IT,"ax",%progbits
+ 993              		.align	1
+ 994              		.global	HAL_COMP_Stop_IT
+ 995              		.syntax unified
+ 996              		.thumb
+ 997              		.thumb_func
+ 999              	HAL_COMP_Stop_IT:
+ 1000              	.LVL51:
+ 1001              	.LFB130:
+ 898:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 899:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 900:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Stop the comparator in Interrupt mode.
+ 901:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+ 902:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval HAL status
+ 903:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 904:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** HAL_StatusTypeDef HAL_COMP_Stop_IT(COMP_HandleTypeDef *hcomp)
+ 905:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 1002              		.loc 1 905 1 is_stmt 1 view -0
+ 1003              		.cfi_startproc
+ 1004              		@ args = 0, pretend = 0, frame = 0
+ 1005              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1006              		.loc 1 905 1 is_stmt 0 view .LVU261
+ 1007 0000 08B5     		push	{r3, lr}
+ 1008              	.LCFI13:
+ 1009              		.cfi_def_cfa_offset 8
+ 1010              		.cfi_offset 3, -8
+ 1011              		.cfi_offset 14, -4
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 38
+
+
+ 906:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 1012              		.loc 1 906 3 is_stmt 1 view .LVU262
+ 1013              	.LVL52:
+ 907:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 908:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Disable the EXTI Line interrupt mode */
+ 909:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   COMP_EXTI_DISABLE_IT(COMP_GET_EXTI_LINE(hcomp->Instance));
+ 1014              		.loc 1 909 3 view .LVU263
+ 1015 0002 0368     		ldr	r3, [r0]
+ 1016 0004 114A     		ldr	r2, .L105
+ 1017 0006 9342     		cmp	r3, r2
+ 1018 0008 09D0     		beq	.L98
+ 1019              		.loc 1 909 3 is_stmt 0 discriminator 1 view .LVU264
+ 1020 000a 0832     		adds	r2, r2, #8
+ 1021 000c 9342     		cmp	r3, r2
+ 1022 000e 06D0     		beq	.L98
+ 1023              		.loc 1 909 3 discriminator 7 view .LVU265
+ 1024 0010 02F57672 		add	r2, r2, #984
+ 1025 0014 136A     		ldr	r3, [r2, #32]
+ 1026              		.loc 1 909 3 discriminator 16 view .LVU266
+ 1027 0016 23F00103 		bic	r3, r3, #1
+ 1028 001a 1362     		str	r3, [r2, #32]
+ 1029 001c 0CE0     		b	.L99
+ 1030              	.L98:
+ 1031              		.loc 1 909 3 discriminator 8 view .LVU267
+ 1032 001e 0C4A     		ldr	r2, .L105+4
+ 1033 0020 1268     		ldr	r2, [r2]
+ 1034 0022 0A49     		ldr	r1, .L105
+ 1035 0024 8B42     		cmp	r3, r1
+ 1036 0026 0DD0     		beq	.L101
+ 1037              		.loc 1 909 3 discriminator 17 view .LVU268
+ 1038 0028 0831     		adds	r1, r1, #8
+ 1039 002a 8B42     		cmp	r3, r1
+ 1040 002c 07D0     		beq	.L104
+ 1041              		.loc 1 909 3 discriminator 20 view .LVU269
+ 1042 002e 6FF00103 		mvn	r3, #1
+ 1043              	.L100:
+ 1044              		.loc 1 909 3 discriminator 24 view .LVU270
+ 1045 0032 1340     		ands	r3, r3, r2
+ 1046 0034 064A     		ldr	r2, .L105+4
+ 1047 0036 1360     		str	r3, [r2]
+ 1048              	.L99:
+ 910:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 911:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   status = HAL_COMP_Stop(hcomp);
+ 1049              		.loc 1 911 3 is_stmt 1 view .LVU271
+ 1050              		.loc 1 911 12 is_stmt 0 view .LVU272
+ 1051 0038 FFF7FEFF 		bl	HAL_COMP_Stop
+ 1052              	.LVL53:
+ 912:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 913:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return status;
+ 1053              		.loc 1 913 3 is_stmt 1 view .LVU273
+ 914:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 1054              		.loc 1 914 1 is_stmt 0 view .LVU274
+ 1055 003c 08BD     		pop	{r3, pc}
+ 1056              	.LVL54:
+ 1057              	.L104:
+ 909:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 1058              		.loc 1 909 3 discriminator 19 view .LVU275
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 39
+
+
+ 1059 003e 6FF08043 		mvn	r3, #1073741824
+ 1060 0042 F6E7     		b	.L100
+ 1061              	.L101:
+ 909:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 1062              		.loc 1 909 3 discriminator 18 view .LVU276
+ 1063 0044 6FF48003 		mvn	r3, #4194304
+ 1064 0048 F3E7     		b	.L100
+ 1065              	.L106:
+ 1066 004a 00BF     		.align	2
+ 1067              	.L105:
+ 1068 004c 20000140 		.word	1073807392
+ 1069 0050 00040140 		.word	1073808384
+ 1070              		.cfi_endproc
+ 1071              	.LFE130:
+ 1073              		.section	.text.HAL_COMP_TriggerCallback,"ax",%progbits
+ 1074              		.align	1
+ 1075              		.weak	HAL_COMP_TriggerCallback
+ 1076              		.syntax unified
+ 1077              		.thumb
+ 1078              		.thumb_func
+ 1080              	HAL_COMP_TriggerCallback:
+ 1081              	.LVL55:
+ 1082              	.LFB132:
+ 915:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 916:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 917:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Comparator IRQ Handler.
+ 918:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+ 919:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval HAL status
+ 920:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 921:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** void HAL_COMP_IRQHandler(COMP_HandleTypeDef *hcomp)
+ 922:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 923:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   uint32_t extiline = COMP_GET_EXTI_LINE(hcomp->Instance);
+ 924:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 925:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Check COMP EXTI flag */
+ 926:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if (COMP_EXTI_GET_FLAG(extiline) != RESET)
+ 927:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 928:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Clear COMP EXTI pending bit */
+ 929:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     COMP_EXTI_CLEAR_FLAG(extiline);
+ 930:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 931:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* COMP trigger callback */
+ 932:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #if (USE_HAL_COMP_REGISTER_CALLBACKS == 1)
+ 933:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     hcomp->TriggerCallback(hcomp);
+ 934:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #else
+ 935:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     HAL_COMP_TriggerCallback(hcomp);
+ 936:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #endif /* USE_HAL_COMP_REGISTER_CALLBACKS */
+ 937:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 938:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 939:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 940:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 941:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Comparator trigger callback.
+ 942:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+ 943:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval None
+ 944:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 945:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** __weak void HAL_COMP_TriggerCallback(COMP_HandleTypeDef *hcomp)
+ 946:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 1083              		.loc 1 946 1 is_stmt 1 view -0
+ 1084              		.cfi_startproc
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 40
+
+
+ 1085              		@ args = 0, pretend = 0, frame = 0
+ 1086              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1087              		@ link register save eliminated.
+ 947:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Prevent unused argument(s) compilation warning */
+ 948:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   UNUSED(hcomp);
+ 1088              		.loc 1 948 3 view .LVU278
+ 949:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 950:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* NOTE : This function should not be modified, when the callback is needed,
+ 951:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****             the HAL_COMP_TriggerCallback should be implemented in the user file
+ 952:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****    */
+ 953:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 1089              		.loc 1 953 1 is_stmt 0 view .LVU279
+ 1090 0000 7047     		bx	lr
+ 1091              		.cfi_endproc
+ 1092              	.LFE132:
+ 1094              		.section	.text.HAL_COMP_IRQHandler,"ax",%progbits
+ 1095              		.align	1
+ 1096              		.global	HAL_COMP_IRQHandler
+ 1097              		.syntax unified
+ 1098              		.thumb
+ 1099              		.thumb_func
+ 1101              	HAL_COMP_IRQHandler:
+ 1102              	.LVL56:
+ 1103              	.LFB131:
+ 922:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   uint32_t extiline = COMP_GET_EXTI_LINE(hcomp->Instance);
+ 1104              		.loc 1 922 1 is_stmt 1 view -0
+ 1105              		.cfi_startproc
+ 1106              		@ args = 0, pretend = 0, frame = 0
+ 1107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 922:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   uint32_t extiline = COMP_GET_EXTI_LINE(hcomp->Instance);
+ 1108              		.loc 1 922 1 is_stmt 0 view .LVU281
+ 1109 0000 08B5     		push	{r3, lr}
+ 1110              	.LCFI14:
+ 1111              		.cfi_def_cfa_offset 8
+ 1112              		.cfi_offset 3, -8
+ 1113              		.cfi_offset 14, -4
+ 923:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 1114              		.loc 1 923 3 is_stmt 1 view .LVU282
+ 923:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 1115              		.loc 1 923 23 is_stmt 0 view .LVU283
+ 1116 0002 0368     		ldr	r3, [r0]
+ 1117 0004 114A     		ldr	r2, .L117
+ 1118 0006 9342     		cmp	r3, r2
+ 1119 0008 08D0     		beq	.L114
+ 923:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 1120              		.loc 1 923 23 discriminator 1 view .LVU284
+ 1121 000a 0832     		adds	r2, r2, #8
+ 1122 000c 9342     		cmp	r3, r2
+ 1123 000e 16D0     		beq	.L115
+ 1124              	.LVL57:
+ 926:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 1125              		.loc 1 926 3 is_stmt 1 view .LVU285
+ 926:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 1126              		.loc 1 926 7 is_stmt 0 discriminator 1 view .LVU286
+ 1127 0010 0F4B     		ldr	r3, .L117+4
+ 1128 0012 5B6B     		ldr	r3, [r3, #52]
+ 926:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 41
+
+
+ 1129              		.loc 1 926 36 discriminator 1 view .LVU287
+ 1130 0014 03F00103 		and	r3, r3, #1
+ 923:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 1131              		.loc 1 923 23 discriminator 6 view .LVU288
+ 1132 0018 0122     		movs	r2, #1
+ 1133 001a 07E0     		b	.L110
+ 1134              	.LVL58:
+ 1135              	.L114:
+ 923:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 1136              		.loc 1 923 23 discriminator 2 view .LVU289
+ 1137 001c 4FF48002 		mov	r2, #4194304
+ 1138              	.L109:
+ 926:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 1139              		.loc 1 926 7 discriminator 2 view .LVU290
+ 1140 0020 0B4B     		ldr	r3, .L117+4
+ 1141 0022 5B69     		ldr	r3, [r3, #20]
+ 1142 0024 1340     		ands	r3, r3, r2
+ 926:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 1143              		.loc 1 926 36 discriminator 2 view .LVU291
+ 1144 0026 003B     		subs	r3, r3, #0
+ 1145 0028 18BF     		it	ne
+ 1146 002a 0123     		movne	r3, #1
+ 1147              	.L110:
+ 926:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 1148              		.loc 1 926 6 discriminator 4 view .LVU292
+ 1149 002c 33B1     		cbz	r3, .L108
+ 929:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 1150              		.loc 1 929 5 is_stmt 1 view .LVU293
+ 1151 002e 12F0010F 		tst	r2, #1
+ 1152 0032 07D0     		beq	.L112
+ 929:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 1153              		.loc 1 929 5 is_stmt 0 discriminator 1 view .LVU294
+ 1154 0034 064B     		ldr	r3, .L117+4
+ 1155 0036 5A63     		str	r2, [r3, #52]
+ 1156              	.L113:
+ 935:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #endif /* USE_HAL_COMP_REGISTER_CALLBACKS */
+ 1157              		.loc 1 935 5 is_stmt 1 view .LVU295
+ 1158 0038 FFF7FEFF 		bl	HAL_COMP_TriggerCallback
+ 1159              	.LVL59:
+ 1160              	.L108:
+ 938:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 1161              		.loc 1 938 1 is_stmt 0 view .LVU296
+ 1162 003c 08BD     		pop	{r3, pc}
+ 1163              	.LVL60:
+ 1164              	.L115:
+ 923:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 1165              		.loc 1 923 23 discriminator 6 view .LVU297
+ 1166 003e 4FF08042 		mov	r2, #1073741824
+ 1167 0042 EDE7     		b	.L109
+ 1168              	.L112:
+ 929:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 1169              		.loc 1 929 5 discriminator 2 view .LVU298
+ 1170 0044 024B     		ldr	r3, .L117+4
+ 1171 0046 5A61     		str	r2, [r3, #20]
+ 1172 0048 F6E7     		b	.L113
+ 1173              	.L118:
+ 1174 004a 00BF     		.align	2
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 42
+
+
+ 1175              	.L117:
+ 1176 004c 20000140 		.word	1073807392
+ 1177 0050 00040140 		.word	1073808384
+ 1178              		.cfi_endproc
+ 1179              	.LFE131:
+ 1181              		.section	.text.HAL_COMP_Lock,"ax",%progbits
+ 1182              		.align	1
+ 1183              		.global	HAL_COMP_Lock
+ 1184              		.syntax unified
+ 1185              		.thumb
+ 1186              		.thumb_func
+ 1188              	HAL_COMP_Lock:
+ 1189              	.LVL61:
+ 1190              	.LFB133:
+ 954:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 955:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 956:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @}
+ 957:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 958:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 959:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /** @defgroup COMP_Exported_Functions_Group3 Peripheral Control functions
+ 960:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  *  @brief   Management functions.
+ 961:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  *
+ 962:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** @verbatim
+ 963:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  ===============================================================================
+ 964:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****                       ##### Peripheral Control functions #####
+ 965:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  ===============================================================================
+ 966:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     [..]
+ 967:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     This subsection provides a set of functions allowing to control the comparators.
+ 968:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 969:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** @endverbatim
+ 970:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @{
+ 971:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 972:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 973:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+ 974:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Lock the selected comparator configuration.
+ 975:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @note   A system reset is required to unlock the comparator configuration.
+ 976:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+ 977:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval HAL status
+ 978:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+ 979:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** HAL_StatusTypeDef HAL_COMP_Lock(COMP_HandleTypeDef *hcomp)
+ 980:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 1191              		.loc 1 980 1 is_stmt 1 view -0
+ 1192              		.cfi_startproc
+ 1193              		@ args = 0, pretend = 0, frame = 0
+ 1194              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1195              		@ link register save eliminated.
+ 981:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 1196              		.loc 1 981 3 view .LVU300
+ 982:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 983:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Check the COMP handle allocation and lock status */
+ 984:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if ((hcomp == NULL) || ((hcomp->State & COMP_STATE_BIT_LOCK) != RESET))
+ 1197              		.loc 1 984 3 view .LVU301
+ 1198              		.loc 1 984 6 is_stmt 0 view .LVU302
+ 1199 0000 0346     		mov	r3, r0
+ 1200 0002 C0B1     		cbz	r0, .L123
+ 1201              		.loc 1 984 33 discriminator 1 view .LVU303
+ 1202 0004 90F82900 		ldrb	r0, [r0, #41]	@ zero_extendqisi2
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 43
+
+
+ 1203              	.LVL62:
+ 1204              		.loc 1 984 23 discriminator 1 view .LVU304
+ 1205 0008 10F01000 		ands	r0, r0, #16
+ 1206 000c 15D1     		bne	.L124
+ 985:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 986:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     status = HAL_ERROR;
+ 987:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 988:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   else
+ 989:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 990:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Check the parameter */
+ 991:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_ALL_INSTANCE(hcomp->Instance));
+ 1207              		.loc 1 991 5 is_stmt 1 view .LVU305
+ 992:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+ 993:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Set lock flag on state */
+ 994:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     switch (hcomp->State)
+ 1208              		.loc 1 994 5 view .LVU306
+ 1209              		.loc 1 994 18 is_stmt 0 view .LVU307
+ 1210 000e 93F82920 		ldrb	r2, [r3, #41]	@ zero_extendqisi2
+ 1211 0012 D1B2     		uxtb	r1, r2
+ 1212              		.loc 1 994 5 view .LVU308
+ 1213 0014 012A     		cmp	r2, #1
+ 1214 0016 0AD0     		beq	.L121
+ 1215 0018 0229     		cmp	r1, #2
+ 1216 001a 10D1     		bne	.L125
+ 995:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 996:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_STATE_BUSY:
+ 997:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->State = HAL_COMP_STATE_BUSY_LOCKED;
+ 1217              		.loc 1 997 9 is_stmt 1 view .LVU309
+ 1218              		.loc 1 997 22 is_stmt 0 view .LVU310
+ 1219 001c 1222     		movs	r2, #18
+ 1220 001e 83F82920 		strb	r2, [r3, #41]
+ 998:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 1221              		.loc 1 998 9 is_stmt 1 view .LVU311
+ 999:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_STATE_READY:
+1000:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->State = HAL_COMP_STATE_READY_LOCKED;
+1001:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+1002:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       default:
+1003:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* unexpected state */
+1004:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         status = HAL_ERROR;
+1005:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+1006:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     }
+1007:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+1008:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1009:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if (status == HAL_OK)
+ 1222              		.loc 1 1009 3 view .LVU312
+ 1223              	.L122:
+1010:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+1011:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Set the lock bit corresponding to selected comparator */
+1012:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     __HAL_COMP_LOCK(hcomp);
+ 1224              		.loc 1 1012 5 view .LVU313
+ 1225 0022 1A68     		ldr	r2, [r3]
+ 1226 0024 1368     		ldr	r3, [r2]
+ 1227              	.LVL63:
+ 1228              		.loc 1 1012 5 is_stmt 0 view .LVU314
+ 1229 0026 43F00043 		orr	r3, r3, #-2147483648
+ 1230 002a 1360     		str	r3, [r2]
+ 1231 002c 7047     		bx	lr
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 44
+
+
+ 1232              	.LVL64:
+ 1233              	.L121:
+1000:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 1234              		.loc 1 1000 9 is_stmt 1 view .LVU315
+1000:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
+ 1235              		.loc 1 1000 22 is_stmt 0 view .LVU316
+ 1236 002e 1122     		movs	r2, #17
+ 1237 0030 83F82920 		strb	r2, [r3, #41]
+1001:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       default:
+ 1238              		.loc 1 1001 9 is_stmt 1 view .LVU317
+1009:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+ 1239              		.loc 1 1009 3 view .LVU318
+ 1240 0034 F5E7     		b	.L122
+ 1241              	.LVL65:
+ 1242              	.L123:
+ 986:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 1243              		.loc 1 986 12 is_stmt 0 view .LVU319
+ 1244 0036 0120     		movs	r0, #1
+ 1245              	.LVL66:
+ 986:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 1246              		.loc 1 986 12 view .LVU320
+ 1247 0038 7047     		bx	lr
+ 1248              	.L124:
+ 1249 003a 0120     		movs	r0, #1
+ 1250 003c 7047     		bx	lr
+ 1251              	.L125:
+ 994:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
+ 1252              		.loc 1 994 5 view .LVU321
+ 1253 003e 0120     		movs	r0, #1
+ 1254              	.LVL67:
+1013:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+1014:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1015:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return status;
+ 1255              		.loc 1 1015 3 is_stmt 1 view .LVU322
+1016:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 1256              		.loc 1 1016 1 is_stmt 0 view .LVU323
+ 1257 0040 7047     		bx	lr
+ 1258              		.cfi_endproc
+ 1259              	.LFE133:
+ 1261              		.section	.text.HAL_COMP_GetOutputLevel,"ax",%progbits
+ 1262              		.align	1
+ 1263              		.global	HAL_COMP_GetOutputLevel
+ 1264              		.syntax unified
+ 1265              		.thumb
+ 1266              		.thumb_func
+ 1268              	HAL_COMP_GetOutputLevel:
+ 1269              	.LVL68:
+ 1270              	.LFB134:
+1017:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1018:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+1019:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Return the output level (high or low) of the selected comparator.
+1020:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         The output level depends on the selected polarity.
+1021:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         If the polarity is not inverted:
+1022:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *           - Comparator output is low when the non-inverting input is at a lower
+1023:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *             voltage than the inverting input
+1024:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *           - Comparator output is high when the non-inverting input is at a higher
+1025:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *             voltage than the inverting input
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 45
+
+
+1026:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         If the polarity is inverted:
+1027:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *           - Comparator output is high when the non-inverting input is at a lower
+1028:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *             voltage than the inverting input
+1029:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *           - Comparator output is low when the non-inverting input is at a higher
+1030:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *             voltage than the inverting input
+1031:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+1032:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval Returns the selected comparator output level:
+1033:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         @arg @ref COMP_OUTPUTLEVEL_LOW
+1034:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         @arg @ref COMP_OUTPUTLEVEL_HIGH
+1035:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *
+1036:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+1037:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** uint32_t HAL_COMP_GetOutputLevel(COMP_HandleTypeDef *hcomp)
+1038:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 1271              		.loc 1 1038 1 is_stmt 1 view -0
+ 1272              		.cfi_startproc
+ 1273              		@ args = 0, pretend = 0, frame = 0
+ 1274              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1275              		@ link register save eliminated.
+1039:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   uint32_t level = 0U;
+ 1276              		.loc 1 1039 3 view .LVU325
+1040:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1041:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Check the parameter */
+1042:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   assert_param(IS_COMP_ALL_INSTANCE(hcomp->Instance));
+ 1277              		.loc 1 1042 3 view .LVU326
+1043:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1044:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   level = READ_BIT(hcomp->Instance->CSR, COMP_CSR_COMPxOUT);
+ 1278              		.loc 1 1044 3 view .LVU327
+ 1279              		.loc 1 1044 11 is_stmt 0 view .LVU328
+ 1280 0000 0368     		ldr	r3, [r0]
+ 1281 0002 1868     		ldr	r0, [r3]
+ 1282              	.LVL69:
+1045:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1046:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if (level != 0U)
+ 1283              		.loc 1 1046 3 is_stmt 1 view .LVU329
+ 1284              		.loc 1 1046 6 is_stmt 0 view .LVU330
+ 1285 0004 10F08040 		ands	r0, r0, #1073741824
+ 1286              	.LVL70:
+ 1287              		.loc 1 1046 6 view .LVU331
+ 1288 0008 00D1     		bne	.L129
+ 1289              	.LVL71:
+ 1290              	.L126:
+1047:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+1048:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     return (COMP_OUTPUTLEVEL_HIGH);
+1049:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+1050:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return (COMP_OUTPUTLEVEL_LOW);
+1051:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 1291              		.loc 1 1051 1 view .LVU332
+ 1292 000a 7047     		bx	lr
+ 1293              	.LVL72:
+ 1294              	.L129:
+1048:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 1295              		.loc 1 1048 12 view .LVU333
+ 1296 000c 4FF08040 		mov	r0, #1073741824
+ 1297              	.LVL73:
+1048:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 1298              		.loc 1 1048 12 view .LVU334
+ 1299 0010 FBE7     		b	.L126
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 46
+
+
+ 1300              		.cfi_endproc
+ 1301              	.LFE134:
+ 1303              		.section	.text.HAL_COMP_GetState,"ax",%progbits
+ 1304              		.align	1
+ 1305              		.global	HAL_COMP_GetState
+ 1306              		.syntax unified
+ 1307              		.thumb
+ 1308              		.thumb_func
+ 1310              	HAL_COMP_GetState:
+ 1311              	.LVL74:
+ 1312              	.LFB135:
+1052:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1053:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+1054:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @}
+1055:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+1056:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1057:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /** @defgroup COMP_Exported_Functions_Group4 Peripheral State functions
+1058:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  *  @brief   Peripheral State functions.
+1059:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  *
+1060:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** @verbatim
+1061:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  ===============================================================================
+1062:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****                       ##### Peripheral State functions #####
+1063:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****  ===============================================================================
+1064:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     [..]
+1065:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     This subsection permits to get in run-time the status of the peripheral.
+1066:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1067:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** @endverbatim
+1068:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @{
+1069:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+1070:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1071:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+1072:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Return the COMP handle state.
+1073:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  hcomp  COMP handle
+1074:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval HAL state
+1075:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+1076:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** HAL_COMP_StateTypeDef HAL_COMP_GetState(COMP_HandleTypeDef *hcomp)
+1077:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 1313              		.loc 1 1077 1 is_stmt 1 view -0
+ 1314              		.cfi_startproc
+ 1315              		@ args = 0, pretend = 0, frame = 0
+ 1316              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1317              		@ link register save eliminated.
+1078:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Check the COMP handle allocation */
+1079:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if (hcomp == NULL)
+ 1318              		.loc 1 1079 3 view .LVU336
+ 1319              		.loc 1 1079 6 is_stmt 0 view .LVU337
+ 1320 0000 18B1     		cbz	r0, .L132
+1080:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
+1081:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     return HAL_COMP_STATE_RESET;
+1082:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+1083:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1084:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Check the parameter */
+1085:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   assert_param(IS_COMP_ALL_INSTANCE(hcomp->Instance));
+ 1321              		.loc 1 1085 3 is_stmt 1 view .LVU338
+1086:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1087:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Return COMP handle state */
+1088:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return hcomp->State;
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 47
+
+
+ 1322              		.loc 1 1088 3 view .LVU339
+ 1323              		.loc 1 1088 15 is_stmt 0 view .LVU340
+ 1324 0002 90F82900 		ldrb	r0, [r0, #41]	@ zero_extendqisi2
+ 1325              	.LVL75:
+ 1326              		.loc 1 1088 15 view .LVU341
+ 1327 0006 C0B2     		uxtb	r0, r0
+ 1328 0008 7047     		bx	lr
+ 1329              	.LVL76:
+ 1330              	.L132:
+1081:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
+ 1331              		.loc 1 1081 12 view .LVU342
+ 1332 000a 0020     		movs	r0, #0
+ 1333              	.LVL77:
+1089:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 1334              		.loc 1 1089 1 view .LVU343
+ 1335 000c 7047     		bx	lr
+ 1336              		.cfi_endproc
+ 1337              	.LFE135:
+ 1339              		.section	.text.HAL_COMP_GetError,"ax",%progbits
+ 1340              		.align	1
+ 1341              		.global	HAL_COMP_GetError
+ 1342              		.syntax unified
+ 1343              		.thumb
+ 1344              		.thumb_func
+ 1346              	HAL_COMP_GetError:
+ 1347              	.LVL78:
+ 1348              	.LFB136:
+1090:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
+1091:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /**
+1092:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @brief  Return the COMP error code.
+1093:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param hcomp COMP handle
+1094:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @retval COMP error code
+1095:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   */
+1096:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** uint32_t HAL_COMP_GetError(COMP_HandleTypeDef *hcomp)
+1097:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
+ 1349              		.loc 1 1097 1 is_stmt 1 view -0
+ 1350              		.cfi_startproc
+ 1351              		@ args = 0, pretend = 0, frame = 0
+ 1352              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1353              		@ link register save eliminated.
+1098:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Check the parameters */
+1099:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   assert_param(IS_COMP_ALL_INSTANCE(hcomp->Instance));
+ 1354              		.loc 1 1099 3 view .LVU345
+1100:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   
+1101:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return hcomp->ErrorCode;
+ 1355              		.loc 1 1101 3 view .LVU346
+ 1356              		.loc 1 1101 15 is_stmt 0 view .LVU347
+ 1357 0000 C06A     		ldr	r0, [r0, #44]
+ 1358              	.LVL79:
+1102:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
+ 1359              		.loc 1 1102 1 view .LVU348
+ 1360 0002 7047     		bx	lr
+ 1361              		.cfi_endproc
+ 1362              	.LFE136:
+ 1364              		.text
+ 1365              	.Letext0:
+ 1366              		.file 2 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../../
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 48
+
+
+ 1367              		.file 3 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../../
+ 1368              		.file 4 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303x8.h"
+ 1369              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h"
+ 1370              		.file 6 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 1371              		.file 7 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_comp.h"
+ 1372              		.file 8 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s 			page 49
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f3xx_hal_comp.c
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:21     .text.HAL_COMP_MspInit:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:27     .text.HAL_COMP_MspInit:00000000 HAL_COMP_MspInit
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:42     .text.HAL_COMP_Init:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:48     .text.HAL_COMP_Init:00000000 HAL_COMP_Init
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:275    .text.HAL_COMP_Init:00000104 $d
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:283    .text.HAL_COMP_MspDeInit:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:289    .text.HAL_COMP_MspDeInit:00000000 HAL_COMP_MspDeInit
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:304    .text.HAL_COMP_DeInit:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:310    .text.HAL_COMP_DeInit:00000000 HAL_COMP_DeInit
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:371    .text.HAL_COMP_Start:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:377    .text.HAL_COMP_Start:00000000 HAL_COMP_Start
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:628    .text.HAL_COMP_Start:0000012c $d
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:636    .text.HAL_COMP_Stop:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:642    .text.HAL_COMP_Stop:00000000 HAL_COMP_Stop
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:758    .text.HAL_COMP_Stop:00000080 $d
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:764    .text.HAL_COMP_Start_IT:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:770    .text.HAL_COMP_Start_IT:00000000 HAL_COMP_Start_IT
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:987    .text.HAL_COMP_Start_IT:00000104 $d
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:993    .text.HAL_COMP_Stop_IT:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:999    .text.HAL_COMP_Stop_IT:00000000 HAL_COMP_Stop_IT
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1068   .text.HAL_COMP_Stop_IT:0000004c $d
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1074   .text.HAL_COMP_TriggerCallback:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1080   .text.HAL_COMP_TriggerCallback:00000000 HAL_COMP_TriggerCallback
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1095   .text.HAL_COMP_IRQHandler:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1101   .text.HAL_COMP_IRQHandler:00000000 HAL_COMP_IRQHandler
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1176   .text.HAL_COMP_IRQHandler:0000004c $d
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1182   .text.HAL_COMP_Lock:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1188   .text.HAL_COMP_Lock:00000000 HAL_COMP_Lock
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1262   .text.HAL_COMP_GetOutputLevel:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1268   .text.HAL_COMP_GetOutputLevel:00000000 HAL_COMP_GetOutputLevel
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1304   .text.HAL_COMP_GetState:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1310   .text.HAL_COMP_GetState:00000000 HAL_COMP_GetState
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1340   .text.HAL_COMP_GetError:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccgKc1U5.s:1346   .text.HAL_COMP_GetError:00000000 HAL_COMP_GetError
+
+UNDEFINED SYMBOLS
+SystemCoreClock
