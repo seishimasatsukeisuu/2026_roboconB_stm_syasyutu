@@ -133,7 +133,9 @@ volatile uint8_t tail;
 volatile uint32_t id;
 // volatile uint8_t use_data[8];
 volatile uint8_t can_buf[8];
+volatile uint8_t can_buf_ps4[8];
 volatile uint8_t can_updated = 0;
+volatile uint8_t can_updated_ps4 = 0;
 
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
@@ -149,6 +151,14 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
         can_buf[i] = RxData[i];
       }
       can_updated = 1;
+    }
+    if (id == 0x105)
+    {
+      for (int i = 0; i <= 7; i++)
+      {
+        can_buf_ps4[i] = RxData[i];
+      }
+      can_updated_ps4 = 1;
     }
   }
 }
@@ -242,7 +252,9 @@ int main(void)
   __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
 
   uint32_t motor_start_time = 0;
+  uint32_t motor_start_time_ps4 = 0;
   uint8_t motor_running = 0;
+  uint8_t motor_running_ps4 = 0;
 
   int pwm1 = 2999;
   int pwm2 = 500;
@@ -303,47 +315,77 @@ int main(void)
 
       CAN_TX(0x104);
     }
-    if (local_buf[0] == 1)
+
+    if (can_updated_ps4)
     {
-      // モーター開始
-      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm1);
-      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+      __disable_irq();
+      memcpy(local_buf, can_buf_ps4, 8);
+      __enable_irq();
+      if (local_buf[0] == 1)
+      {
+        // モーター開始
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm1);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pwm1);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
 
-      motor_start_time = HAL_GetTick();
-      motor_running = 1;
+        motor_start_time_ps4 = HAL_GetTick();
+        motor_running_ps4 = 1;
 
-      printf("pwm1");
+        printf("pwm1");
+      }
+
+      if (local_buf[0] == 2)
+      {
+        // モーター開始
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm2);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pwm2);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+
+        motor_start_time_ps4 = HAL_GetTick();
+        motor_running_ps4 = 1;
+
+        printf("pwm2");
+      }
+
+      printf("tobimasu");
     }
-
-    if (local_buf[0] == 2)
-    {
-      // モーター開始
-      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm2);
-      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-
-      motor_start_time = HAL_GetTick();
-      motor_running = 1;
-
-      printf("pwm2");
-    }
-
-    printf("tobimasu");
 
     // 200ms経過したら停止
-    if (motor_running)
+    if (motor_running_ps4)
     {
-      if ((HAL_GetTick() - motor_start_time) >= 200)
+      if ((HAL_GetTick() - motor_start_time_ps4) >= 200)
       {
         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
 
-        motor_running = 0;
+        motor_running_ps4 = 0;
         printf("tomarimasu");
       }
-    }
+      // HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 1;         // リミットスイッチ
+      // __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 25); // サーボ
 
-    // HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 1;         // リミットスイッチ
-    // __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 25); // サーボ
+      HAL_Delay(500);
+
+      if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 1)
+      {
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 200);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 200);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+      }
+
+      if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 0)
+      {
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+      }
+    }
   }
   /* USER CODE END 3 */
 }
@@ -542,7 +584,7 @@ static void MX_TIM1_Init(void)
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
