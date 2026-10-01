@@ -77,11 +77,17 @@ static void MX_TIM17_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-volatile int16_t count_1 = 0;
+typedef enum
+{
+  SHOOT_IDLE,
+  SHOOTING,
+  HOMING,
+  SHOOT_READY
+} ShootState;
 
-volatile uint8_t prev_state_1 = 0;
+volatile ShootState shoot_state = SHOOT_IDLE;
 
-char usr_buf_1[1000];
+volatile int32_t count_1 = 0;
 
 uint8_t TxData[8];
 void CAN_TX(uint32_t recipient)
@@ -100,17 +106,15 @@ void CAN_TX(uint32_t recipient)
     TxHeader.DLC = 8; // データ長を8byteに設定
     TxHeader.TransmitGlobalTime = DISABLE;
     // 各データ
-    int16_t c1 = (int16_t)count_1;
+    int32_t c1 = count_1;
 
-    TxData[0] = (c1 >> 8) & 0xFF;
-    TxData[1] = c1 & 0xFF;
-
-    TxData[2] = 0;
-    TxData[3] = 0;
+    TxData[0] = (c1 >> 24) & 0xFF;
+    TxData[1] = (c1 >> 16) & 0xFF;
+    TxData[2] = (c1 >> 8) & 0xFF;
+    TxData[3] = c1 & 0xFF;
 
     TxData[4] = 0;
     TxData[5] = 0;
-
     TxData[6] = 0;
     TxData[7] = 0;
     // CANメッセージを送信
@@ -125,10 +129,6 @@ typedef struct
 {
   uint8_t data[8];
 } CanFrame;
-
-volatile CanFrame rx_queue[8];
-volatile uint8_t head;
-volatile uint8_t tail;
 
 volatile uint32_t id;
 // volatile uint8_t use_data[8];
@@ -160,6 +160,13 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
       }
       can_updated_ps4 = 1;
     }
+    if (id == 0x106)
+    {
+      shoot_state = SHOOT_IDLE;
+
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+    }
   }
 }
 
@@ -174,7 +181,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 int16_t read_encoder_value_1(void)
 {
-  int16_t val = (int16_t)TIM1->CNT;
+  int32_t val = (int16_t)TIM1->CNT;
   TIM1->CNT = 0;
   return val;
 }
@@ -241,23 +248,18 @@ int main(void)
 
   HAL_TIM_Base_Start_IT(&htim17);
 
-  uint8_t last_state_1 = GPIO_PIN_RESET;
-  uint8_t last_state_2 = GPIO_PIN_RESET;
-
-  static GPIO_PinState dir1_before = GPIO_PIN_RESET;
-  static GPIO_PinState dir2_before = GPIO_PIN_RESET;
-
   __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
   __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
   __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
 
   uint32_t motor_start_time = 0;
-  uint32_t motor_start_time_ps4 = 0;
+  uint32_t switch_on = 0;
   uint8_t motor_running = 0;
-  uint8_t motor_running_ps4 = 0;
 
   int pwm1 = 2999;
   int pwm2 = 500;
+  int32_t START_OFFSET = -4200; // 射出スタート時の実際の値を入れる
+  int32_t target_count = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -268,7 +270,6 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     uint8_t local_buf[8];
-    static uint32_t last_can = 0;
     static int32_t pwm = 0;
     static float time = 0.0f;
 
@@ -284,26 +285,54 @@ int main(void)
       memcpy(&time, &local_buf[4], sizeof(float));
 
       // モーター開始
-      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm);
+      shoot_state = SHOOTING;
+
       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pwm);
       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm);
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pwm);
 
       motor_start_time = HAL_GetTick();
       motor_running = 1;
     }
 
-    if (motor_running)
+    if (can_updated_ps4)
     {
-      if ((HAL_GetTick() - motor_start_time) >= time * 1000)
+      __disable_irq();
+      memcpy(local_buf, can_buf_ps4, 8);
+      can_updated_ps4 = 0;
+      __enable_irq();
+      if (local_buf[0] == 1)
       {
-        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
+        // モーター開始
+        shoot_state = SHOOTING;
+
         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
 
-        motor_running = 0;
-        printf("tomarimasu");
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm1);
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pwm1);
+
+        time = 0.2f; // 200ms
+        motor_start_time = HAL_GetTick();
+        motor_running = 1;
+      }
+
+      if (local_buf[0] == 2)
+      {
+        // モーター開始
+        shoot_state = SHOOTING;
+
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm2);
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pwm2);
+
+        time = 0.2f; // 200ms
+        motor_start_time = HAL_GetTick();
+        motor_running = 1;
       }
     }
 
@@ -316,75 +345,78 @@ int main(void)
       CAN_TX(0x104);
     }
 
-    if (can_updated_ps4)
+    switch (shoot_state)
     {
-      __disable_irq();
-      memcpy(local_buf, can_buf_ps4, 8);
-      __enable_irq();
-      if (local_buf[0] == 1)
-      {
-        // モーター開始
-        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm1);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pwm1);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+    case SHOOTING:
 
-        motor_start_time_ps4 = HAL_GetTick();
-        motor_running_ps4 = 1;
-
-        printf("pwm1");
-      }
-
-      if (local_buf[0] == 2)
-      {
-        // モーター開始
-        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, pwm2);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pwm2);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
-
-        motor_start_time_ps4 = HAL_GetTick();
-        motor_running_ps4 = 1;
-
-        printf("pwm2");
-      }
-
-      printf("tobimasu");
-    }
-
-    // 200ms経過したら停止
-    if (motor_running_ps4)
-    {
-      if ((HAL_GetTick() - motor_start_time_ps4) >= 200)
+      if ((HAL_GetTick() - motor_start_time) >= (uint32_t)(time * 1000.0f))
       {
         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
 
-        motor_running_ps4 = 0;
-        printf("tomarimasu");
-      }
-      // HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 1;         // リミットスイッチ
-      // __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 25); // サーボ
-
-      HAL_Delay(500);
-
-      if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 1)
-      {
-        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 200);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 200);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+        motor_running = 0;
+        switch_on = HAL_GetTick();
+        shoot_state = HOMING;
       }
 
-      if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 0)
+      break;
+
+    case HOMING:
+
+      // HOMING開始から0.7秒経過するまでは停止
+      if ((HAL_GetTick() - switch_on) < 700)
       {
         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
         __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
       }
+      // 0.7秒経過したらリミット探索開始
+      else
+      {
+        // リミットスイッチが押されていない
+        if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == GPIO_PIN_SET)
+        {
+          // 射出と同じ方向
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+
+          // ゆっくり回転
+          __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 500);
+          __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 500);
+        }
+        // リミットスイッチが押された
+        else
+        {
+          // 停止
+          __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
+          __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+
+          // リミット位置を0にする
+          count_1 = 0;
+          target_count = START_OFFSET;
+
+          // 待機状態
+          shoot_state = SHOOT_READY;
+        }
+      }
+
+      break;
+
+    case SHOOT_READY:
+
+      /* モーター停止状態 */
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+
+      break;
+
+    case SHOOT_IDLE:
+
+    default:
+
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+
+      break;
     }
   }
   /* USER CODE END 3 */
