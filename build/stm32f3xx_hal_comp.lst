@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
   27:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
   28:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   [..]
   29:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       The STM32F3xx device family integrates up to 7 analog comparators COMP1, COMP2...COMP7:
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 2
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 2
 
 
   30:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) The non inverting input and inverting input can be set to GPIO pins.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
   84:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       -@@- HAL_COMP_Init() calls internally __HAL_RCC_SYSCFG_CLK_ENABLE() in order
   85:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           to enable the comparator(s).
   86:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 3
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 3
 
 
   87:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       (#) On-the-fly reconfiguration of comparator(s) may be done by calling again HAL_COMP_Init(
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  141:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      these callbacks are null (not registered beforehand).
  142:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     [..]
  143:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 4
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 4
 
 
  144:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****      If MspInit or MspDeInit are not null, the HAL_COMP_Init()/ HAL_COMP_DeInit()
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  198:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     +----------------------------------------------------------------------------------------------
  199:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |     COMP1      |     COMP2      |     COMP3      |     COMP4      |     COMP5      |     COMP
  200:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |----------------|----------------|----------------|----------------|----------------|---------
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 5
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 5
 
 
  201:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 BKIN     |  TIM1 BKIN     |  TIM1 BKIN     |  TIM1 BKIN     |  TIM1 BKIN     |  TIM1 BK
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  255:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
  256:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM20 BKIN2   |  TIM20 BKIN2   |  TIM20 BKIN2   |  TIM20 BKIN2   |  TIM20 BKIN2   |  TIM20 B
  257:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |                |                |                |                |                |         
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 6
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 6
 
 
  258:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BKIN2    |  TIM1 BK
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  312:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Delay for COMP voltage scaler stabilization time.                          */
  313:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Literal set to maximum value (refer to device datasheet,                   */
  314:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* parameter "tSTART_SCALER").                                                */
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 7
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 7
 
 
  315:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** /* Unit: us                                                                   */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  369:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_NONINVERTINGINPUT_INSTANCE(hcomp->Instance, hcomp->Init.NonInvertingInput)
  370:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_OUTPUT(hcomp->Init.Output));
  371:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_OUTPUT_INSTANCE(hcomp->Instance, hcomp->Init.Output));
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 8
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 8
 
 
  372:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_OUTPUTPOL(hcomp->Init.OutputPol));
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  426:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
  427:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Delay for COMP scaler bridge voltage stabilization */
  428:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Apply the delay if voltage scaler bridge is required and not already enabled */
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 9
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 9
 
 
  429:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     if ((READ_BIT(hcomp->Instance->CSR, (COMP_CSR_COMPxINSEL_1 | COMP_CSR_COMPxINSEL_0)) != 0UL) &&
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  483:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* DeInit the low level hardware: SYSCFG, GPIO, CLOCK and NVIC */
  484:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     HAL_COMP_MspDeInit(hcomp);
  485:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** #endif /* USE_HAL_COMP_REGISTER_CALLBACKS */
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 10
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 10
 
 
  486:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
   60              		.cfi_offset 5, -8
   61              		.cfi_offset 14, -4
   62 0002 85B0     		sub	sp, sp, #20
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 11
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 11
 
 
   63              	.LCFI1:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  102              		.loc 1 369 5 view .LVU19
  370:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_OUTPUT_INSTANCE(hcomp->Instance, hcomp->Init.Output));
  103              		.loc 1 370 5 view .LVU20
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 12
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 12
 
 
  371:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     assert_param(IS_COMP_OUTPUTPOL(hcomp->Init.OutputPol));
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  138              		.loc 1 405 37 view .LVU40
  139 0042 01F03001 		and	r1, r1, #48
  140              	.LVL6:
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 13
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 13
 
 
  407:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     {
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  181 007e 0343     		orrs	r3, r3, r0
  182 0080 0293     		str	r3, [sp, #8]
  425:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 14
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 14
 
 
  183              		.loc 1 425 5 view .LVU55
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  436:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       while (wait_loop_index != 0UL)
  226              		.loc 1 436 89 is_stmt 0 view .LVU67
  227 00c6 0F4B     		ldr	r3, .L15
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 15
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 15
 
 
  228 00c8 1B68     		ldr	r3, [r3]
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  270 00fe 0125     		movs	r5, #1
  271 0100 8BE7     		b	.L3
  272              	.L16:
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 16
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 16
 
 
  273 0102 00BF     		.align	2
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  315              		@ args = 0, pretend = 0, frame = 0
  316              		@ frame_needed = 0, uses_anonymous_args = 0
  458:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 17
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 17
 
 
  317              		.loc 1 458 1 is_stmt 0 view .LVU84
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  357 0020 85F82960 		strb	r6, [r5, #41]
  490:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
  358              		.loc 1 490 5 is_stmt 1 view .LVU99
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 18
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 18
 
 
  490:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  558:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         break;
  559:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       
  560:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       case HAL_COMP_MSPINIT_CB_ID :
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 19
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 19
 
 
  561:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         hcomp->MspInitCallback = pCallback;
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  615:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   * @param  CallbackID ID of the callback to be unregistered
  616:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         This parameter can be one of the following values:
  617:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *          @arg @ref HAL_COMP_TRIGGER_CB_ID Trigger callback ID
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 20
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 20
 
 
  618:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *          @arg @ref HAL_COMP_MSPINIT_CB_ID MspInit callback ID
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  672:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   else
  673:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
  674:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     /* Update the error code */
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 21
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 21
 
 
  675:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     hcomp->ErrorCode |= HAL_COMP_ERROR_INVALID_CALLBACK;
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  715:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   __IO uint32_t wait_loop_index = 0UL;
  394              		.loc 1 715 3 is_stmt 1 view .LVU104
  395              		.loc 1 715 17 is_stmt 0 view .LVU105
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 22
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 22
 
 
  396 0004 0023     		movs	r3, #0
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  747:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Configure the trigger falling edge */
  748:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         if ((hcomp->Init.TriggerMode & COMP_TRIGGERMODE_EVENT_FALLING) != RESET)
  749:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         {
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 23
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 23
 
 
  750:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****           COMP_EXTI_FALLING_ENABLE(extiline);
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  436              	.LVL18:
  735:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
  437              		.loc 1 735 7 is_stmt 1 view .LVU121
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 24
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 24
 
 
  735:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       {
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  479              	.L37:
  761:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****       }
  480              		.loc 1 761 9 is_stmt 1 view .LVU135
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 25
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 25
 
 
  481 0078 0029     		cmp	r1, #0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  521 00aa C5E7     		b	.L26
  522              	.L44:
  732:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 26
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 26
 
 
  523              		.loc 1 732 18 discriminator 2 view .LVU150
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  569              		.loc 1 754 11 discriminator 2 view .LVU158
  570 00f6 0E4C     		ldr	r4, .L49+4
  571 00f8 E168     		ldr	r1, [r4, #12]
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 27
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 27
 
 
  572 00fa 21EA0201 		bic	r1, r1, r2
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  787:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** }
  614              		.loc 1 787 1 is_stmt 0 view .LVU168
  615 0126 02B0     		add	sp, sp, #8
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 28
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 28
 
 
  616              	.LCFI7:
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  660 000a 10F01000 		ands	r0, r0, #16
  661 000e 34D1     		bne	.L57
  800:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 29
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 29
 
 
  801:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****     status = HAL_ERROR;
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  688 0026 0831     		adds	r1, r1, #8
  689 0028 8A42     		cmp	r2, r1
  690 002a 06D0     		beq	.L53
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 30
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 30
 
 
  811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  734 006a 6FF08042 		mvn	r2, #1073741824
  735 006e EEE7     		b	.L55
  736              	.L59:
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 31
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 31
 
 
  811:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  779              		.loc 1 835 3 view .LVU203
  836:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
  837:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Check the COMP handle allocation and lock status */
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 32
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 32
 
 
  838:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   if ((hcomp == NULL) || ((hcomp->State & COMP_STATE_BIT_LOCK) != RESET))
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  873:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
  874:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         /* Clear COMP EXTI pending bit if any */
  875:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         COMP_EXTI_CLEAR_FLAG(extiline);
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 33
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 33
 
 
  876:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  824              		.loc 1 853 20 discriminator 1 view .LVU221
  825 0030 0830     		adds	r0, r0, #8
  826 0032 8142     		cmp	r1, r0
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 34
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 34
 
 
  827 0034 2CD0     		beq	.L94
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  868 006c 0028     		cmp	r0, #0
  869 006e 40D0     		beq	.L82
  878:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 35
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 35
 
 
  870              		.loc 1 878 9 is_stmt 0 discriminator 1 view .LVU235
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  914 00a6 11F0010F 		tst	r1, #1
  915 00aa 05D0     		beq	.L75
  862:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****         }
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 36
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 36
 
 
  916              		.loc 1 862 11 is_stmt 0 discriminator 1 view .LVU247
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  963              	.LVL46:
  878:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
  964              		.loc 1 878 9 discriminator 2 view .LVU255
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 37
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 37
 
 
  965 00f8 2160     		str	r1, [r4]
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  1009              		.cfi_def_cfa_offset 8
  1010              		.cfi_offset 3, -8
  1011              		.cfi_offset 14, -4
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 38
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 38
 
 
  906:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   HAL_StatusTypeDef status = HAL_OK;
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  1057              	.L104:
  909:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
  1058              		.loc 1 909 3 discriminator 19 view .LVU275
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 39
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 39
 
 
  1059 003e 6FF08043 		mvn	r3, #1073741824
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  946:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** {
  1083              		.loc 1 946 1 is_stmt 1 view -0
  1084              		.cfi_startproc
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 40
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 40
 
 
  1085              		@ args = 0, pretend = 0, frame = 0
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  1127 0010 0F4B     		ldr	r3, .L117+4
  1128 0012 5B6B     		ldr	r3, [r3, #52]
  926:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   {
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 41
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 41
 
 
  1129              		.loc 1 926 36 discriminator 1 view .LVU287
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  1172 0048 F6E7     		b	.L113
  1173              	.L118:
  1174 004a 00BF     		.align	2
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 42
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 42
 
 
  1175              	.L117:
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  1200 0002 C0B1     		cbz	r0, .L123
  1201              		.loc 1 984 33 discriminator 1 view .LVU303
  1202 0004 90F82900 		ldrb	r0, [r0, #41]	@ zero_extendqisi2
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 43
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 43
 
 
  1203              	.LVL62:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  1229 0026 43F00043 		orr	r3, r3, #-2147483648
  1230 002a 1360     		str	r3, [r2]
  1231 002c 7047     		bx	lr
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 44
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 44
 
 
  1232              	.LVL64:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
 1023:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *             voltage than the inverting input
 1024:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *           - Comparator output is high when the non-inverting input is at a higher
 1025:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *             voltage than the inverting input
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 45
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 45
 
 
 1026:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   *         If the polarity is inverted:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
 1048:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   }
  1298              		.loc 1 1048 12 view .LVU334
  1299 0010 FBE7     		b	.L126
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 46
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 46
 
 
  1300              		.cfi_endproc
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
 1086:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c **** 
 1087:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   /* Return COMP handle state */
 1088:Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_comp.c ****   return hcomp->State;
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 47
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 47
 
 
  1322              		.loc 1 1088 3 view .LVU339
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  1364              		.text
  1365              	.Letext0:
  1366              		.file 2 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../../
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 48
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 48
 
 
  1367              		.file 3 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../../
@@ -2827,45 +2827,45 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 1
  1370              		.file 6 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
  1371              		.file 7 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_comp.h"
  1372              		.file 8 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s 			page 49
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s 			page 49
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f3xx_hal_comp.c
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:21     .text.HAL_COMP_MspInit:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:27     .text.HAL_COMP_MspInit:00000000 HAL_COMP_MspInit
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:42     .text.HAL_COMP_Init:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:48     .text.HAL_COMP_Init:00000000 HAL_COMP_Init
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:275    .text.HAL_COMP_Init:00000104 $d
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:283    .text.HAL_COMP_MspDeInit:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:289    .text.HAL_COMP_MspDeInit:00000000 HAL_COMP_MspDeInit
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:304    .text.HAL_COMP_DeInit:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:310    .text.HAL_COMP_DeInit:00000000 HAL_COMP_DeInit
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:371    .text.HAL_COMP_Start:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:377    .text.HAL_COMP_Start:00000000 HAL_COMP_Start
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:628    .text.HAL_COMP_Start:0000012c $d
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:636    .text.HAL_COMP_Stop:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:642    .text.HAL_COMP_Stop:00000000 HAL_COMP_Stop
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:758    .text.HAL_COMP_Stop:00000080 $d
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:764    .text.HAL_COMP_Start_IT:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:770    .text.HAL_COMP_Start_IT:00000000 HAL_COMP_Start_IT
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:987    .text.HAL_COMP_Start_IT:00000104 $d
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:993    .text.HAL_COMP_Stop_IT:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:999    .text.HAL_COMP_Stop_IT:00000000 HAL_COMP_Stop_IT
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1068   .text.HAL_COMP_Stop_IT:0000004c $d
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1074   .text.HAL_COMP_TriggerCallback:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1080   .text.HAL_COMP_TriggerCallback:00000000 HAL_COMP_TriggerCallback
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1095   .text.HAL_COMP_IRQHandler:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1101   .text.HAL_COMP_IRQHandler:00000000 HAL_COMP_IRQHandler
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1176   .text.HAL_COMP_IRQHandler:0000004c $d
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1182   .text.HAL_COMP_Lock:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1188   .text.HAL_COMP_Lock:00000000 HAL_COMP_Lock
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1262   .text.HAL_COMP_GetOutputLevel:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1268   .text.HAL_COMP_GetOutputLevel:00000000 HAL_COMP_GetOutputLevel
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1304   .text.HAL_COMP_GetState:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1310   .text.HAL_COMP_GetState:00000000 HAL_COMP_GetState
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1340   .text.HAL_COMP_GetError:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccLbOb1t.s:1346   .text.HAL_COMP_GetError:00000000 HAL_COMP_GetError
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:21     .text.HAL_COMP_MspInit:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:27     .text.HAL_COMP_MspInit:00000000 HAL_COMP_MspInit
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:42     .text.HAL_COMP_Init:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:48     .text.HAL_COMP_Init:00000000 HAL_COMP_Init
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:275    .text.HAL_COMP_Init:00000104 $d
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:283    .text.HAL_COMP_MspDeInit:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:289    .text.HAL_COMP_MspDeInit:00000000 HAL_COMP_MspDeInit
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:304    .text.HAL_COMP_DeInit:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:310    .text.HAL_COMP_DeInit:00000000 HAL_COMP_DeInit
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:371    .text.HAL_COMP_Start:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:377    .text.HAL_COMP_Start:00000000 HAL_COMP_Start
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:628    .text.HAL_COMP_Start:0000012c $d
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:636    .text.HAL_COMP_Stop:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:642    .text.HAL_COMP_Stop:00000000 HAL_COMP_Stop
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:758    .text.HAL_COMP_Stop:00000080 $d
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:764    .text.HAL_COMP_Start_IT:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:770    .text.HAL_COMP_Start_IT:00000000 HAL_COMP_Start_IT
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:987    .text.HAL_COMP_Start_IT:00000104 $d
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:993    .text.HAL_COMP_Stop_IT:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:999    .text.HAL_COMP_Stop_IT:00000000 HAL_COMP_Stop_IT
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1068   .text.HAL_COMP_Stop_IT:0000004c $d
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1074   .text.HAL_COMP_TriggerCallback:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1080   .text.HAL_COMP_TriggerCallback:00000000 HAL_COMP_TriggerCallback
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1095   .text.HAL_COMP_IRQHandler:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1101   .text.HAL_COMP_IRQHandler:00000000 HAL_COMP_IRQHandler
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1176   .text.HAL_COMP_IRQHandler:0000004c $d
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1182   .text.HAL_COMP_Lock:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1188   .text.HAL_COMP_Lock:00000000 HAL_COMP_Lock
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1262   .text.HAL_COMP_GetOutputLevel:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1268   .text.HAL_COMP_GetOutputLevel:00000000 HAL_COMP_GetOutputLevel
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1304   .text.HAL_COMP_GetState:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1310   .text.HAL_COMP_GetState:00000000 HAL_COMP_GetState
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1340   .text.HAL_COMP_GetError:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\ccTnIR9u.s:1346   .text.HAL_COMP_GetError:00000000 HAL_COMP_GetError
 
 UNDEFINED SYMBOLS
 SystemCoreClock

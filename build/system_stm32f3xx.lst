@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
   28:Core/Src/system_stm32f3xx.c ****   *-----------------------------------------------------------------------------
   29:Core/Src/system_stm32f3xx.c ****   *        System Clock source                    | HSI
   30:Core/Src/system_stm32f3xx.c ****   *-----------------------------------------------------------------------------
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 2
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s 			page 2
 
 
   31:Core/Src/system_stm32f3xx.c ****   *        SYSCLK(Hz)                             | 8000000
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
   85:Core/Src/system_stm32f3xx.c ****   */
   86:Core/Src/system_stm32f3xx.c **** #if !defined  (HSE_VALUE) 
   87:Core/Src/system_stm32f3xx.c ****   #define HSE_VALUE    ((uint32_t)8000000) /*!< Default value of the External oscillator in Hz.
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 3
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s 			page 3
 
 
   88:Core/Src/system_stm32f3xx.c ****                                                 This value can be provided and adapted by the user 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
  142:Core/Src/system_stm32f3xx.c ****                updated automatically.
  143:Core/Src/system_stm32f3xx.c ****   */
  144:Core/Src/system_stm32f3xx.c **** uint32_t SystemCoreClock = 8000000;
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 4
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s 			page 4
 
 
  145:Core/Src/system_stm32f3xx.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
   46 0010 00ED00E0 		.word	-536810240
   47              		.cfi_endproc
   48              	.LFE123:
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 5
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s 			page 5
 
 
   50              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
   65              	.LVL0:
  222:Core/Src/system_stm32f3xx.c **** 
  223:Core/Src/system_stm32f3xx.c ****   /* Get SYSCLK source -------------------------------------------------------*/
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 6
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s 			page 6
 
 
  224:Core/Src/system_stm32f3xx.c ****   tmp = RCC->CFGR & RCC_CFGR_SWS;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
  254:Core/Src/system_stm32f3xx.c ****       {
  255:Core/Src/system_stm32f3xx.c ****         /* HSI oscillator clock divided by 2 selected as PLL clock entry */
  256:Core/Src/system_stm32f3xx.c ****         SystemCoreClock = (HSI_VALUE >> 1) * pllmull;
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 7
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s 			page 7
 
 
  257:Core/Src/system_stm32f3xx.c ****       }
@@ -408,7 +408,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
  113              	.LVL6:
  232:Core/Src/system_stm32f3xx.c ****       break;
  114              		.loc 1 232 23 view .LVU24
- 115 0032 134A     		ldr	r2, .L10+8
+ 115 0032 154A     		ldr	r2, .L10+16
  116 0034 1A60     		str	r2, [r3]
  233:Core/Src/system_stm32f3xx.c ****     case RCC_CFGR_SWS_PLL:  /* PLL used as system clock */
  117              		.loc 1 233 7 is_stmt 1 view .LVU25
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
  236:Core/Src/system_stm32f3xx.c ****       pllsource = RCC->CFGR & RCC_CFGR_PLLSRC;
  121              		.loc 1 236 7 view .LVU26
  236:Core/Src/system_stm32f3xx.c ****       pllsource = RCC->CFGR & RCC_CFGR_PLLSRC;
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 8
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s 			page 8
 
 
  122              		.loc 1 236 20 is_stmt 0 view .LVU27
@@ -451,7 +451,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
  141              		.loc 1 256 9 is_stmt 1 view .LVU35
  256:Core/Src/system_stm32f3xx.c ****       }
  142              		.loc 1 256 44 is_stmt 0 view .LVU36
- 143 004a 0F4A     		ldr	r2, .L10+16
+ 143 004a 104A     		ldr	r2, .L10+20
  144              	.LVL12:
  256:Core/Src/system_stm32f3xx.c ****       }
  145              		.loc 1 256 44 view .LVU37
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
  161 005a 01F00F01 		and	r1, r1, #15
  260:Core/Src/system_stm32f3xx.c ****         /* HSE oscillator clock selected as PREDIV1 clock entry */
  162              		.loc 1 260 22 view .LVU43
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 9
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s 			page 9
 
 
  163 005e 0131     		adds	r1, r1, #1
@@ -487,7 +487,7 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
  165              		.loc 1 262 9 is_stmt 1 view .LVU44
  262:Core/Src/system_stm32f3xx.c ****       }
  166              		.loc 1 262 38 is_stmt 0 view .LVU45
- 167 0060 074A     		ldr	r2, .L10+8
+ 167 0060 094A     		ldr	r2, .L10+16
  168 0062 B2FBF1F2 		udiv	r2, r2, r1
  262:Core/Src/system_stm32f3xx.c ****       }
  169              		.loc 1 262 54 view .LVU46
@@ -520,55 +520,56 @@ ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 1
  191 007c 00000000 		.word	SystemCoreClock
  192 0080 00127A00 		.word	8000000
  193 0084 00000000 		.word	AHBPrescTable
- 194 0088 00093D00 		.word	4000000
- 195              		.cfi_endproc
- 196              	.LFE124:
- 198              		.global	APBPrescTable
- 199              		.section	.rodata.APBPrescTable,"a"
- 200              		.align	2
- 203              	APBPrescTable:
- 204 0000 00000000 		.ascii	"\000\000\000\000\001\002\003\004"
- 204      01020304 
- 205              		.global	AHBPrescTable
- 206              		.section	.rodata.AHBPrescTable,"a"
- 207              		.align	2
- 210              	AHBPrescTable:
- 211 0000 00000000 		.ascii	"\000\000\000\000\000\000\000\000\001\002\003\004\006"
- 211      00000000 
- 211      01020304 
- 211      06
- 212 000d 070809   		.ascii	"\007\010\011"
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 10
+ 194 0088 0024F400 		.word	16000000
+ 195 008c 00093D00 		.word	4000000
+ 196              		.cfi_endproc
+ 197              	.LFE124:
+ 199              		.global	APBPrescTable
+ 200              		.section	.rodata.APBPrescTable,"a"
+ 201              		.align	2
+ 204              	APBPrescTable:
+ 205 0000 00000000 		.ascii	"\000\000\000\000\001\002\003\004"
+ 205      01020304 
+ 206              		.global	AHBPrescTable
+ 207              		.section	.rodata.AHBPrescTable,"a"
+ 208              		.align	2
+ 211              	AHBPrescTable:
+ 212 0000 00000000 		.ascii	"\000\000\000\000\000\000\000\000\001\002\003\004\006"
+ 212      00000000 
+ 212      01020304 
+ 212      06
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s 			page 10
 
 
- 213              		.global	SystemCoreClock
- 214              		.section	.data.SystemCoreClock,"aw"
- 215              		.align	2
- 218              	SystemCoreClock:
- 219 0000 00127A00 		.word	8000000
- 220              		.text
- 221              	.Letext0:
- 222              		.file 2 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../../
- 223              		.file 3 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../../
- 224              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 225              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
- 226              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303x8.h"
-ARM GAS  C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s 			page 11
+ 213 000d 070809   		.ascii	"\007\010\011"
+ 214              		.global	SystemCoreClock
+ 215              		.section	.data.SystemCoreClock,"aw"
+ 216              		.align	2
+ 219              	SystemCoreClock:
+ 220 0000 00127A00 		.word	8000000
+ 221              		.text
+ 222              	.Letext0:
+ 223              		.file 2 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../../
+ 224              		.file 3 "C:\\STM32CubeCLT_1.21.0\\GNU-tools-for-STM32\\bin\\../lib/gcc/arm-none-eabi/14.3.1/../../
+ 225              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 226              		.file 5 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
+ 227              		.file 6 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303x8.h"
+ARM GAS  C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 system_stm32f3xx.c
-C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s:21     .text.SystemInit:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s:27     .text.SystemInit:00000000 SystemInit
-C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s:46     .text.SystemInit:00000010 $d
-C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s:51     .text.SystemCoreClockUpdate:00000000 $t
-C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s:57     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
-C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s:190    .text.SystemCoreClockUpdate:00000078 $d
-C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s:218    .data.SystemCoreClock:00000000 SystemCoreClock
-C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s:210    .rodata.AHBPrescTable:00000000 AHBPrescTable
-C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s:203    .rodata.APBPrescTable:00000000 APBPrescTable
-C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s:200    .rodata.APBPrescTable:00000000 $d
-C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s:207    .rodata.AHBPrescTable:00000000 $d
-C:\Users\nakas\AppData\Local\Temp\ccyjbCOf.s:215    .data.SystemCoreClock:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s:21     .text.SystemInit:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s:27     .text.SystemInit:00000000 SystemInit
+C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s:46     .text.SystemInit:00000010 $d
+C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s:51     .text.SystemCoreClockUpdate:00000000 $t
+C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s:57     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
+C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s:190    .text.SystemCoreClockUpdate:00000078 $d
+C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s:219    .data.SystemCoreClock:00000000 SystemCoreClock
+C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s:211    .rodata.AHBPrescTable:00000000 AHBPrescTable
+C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s:204    .rodata.APBPrescTable:00000000 APBPrescTable
+C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s:201    .rodata.APBPrescTable:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s:208    .rodata.AHBPrescTable:00000000 $d
+C:\Users\nakas\AppData\Local\Temp\cch5NSiY.s:216    .data.SystemCoreClock:00000000 $d
 
 NO UNDEFINED SYMBOLS

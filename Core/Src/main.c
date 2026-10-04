@@ -97,7 +97,7 @@ void CAN_TX(uint32_t recipient)
   uint32_t TxMailbox;
 
   // 送信メールボックスに空きがあったら送信開始
-  if (0 < HAL_CAN_GetTxMailboxesFreeLevel(&hcan))
+  if (recipient == 0x104 && 0 < HAL_CAN_GetTxMailboxesFreeLevel(&hcan))
   {
     // 送信用インスタンスの設定
     TxHeader.StdId = recipient; // 受取手のCANのID
@@ -112,7 +112,32 @@ void CAN_TX(uint32_t recipient)
     TxData[1] = (c1 >> 16) & 0xFF;
     TxData[2] = (c1 >> 8) & 0xFF;
     TxData[3] = c1 & 0xFF;
+    TxData[4] = 0;
+    TxData[5] = 0;
+    TxData[6] = 0;
+    TxData[7] = 0;
+    // CANメッセージを送信
+    if (HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox) != HAL_OK)
+    {
+      Error_Handler();
+    }
+  }
 
+  if (recipient == 0x107 && 0 < HAL_CAN_GetTxMailboxesFreeLevel(&hcan))
+  {
+    // 送信用インスタンスの設定
+    TxHeader.StdId = recipient; // 受取手のCANのID
+    TxHeader.RTR = CAN_RTR_DATA;
+    TxHeader.IDE = CAN_ID_STD;
+    TxHeader.DLC = 8; // データ長を8byteに設定
+    TxHeader.TransmitGlobalTime = DISABLE;
+    // 各データ
+    int32_t c1 = count_1;
+
+    TxData[0] = 1;
+    TxData[1] = 0;
+    TxData[2] = 0;
+    TxData[3] = 0;
     TxData[4] = 0;
     TxData[5] = 0;
     TxData[6] = 0;
@@ -260,6 +285,8 @@ int main(void)
   int pwm2 = 500;
   int32_t START_OFFSET = -4200; // 射出スタート時の実際の値を入れる
   int32_t target_count = 0;
+  uint32_t souten_count = 0;
+  uint8_t loader_sent = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -390,9 +417,14 @@ int main(void)
           __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
           __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
 
+          souten_count = HAL_GetTick();
+
           // リミット位置を0にする
           count_1 = 0;
           target_count = START_OFFSET;
+
+          // 装填指令はまだ送信していない
+          loader_sent = 0;
 
           // 待機状態
           shoot_state = SHOOT_READY;
@@ -406,6 +438,13 @@ int main(void)
       /* モーター停止状態 */
       __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
       __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+
+      // 0.5秒で装填
+      if (!loader_sent && (uint32_t)(HAL_GetTick() - souten_count) >= 500UL)
+      {
+        CAN_TX(0x107);
+        loader_sent = 1;
+      }
 
       break;
 
@@ -435,11 +474,12 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
    * in the RCC_OscInitTypeDef structure.
    */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV4;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL15;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
