@@ -82,6 +82,7 @@ typedef enum
   SHOOT_IDLE,
   SHOOTING,
   HOMING,
+  POSITIONING,
   SHOOT_READY
 } ShootState;
 
@@ -108,10 +109,10 @@ void CAN_TX(uint32_t recipient)
     // 各データ
     int32_t c1 = count_1;
 
-    TxData[0] = (c1 >> 24) & 0xFF;
-    TxData[1] = (c1 >> 16) & 0xFF;
-    TxData[2] = (c1 >> 8) & 0xFF;
-    TxData[3] = c1 & 0xFF;
+    TxData[0] = (uint8_t)((c1 >> 8) & 0xFF);
+    TxData[1] = (uint8_t)(c1 & 0xFF);
+    TxData[2] = 0;
+    TxData[3] = 0;
     TxData[4] = 0;
     TxData[5] = 0;
     TxData[6] = 0;
@@ -283,8 +284,7 @@ int main(void)
 
   int pwm1 = 2999;
   int pwm2 = 500;
-  int32_t START_OFFSET = -4200; // 射出スタート時の実際の値を入れる
-  int32_t target_count = 0;
+  int32_t START_OFFSET = -2100; // 射出スタート時の実際の値を入れる
   uint32_t souten_count = 0;
   uint8_t loader_sent = 0;
   /* USER CODE END 2 */
@@ -417,18 +417,31 @@ int main(void)
           __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
           __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
 
-          souten_count = HAL_GetTick();
-
-          // リミット位置を0にする
+          // エンコーダーと累積カウントをリセット
+          TIM1->CNT = 0;
           count_1 = 0;
-          target_count = START_OFFSET;
 
-          // 装填指令はまだ送信していない
-          loader_sent = 0;
-
-          // 待機状態
-          shoot_state = SHOOT_READY;
+          shoot_state = POSITIONING;
         }
+      }
+
+      break;
+
+    case POSITIONING:
+      if (count_1 > START_OFFSET)
+      {
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 200);
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 200);
+      }
+      else
+      {
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 0);
+        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+
+        souten_count = HAL_GetTick();
+        loader_sent = 0;
+
+        shoot_state = SHOOT_READY;
       }
 
       break;
